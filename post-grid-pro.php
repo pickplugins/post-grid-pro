@@ -27,6 +27,7 @@ if (!class_exists('PostGridPro')) {
             define('post_grid_pro_server_url', 'https://www.pickplugins.com');
 
             add_action('plugins_loaded', [$this, 'init_plugin']);
+            
 
 
             include('includes/3rd-party/3rd-party.php');
