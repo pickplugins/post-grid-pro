@@ -1,26 +1,26 @@
 <?php
-if ( ! defined('ABSPATH')) exit;  // if direct access
+if (!defined('ABSPATH')) exit;  // if direct access
 
 add_filter('post_grid_settings_tabs', 'post_grid_pro_settings_tabs');
 
-function post_grid_pro_settings_tabs($post_grid_settings_tab){
-$current_tab = isset($_REQUEST['tab']) ? sanitize_text_field($_REQUEST['tab']) : 'general';
+function post_grid_pro_settings_tabs($post_grid_settings_tab)
+{
+    $current_tab = isset($_REQUEST['tab']) ? sanitize_text_field($_REQUEST['tab']) : 'general';
 
 
 
-$post_grid_settings_tab[] = array(
-    'id' => 'license_free',
-    'title' => __('<i class="fas fa-laptop-code"></i> License', 'post-grid'),
-    'priority' => 90,
-    'active' => ($current_tab == 'license_free') ? true : false,
-);
+    $post_grid_settings_tab[] = array(
+        'id' => 'license_free',
+        'title' => __('<i class="fas fa-laptop-code"></i> License', 'post-grid'),
+        'priority' => 90,
+        'active' => ($current_tab == 'license_free') ? true : false,
+    );
 
 
 
 
 
     return $post_grid_settings_tab;
-
 }
 
 
@@ -39,7 +39,7 @@ function post_grid_settings_content_license_free($tab)
     //var_dump($post_grid_license);
 
 
-    ?>
+?>
     <div class="section">
         <div class="section-title">License</div>
         <p class="description section-description">Use license to unlock premium features.</p>
@@ -116,7 +116,7 @@ function post_grid_settings_content_license_free($tab)
 
                 <div>
                     <p class="text-lg text-red-600 my-5 font-bold">
-                        Your license for Post Grid plugin has expried, please <a target="_blank" class="bg-blue-600 text-white hover:text-white over:bg-blue-700 px-5 py-1" href="https://pickplugins.com/post-grid/purchase-license/?licenseKey=<?php echo $license_key; ?>">Renew</a>
+                        Your license for Combo Blocks plugin has expried, please <a target="_blank" class="bg-blue-600 text-white hover:text-white over:bg-blue-700 px-5 py-1" href="https://pickplugins.com/post-grid/purchase-license/?licenseKey=<?php echo $license_key; ?>">Renew</a>
                     </p>
                 </div>
 
@@ -150,7 +150,8 @@ function post_grid_settings_content_license_free($tab)
 
 add_action('post_grid_settings_save', 'post_grid_pro_settings_save');
 
-function post_grid_pro_settings_save(){
+function post_grid_pro_settings_save()
+{
 
     $post_grid_license = isset($_POST['post_grid_license']) ?  stripslashes_deep($_POST['post_grid_license']) : array();
     update_option('post_grid_license', $post_grid_license);
