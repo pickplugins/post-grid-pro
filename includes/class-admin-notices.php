@@ -23,7 +23,7 @@ class class_post_grid_pro_notices
 ?>
             <div class="update-nag">
                 <?php
-                echo sprintf(__('<a href="%s">Post Grid</a> plugin free version is required to work <strong>Post Grid Pro</strong> version. <a href="%s">Search and install</a> ', 'post-grid-pro'), 'https://wordpress.org/plugins/post-grid/', admin_url() . 'plugin-install.php?s=post+grid+pickplugins&tab=search&type=term')
+                echo sprintf(__('<a href="%s">Combo Blocks</a> plugin free version is required to work <strong>Combo Blocks Pro</strong> version. <a href="%s">Search and install</a> ', 'post-grid-pro'), 'https://wordpress.org/plugins/post-grid/', admin_url() . 'plugin-install.php?s=post+grid+pickplugins&tab=search&type=term')
                 ?>
             </div>
         <?php
@@ -45,7 +45,7 @@ class class_post_grid_pro_notices
         ?>
             <div class="update-nag">
                 <?php
-                echo sprintf(__('Post Grid Pro require import pro layouts, please <a href="%s">click here</a> to go import page', 'post-grid-pro'), admin_url() . 'edit.php?post_type=post_grid&page=post-grid-settings&tab=help_support')
+                echo sprintf(__('Combo Blocks Pro require import pro layouts, please <a href="%s">click here</a> to go import page', 'post-grid-pro'), admin_url() . 'edit.php?post_type=post_grid&page=post-grid-settings&tab=help_support')
                 ?>
             </div>
 <?php

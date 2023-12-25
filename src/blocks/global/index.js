@@ -300,6 +300,9 @@ const cssPropsPro = {
 	fontStyle: { id: "fontStyle", label: "Font Style" },
 	fontVariantCaps: { id: "fontVariantCaps", label: "Font VariantCaps" },
 	fontWeight: { id: "fontWeight", label: "Font Weight" },
+
+	userSelect: { id: "userSelect", label: "User Select" },
+	
 	gridColumnStart: { id: "gridColumnStart", label: "Grid Column Start" },
 
 	gridColumnEnd: { id: "gridColumnEnd", label: "Grid Column End" },
@@ -490,6 +493,7 @@ var transitionPropertiesPro = {
 	"font-family": { value: "font-family", label: "Font Family" },
 	"font-stretch": { value: "font-stretch", label: "Font Stretch" },
 	"font-style": { value: "font-style", label: "Font Style" },
+	"user-select": { value: "user-select", label: "User Select" },
 	"font-variant-caps": {
 		value: "font-variant-caps",
 		label: "Font VariantCaps",

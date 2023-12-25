@@ -1264,6 +1264,10 @@ const cssPropsPro = {
     id: "fontWeight",
     label: "Font Weight"
   },
+  userSelect: {
+    id: "userSelect",
+    label: "User Select"
+  },
   gridColumnStart: {
     id: "gridColumnStart",
     label: "Grid Column Start"
@@ -1818,6 +1822,10 @@ var transitionPropertiesPro = {
     value: "font-style",
     label: "Font Style"
   },
+  "user-select": {
+    value: "user-select",
+    label: "User Select"
+  },
   "font-variant-caps": {
     value: "font-variant-caps",
     label: "Font VariantCaps"
@@ -2126,395 +2134,458 @@ Query Parameters
 
 */
 
-const queryPramsPro = [{
-  val: ['post'],
-  multiple: false,
-  id: 'postType',
-  label: 'Post Types',
-  description: "Select Post Types to Query"
-}, {
-  val: '',
-  multiple: false,
-  id: 's',
-  label: 'Keyword',
-  description: "Search keyword, ex: hello"
-}, {
-  val: [],
-  multiple: false,
-  id: 'postStatus',
-  label: 'Post status',
-  description: "Query post by post status"
-}, {
-  val: '',
-  multiple: false,
-  id: 'order',
-  label: 'Order',
-  description: "Post query order"
-}, {
-  val: [],
-  multiple: false,
-  id: 'orderby',
-  label: 'Orderby',
-  description: "Post query orderby"
-}, {
-  val: '',
-  multiple: false,
-  id: 'metaKey',
-  label: 'Meta fields key',
-  description: "Post query by meta fields key"
-},
-// Category Parameters
-{
-  val: '',
-  multiple: false,
-  id: 'cat',
-  label: 'Category ID',
-  description: "Post query by Category ID"
-}, {
-  val: '',
-  multiple: false,
-  id: 'categoryName',
-  label: 'Category Name',
-  description: "Post query by Category Name"
-}, {
-  val: [],
-  multiple: false,
-  id: 'categoryAnd',
-  label: 'Category And',
-  description: "Post query by Category IDs"
-}, {
-  val: [],
-  multiple: false,
-  id: 'categoryIn',
-  label: 'Category In',
-  description: "Post query by Category IDs"
-}, {
-  val: [],
-  multiple: false,
-  id: 'categoryNotIn',
-  label: 'Category Not In',
-  description: "Post query by excluded Category IDs"
-},
-// Tag Parameters
-
-{
-  val: '',
-  multiple: false,
-  id: 'tag',
-  label: 'Tags',
-  description: "Post query by Tag slug"
-}, {
-  val: '',
-  multiple: false,
-  id: 'tagId',
-  label: 'Tag Id',
-  description: "Post query by Tag ID"
-}, {
-  val: [],
-  multiple: false,
-  id: 'tagAnd',
-  label: 'Tag And',
-  description: "Post query by Tag Ids"
-}, {
-  val: [],
-  multiple: false,
-  id: 'tagIn',
-  label: 'Tag In',
-  description: "Post query by Tag ids"
-}, {
-  val: [],
-  multiple: false,
-  id: 'tagNotIn',
-  label: 'Tag Not In',
-  description: "Post query by excluded Tag ids"
-}, {
-  val: [],
-  multiple: false,
-  id: 'tagSlugAnd',
-  label: 'Tag Slug And',
-  description: "Post query by Tags slug"
-}, {
-  val: [],
-  multiple: false,
-  id: 'tagSlugIn',
-  label: 'Tag Slug In',
-  description: "Post query by excluded Tags slug"
-}, {
-  val: [],
-  multiple: false,
-  id: 'taxQuery',
-  label: 'Tax Query',
-  description: "Taxonomies query arguments"
-}, {
-  val: 'OR',
-  multiple: false,
-  id: 'taxQueryRelation',
-  label: 'Tax Query Relation',
-  description: "Taxonomies query relation"
-},
-// Date Parameters
-{
-  val: [],
-  multiple: false,
-  id: 'dateQuery',
-  label: 'Date Query',
-  description: "Post query by date"
-}, {
-  val: '',
-  multiple: false,
-  id: 'year',
-  label: 'Year',
-  description: "Post query by year"
-}, {
-  val: '',
-  multiple: false,
-  id: 'monthnum',
-  label: 'Month',
-  description: "Post query by month"
-}, {
-  val: '',
-  multiple: false,
-  id: 'w',
-  label: 'Week',
-  description: "Post query by week"
-}, {
-  val: '',
-  multiple: false,
-  id: 'day',
-  label: 'Day',
-  description: "Post query by day"
-}, {
-  val: '',
-  multiple: false,
-  id: 'hour',
-  label: 'Hour',
-  description: "Post query by hour"
-}, {
-  val: '',
-  multiple: false,
-  id: 'minute',
-  label: 'Miniute',
-  description: "Post query by miniute"
-}, {
-  val: '',
-  multiple: false,
-  id: 'second',
-  label: 'Second',
-  description: "Post query by second"
-}, {
-  val: '',
-  multiple: false,
-  id: 'm',
-  label: 'Month',
-  description: "Post query by month"
-},
-// Author Parameters
-{
-  val: '',
-  multiple: false,
-  id: 'author',
-  label: 'Author',
-  description: "Post query by Author ID"
-}, {
-  val: '',
-  multiple: false,
-  id: 'authorName',
-  label: 'Author Name',
-  description: "Post query by Author Name"
-}, {
-  val: [],
-  multiple: false,
-  id: 'authorIn',
-  label: 'Author In',
-  description: "Post query by Author IDs"
-}, {
-  val: [],
-  multiple: false,
-  id: 'authorNotIn',
-  label: 'Author Not In',
-  description: "Post query by exluded Author IDs"
-}, {
-  val: '',
-  multiple: false,
-  id: 'p',
-  label: 'Post id',
-  description: "Post query by single post id"
-}, {
-  val: '',
-  multiple: false,
-  id: 'name',
-  label: 'Name',
-  description: "Post query by post slug"
-}, {
-  val: '',
-  multiple: false,
-  id: 'pageId',
-  label: 'Page Id',
-  description: "Post query by single page id"
-}, {
-  val: '',
-  multiple: false,
-  id: 'pagename',
-  label: 'Page name',
-  description: "Post query by page slug"
-}, {
-  val: '',
-  multiple: false,
-  id: 'postParent',
-  label: 'Post Parent',
-  description: "Post query by post parent id"
-}, {
-  val: [],
-  multiple: false,
-  id: 'postParentIn',
-  label: 'Post Parent In',
-  description: "Post query by post parent ids"
-}, {
-  val: [],
-  multiple: false,
-  id: 'postParentNotIn',
-  label: 'Post Parent Not In',
-  description: "Post query by excluded post parent ids"
-}, {
-  val: [],
-  multiple: false,
-  id: 'postIn',
-  label: 'Post In',
-  description: "Post query by multiple post ids, comma separated."
-}, {
-  val: [],
-  multiple: false,
-  id: 'postNotIn',
-  label: 'Post Not In',
-  description: "Post query by excluded post ids"
-}, {
-  val: [{
-    slug: ''
-  }],
-  multiple: false,
-  id: 'postNameIn',
-  label: 'Post Name In',
-  description: "Post query by post slugs"
-}, {
-  val: '',
-  multiple: false,
-  id: 'hasPassword',
-  label: 'Has Password',
-  description: "Post query for posts with passwords"
-}, {
-  val: '',
-  multiple: false,
-  id: 'postPassword',
-  label: 'Post Password',
-  description: "Post query for posts with particular passwords"
-}, {
-  val: {
-    compare: '='
+const queryPramsPro = {
+  postType: {
+    value: ["post"],
+    multiple: false,
+    id: "postType",
+    label: "Post types",
+    description: "Select Post Types to Query"
   },
-  multiple: false,
-  id: 'commentCount',
-  label: 'Comment Count',
-  description: "Post query by comment count"
-}, {
-  val: '',
-  multiple: false,
-  id: 'nopaging',
-  label: 'No Paging',
-  description: "Enable show all posts or use pagination"
-}, {
-  val: '',
-  multiple: false,
-  id: 'postsPerPage',
-  label: 'Posts Per Page',
-  description: "Number of post to show per page"
-}, {
-  val: '',
-  multiple: false,
-  id: 'paged',
-  label: 'Paged',
-  description: "Pagination start with"
-}, {
-  val: '',
-  multiple: false,
-  id: 'offset',
-  label: 'Offset',
-  description: "Number of post to displace or pass over"
-}, {
-  val: '',
-  multiple: false,
-  id: 'postsPerArchivePage',
-  label: 'Posts Per Archive Page',
-  description: ""
-}, {
-  val: '',
-  multiple: false,
-  id: 'ignoreStickyPosts',
-  label: 'Ignore Sticky Posts',
-  description: "Ignore post from post query"
-}, {
-  val: '',
-  multiple: false,
-  id: 'metaKey',
-  label: 'Meta Key',
-  description: "Post query by custom field key"
-}, {
-  val: '',
-  multiple: false,
-  id: 'metaValue',
-  label: 'Meta Value',
-  description: "Post query by custom field value"
-}, {
-  val: '',
-  multiple: false,
-  id: 'metaValueNum',
-  label: 'Meta Value Num',
-  description: "Post query by custom field value for number types"
-}, {
-  val: '',
-  multiple: false,
-  id: 'metaCompare',
-  label: 'Meta Compare',
-  description: "Meta query compare"
-}, {
-  val: [],
-  multiple: false,
-  id: 'metaQuery',
-  label: 'Meta Query',
-  description: "Advance meta fields query"
-}, {
-  val: 'readable',
-  multiple: false,
-  id: 'perm',
-  label: 'Perm',
-  description: "User permission parameter"
-}, {
-  val: [],
-  multiple: false,
-  id: 'postMimeType',
-  label: 'Post Mime Type',
-  description: "Post query by allwed post mime types"
-}, {
-  val: false,
-  multiple: false,
-  id: 'cacheResults',
-  label: 'Cache Results',
-  description: "Enable Post information cache"
-}, {
-  val: false,
-  multiple: false,
-  id: 'updatePostMetaCache',
-  label: 'Update Post Meta Cache',
-  description: "Enable Post meta information cache"
-}, {
-  val: false,
-  multiple: false,
-  id: 'updatePostTermCache',
-  label: 'Update Post Term Cache',
-  description: "Enable Post term information cache"
-}];
-addFilter('queryPrams', 'post-grid/queryPrams', function (options) {
+  s: {
+    value: "",
+    multiple: false,
+    id: "s",
+    label: "Keyword",
+    description: "Search keyword, ex: hello"
+  },
+  postStatus: {
+    value: [],
+    multiple: false,
+    id: "postStatus",
+    label: "Post status",
+    description: "Query post by post status"
+  },
+  order: {
+    value: "",
+    multiple: false,
+    id: "order",
+    label: "Order",
+    description: "Post query order"
+  },
+  orderby: {
+    value: [],
+    multiple: false,
+    id: "orderby",
+    label: "Orderby",
+    description: "Post query orderby"
+  },
+  metaKey: {
+    value: "",
+    multiple: false,
+    id: "metaKey",
+    label: "Meta fields key",
+    description: "Post query by meta fields key"
+  },
+  // Category Parameters
+  cat: {
+    value: "",
+    multiple: false,
+    id: "cat",
+    label: "Category ID",
+    description: "Post query by Category ID"
+  },
+  categoryName: {
+    value: "",
+    multiple: false,
+    id: "categoryName",
+    label: "Category Name",
+    description: "Post query by Category Name"
+  },
+  categoryAnd: {
+    value: [],
+    multiple: false,
+    id: "categoryAnd",
+    label: "Category And",
+    description: "Post query by Category IDs"
+  },
+  categoryIn: {
+    value: [],
+    multiple: false,
+    id: "categoryIn",
+    label: "Category In",
+    description: "Post query by Category IDs"
+  },
+  categoryNotIn: {
+    value: [],
+    multiple: false,
+    id: "categoryNotIn",
+    label: "Category Not In",
+    description: "Post query by excluded Category IDs"
+  },
+  // Tag Parameters
+
+  tag: {
+    val: "",
+    multiple: false,
+    id: "tag",
+    label: "Tags",
+    description: "Post query by Tag slug"
+  },
+  tagId: {
+    val: "",
+    multiple: false,
+    id: "tagId",
+    label: "Tag Id",
+    description: "Post query by Tag ID"
+  },
+  tagAnd: {
+    val: [],
+    multiple: false,
+    id: "tagAnd",
+    label: "Tag And",
+    description: "Post query by Tag Ids"
+  },
+  tagIn: {
+    val: [],
+    multiple: false,
+    id: "tagIn",
+    label: "Tag In",
+    description: "Post query by Tag ids"
+  },
+  tagNotIn: {
+    val: [],
+    multiple: false,
+    id: "tagNotIn",
+    label: "Tag Not In",
+    description: "Post query by excluded Tag ids"
+  },
+  tagSlugAnd: {
+    val: [],
+    multiple: false,
+    id: "tagSlugAnd",
+    label: "Tag Slug And",
+    description: "Post query by Tags slug"
+  },
+  tagSlugIn: {
+    val: [],
+    multiple: false,
+    id: "tagSlugIn",
+    label: "Tag Slug In",
+    description: "Post query by excluded Tags slug"
+  },
+  taxQuery: {
+    val: [],
+    multiple: false,
+    id: "taxQuery",
+    label: "Tax Query",
+    description: "Taxonomies query arguments"
+  },
+  taxQueryRelation: {
+    val: "OR",
+    multiple: false,
+    id: "taxQueryRelation",
+    label: "Tax Query Relation",
+    description: "Taxonomies query relation"
+  },
+  // // Date Parameters
+  dateQuery: {
+    val: [],
+    multiple: false,
+    id: "dateQuery",
+    label: "Date Query",
+    description: "Post query by date"
+  },
+  year: {
+    val: "",
+    multiple: false,
+    id: "year",
+    label: "Year",
+    description: "Post query by year"
+  },
+  monthnum: {
+    val: "",
+    multiple: false,
+    id: "monthnum",
+    label: "Month",
+    description: "Post query by month"
+  },
+  w: {
+    val: "",
+    multiple: false,
+    id: "w",
+    label: "Week",
+    description: "Post query by week"
+  },
+  day: {
+    val: "",
+    multiple: false,
+    id: "day",
+    label: "Day",
+    description: "Post query by day"
+  },
+  hour: {
+    val: "",
+    multiple: false,
+    id: "hour",
+    label: "Hour",
+    description: "Post query by hour"
+  },
+  minute: {
+    val: "",
+    multiple: false,
+    id: "minute",
+    label: "Miniute",
+    description: "Post query by miniute"
+  },
+  second: {
+    val: "",
+    multiple: false,
+    id: "second",
+    label: "Second",
+    description: "Post query by second"
+  },
+  m: {
+    val: "",
+    multiple: false,
+    id: "m",
+    label: "Month",
+    description: "Post query by month"
+  },
+  // // Author Parameters
+  author: {
+    val: "",
+    multiple: false,
+    id: "author",
+    label: "Author",
+    description: "Post query by Author ID"
+  },
+  authorName: {
+    val: "",
+    multiple: false,
+    id: "authorName",
+    label: "Author Name",
+    description: "Post query by Author Name"
+  },
+  authorIn: {
+    val: [],
+    multiple: false,
+    id: "authorIn",
+    label: "Author In",
+    description: "Post query by Author IDs"
+  },
+  authorNotIn: {
+    val: [],
+    multiple: false,
+    id: "authorNotIn",
+    label: "Author Not In",
+    description: "Post query by exluded Author IDs"
+  },
+  p: {
+    val: "",
+    multiple: false,
+    id: "p",
+    label: "Post id",
+    description: "Post query by single post id"
+  },
+  name: {
+    val: "",
+    multiple: false,
+    id: "name",
+    label: "Name",
+    description: "Post query by post slug"
+  },
+  pageId: {
+    val: "",
+    multiple: false,
+    id: "pageId",
+    label: "Page Id",
+    description: "Post query by single page id"
+  },
+  pagename: {
+    val: "",
+    multiple: false,
+    id: "pagename",
+    label: "Page name",
+    description: "Post query by page slug"
+  },
+  postParent: {
+    val: "",
+    multiple: false,
+    id: "postParent",
+    label: "Post Parent",
+    description: "Post query by post parent id"
+  },
+  postParentIn: {
+    val: [],
+    multiple: false,
+    id: "postParentIn",
+    label: "Post Parent In",
+    description: "Post query by post parent ids"
+  },
+  postParentNotIn: {
+    val: [],
+    multiple: false,
+    id: "postParentNotIn",
+    label: "Post Parent Not In",
+    description: "Post query by excluded post parent ids"
+  },
+  postIn: {
+    val: [],
+    multiple: false,
+    id: "postIn",
+    label: "Post In",
+    description: "Post query by multiple post ids, comma separated."
+  },
+  postNotIn: {
+    val: [],
+    multiple: false,
+    id: "postNotIn",
+    label: "Post Not In",
+    description: "Post query by excluded post ids"
+  },
+  postNameIn: {
+    val: [{
+      slug: ""
+    }],
+    multiple: false,
+    id: "postNameIn",
+    label: "Post Name In",
+    description: "Post query by post slugs"
+  },
+  hasPassword: {
+    val: "",
+    multiple: false,
+    id: "hasPassword",
+    label: "Has Password",
+    description: "Post query for posts with passwords"
+  },
+  postPassword: {
+    val: "",
+    multiple: false,
+    id: "postPassword",
+    label: "Post Password",
+    description: "Post query for posts with particular passwords"
+  },
+  commentCount: {
+    val: {
+      compare: "="
+    },
+    multiple: false,
+    id: "commentCount",
+    label: "Comment Count",
+    description: "Post query by comment count"
+  },
+  nopaging: {
+    val: "",
+    multiple: false,
+    id: "nopaging",
+    label: "No Paging",
+    description: "Enable show all posts or use pagination"
+  },
+  postsPerPage: {
+    val: "",
+    multiple: false,
+    id: "postsPerPage",
+    label: "Posts Per Page",
+    description: "Number of post to show per page"
+  },
+  paged: {
+    val: "",
+    multiple: false,
+    id: "paged",
+    label: "Paged",
+    description: "Pagination start with"
+  },
+  offset: {
+    val: "",
+    multiple: false,
+    id: "offset",
+    label: "Offset",
+    description: "Number of post to displace or pass over"
+  },
+  postsPerArchivePage: {
+    val: "",
+    multiple: false,
+    id: "postsPerArchivePage",
+    label: "Posts Per Archive Page",
+    description: ""
+  },
+  ignoreStickyPosts: {
+    val: "",
+    multiple: false,
+    id: "ignoreStickyPosts",
+    label: "Ignore Sticky Posts",
+    description: "Ignore post from post query"
+  },
+  metaKey: {
+    val: "",
+    multiple: false,
+    id: "metaKey",
+    label: "Meta Key",
+    description: "Post query by custom field key"
+  },
+  metaValue: {
+    val: "",
+    multiple: false,
+    id: "metaValue",
+    label: "Meta Value",
+    description: "Post query by custom field value"
+  },
+  metaValueNum: {
+    val: "",
+    multiple: false,
+    id: "metaValueNum",
+    label: "Meta Value Num",
+    description: "Post query by custom field value for number types"
+  },
+  metaCompare: {
+    val: "",
+    multiple: false,
+    id: "metaCompare",
+    label: "Meta Compare",
+    description: "Meta query compare"
+  },
+  metaQuery: {
+    val: [],
+    multiple: false,
+    id: "metaQuery",
+    label: "Meta Query",
+    description: "Advance meta fields query"
+  },
+  perm: {
+    val: "readable",
+    multiple: false,
+    id: "perm",
+    label: "Perm",
+    description: "User permission parameter"
+  },
+  postMimeType: {
+    val: [],
+    multiple: false,
+    id: "postMimeType",
+    label: "Post Mime Type",
+    description: "Post query by allwed post mime types"
+  },
+  cacheResults: {
+    val: false,
+    multiple: false,
+    id: "cacheResults",
+    label: "Cache Results",
+    description: "Enable Post information cache"
+  },
+  updatePostMetaCache: {
+    val: false,
+    multiple: false,
+    id: "updatePostMetaCache",
+    label: "Update Post Meta Cache",
+    description: "Enable Post meta information cache"
+  },
+  updatePostTermCache: {
+    val: false,
+    multiple: false,
+    id: "updatePostTermCache",
+    label: "Update Post Term Cache",
+    description: "Enable Post term information cache"
+  }
+};
+addFilter("queryPrams", "post-grid/queryPrams", function (options) {
   return queryPramsPro;
 });
+
+// addFilter("cssProps", "post-grid/cssProps", function (options) {
+// 	return cssPropsPro;
+// });
 
 /*
 
@@ -2523,123 +2594,127 @@ pagination Types
 
 const paginationTypesPro = {
   none: {
-    label: 'None',
-    value: 'none'
+    label: "None",
+    value: "none"
   },
   normal: {
-    label: 'Normal Pagination',
-    value: 'normal'
+    label: "Normal Pagination",
+    value: "normal"
   },
   ajax: {
-    label: 'Ajax Pagination',
-    value: 'ajax'
+    label: "Ajax Pagination",
+    value: "ajax"
   },
   next_previous: {
-    label: 'Next-Previous',
-    value: 'next_previous'
+    label: "Next-Previous",
+    value: "next_previous"
   },
   loadmore: {
-    label: 'Load More',
-    value: 'loadmore'
+    label: "Load More",
+    value: "loadmore"
   },
   infinite: {
-    label: 'Infinite Load',
-    value: 'infinite'
+    label: "Infinite Load",
+    value: "infinite"
+  },
+  filterable: {
+    label: "Filterable",
+    value: "filterable"
   }
 };
-addFilter('paginationTypes', 'post-grid/paginationTypes', function (options) {
+addFilter("paginationTypes", "post-grid/paginationTypes", function (options) {
   return paginationTypesPro;
 });
 const gridLayoutsPro = [{
-  thumb: '',
-  title: '3 Col, 0 Gap',
+  thumb: "",
+  title: "3 Col, 0 Gap",
   data: {
-    "options": {
-      "gridTemplateColumns": [{
-        "val": 1,
-        "unit": "fr"
+    options: {
+      gridTemplateColumns: [{
+        val: 1,
+        unit: "fr"
       }, {
-        "val": 1,
-        "unit": "fr"
+        val: 1,
+        unit: "fr"
       }, {
-        "val": 1,
-        "unit": "fr"
+        val: 1,
+        unit: "fr"
       }],
-      "gridTemplateRows": [{
-        "val": 1,
-        "unit": "fr"
+      gridTemplateRows: [{
+        val: 1,
+        unit: "fr"
       }, {
-        "val": 1,
-        "unit": "fr"
+        val: 1,
+        unit: "fr"
       }],
-      "colGap": {
-        "val": 1,
-        "unit": "em"
+      colGap: {
+        val: 1,
+        unit: "em"
       },
-      "rowGap": {
-        "val": 1,
-        "unit": "em"
+      rowGap: {
+        val: 1,
+        unit: "em"
       },
-      "itemCss": []
+      itemCss: []
     },
-    "styles": {
-      "gridTemplateColumns": {
-        "Desktop": [{
-          "val": "1",
-          "unit": "fr"
+    styles: {
+      gridTemplateColumns: {
+        Desktop: [{
+          val: "1",
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Tablet": [{
-          "val": 1,
-          "unit": "fr"
+        Tablet: [{
+          val: 1,
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Mobile": [{
-          "val": 1,
-          "unit": "fr"
+        Mobile: [{
+          val: 1,
+          unit: "fr"
         }]
       },
-      "gridTemplateRows": {},
-      "colGap": {
-        "Desktop": {
-          "val": "0",
-          "unit": "em"
+      gridTemplateRows: {},
+      colGap: {
+        Desktop: {
+          val: "0",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "0",
-          "unit": "em"
+        Mobile: {
+          val: "0",
+          unit: "em"
         },
-        "Tablet": {
-          "val": "0",
-          "unit": "em"
+        Tablet: {
+          val: "0",
+          unit: "em"
         }
       },
-      "rowGap": {
-        "Desktop": {
-          "val": "0",
-          "unit": "em"
+      rowGap: {
+        Desktop: {
+          val: "0",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "0",
-          "unit": "em"
+        Mobile: {
+          val: "0",
+          unit: "em"
         },
-        "Tablet": {
-          "val": "0",
-          "unit": "em"
+        Tablet: {
+          val: "0",
+          unit: "em"
         }
       },
-      "textAlign": {},
-      "color": {},
-      "bgColor": {},
-      "padding": {},
-      "margin": {}
+      textAlign: {},
+      color: {},
+      bgColor: {},
+      padding: {},
+      margin: {}
     }
   },
   icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
@@ -2704,94 +2779,94 @@ const gridLayoutsPro = [{
     fill: "black"
   }))
 }, {
-  title: '3 Col 1 Gap',
+  title: "3 Col 1 Gap",
   data: {
-    "options": {
-      "gridTemplateColumns": [{
-        "val": 1,
-        "unit": "fr"
+    options: {
+      gridTemplateColumns: [{
+        val: 1,
+        unit: "fr"
       }, {
-        "val": 1,
-        "unit": "fr"
+        val: 1,
+        unit: "fr"
       }, {
-        "val": 1,
-        "unit": "fr"
+        val: 1,
+        unit: "fr"
       }],
-      "gridTemplateRows": [{
-        "val": 1,
-        "unit": "fr"
+      gridTemplateRows: [{
+        val: 1,
+        unit: "fr"
       }, {
-        "val": 1,
-        "unit": "fr"
+        val: 1,
+        unit: "fr"
       }],
-      "colGap": {
-        "val": 1,
-        "unit": "em"
+      colGap: {
+        val: 1,
+        unit: "em"
       },
-      "rowGap": {
-        "val": 1,
-        "unit": "em"
+      rowGap: {
+        val: 1,
+        unit: "em"
       },
-      "itemCss": []
+      itemCss: []
     },
-    "styles": {
-      "gridTemplateColumns": {
-        "Desktop": [{
-          "val": "1",
-          "unit": "fr"
+    styles: {
+      gridTemplateColumns: {
+        Desktop: [{
+          val: "1",
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Tablet": [{
-          "val": 1,
-          "unit": "fr"
+        Tablet: [{
+          val: 1,
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Mobile": [{
-          "val": 1,
-          "unit": "fr"
+        Mobile: [{
+          val: 1,
+          unit: "fr"
         }]
       },
-      "gridTemplateRows": {},
-      "colGap": {
-        "Desktop": {
-          "val": "1",
-          "unit": "em"
+      gridTemplateRows: {},
+      colGap: {
+        Desktop: {
+          val: "1",
+          unit: "em"
         },
-        "Tablet": {
-          "val": "1",
-          "unit": "em"
+        Tablet: {
+          val: "1",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "1",
-          "unit": "em"
+        Mobile: {
+          val: "1",
+          unit: "em"
         }
       },
-      "rowGap": {
-        "Desktop": {
-          "val": "1",
-          "unit": "em"
+      rowGap: {
+        Desktop: {
+          val: "1",
+          unit: "em"
         },
-        "Tablet": {
-          "val": "1",
-          "unit": "em"
+        Tablet: {
+          val: "1",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "1",
-          "unit": "em"
+        Mobile: {
+          val: "1",
+          unit: "em"
         }
       },
-      "textAlign": {},
-      "color": {},
-      "bgColor": {},
-      "padding": {},
-      "margin": {}
+      textAlign: {},
+      color: {},
+      bgColor: {},
+      padding: {},
+      margin: {}
     }
   },
   icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
@@ -2856,94 +2931,94 @@ const gridLayoutsPro = [{
     fill: "black"
   }))
 }, {
-  title: '3 Col 2 Gap',
+  title: "3 Col 2 Gap",
   data: {
-    "options": {
-      "gridTemplateColumns": [{
-        "val": 1,
-        "unit": "fr"
+    options: {
+      gridTemplateColumns: [{
+        val: 1,
+        unit: "fr"
       }, {
-        "val": 1,
-        "unit": "fr"
+        val: 1,
+        unit: "fr"
       }, {
-        "val": 1,
-        "unit": "fr"
+        val: 1,
+        unit: "fr"
       }],
-      "gridTemplateRows": [{
-        "val": 1,
-        "unit": "fr"
+      gridTemplateRows: [{
+        val: 1,
+        unit: "fr"
       }, {
-        "val": 1,
-        "unit": "fr"
+        val: 1,
+        unit: "fr"
       }],
-      "colGap": {
-        "val": 1,
-        "unit": "em"
+      colGap: {
+        val: 1,
+        unit: "em"
       },
-      "rowGap": {
-        "val": 1,
-        "unit": "em"
+      rowGap: {
+        val: 1,
+        unit: "em"
       },
-      "itemCss": []
+      itemCss: []
     },
-    "styles": {
-      "gridTemplateColumns": {
-        "Desktop": [{
-          "val": "1",
-          "unit": "fr"
+    styles: {
+      gridTemplateColumns: {
+        Desktop: [{
+          val: "1",
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Tablet": [{
-          "val": 1,
-          "unit": "fr"
+        Tablet: [{
+          val: 1,
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Mobile": [{
-          "val": 1,
-          "unit": "fr"
+        Mobile: [{
+          val: 1,
+          unit: "fr"
         }]
       },
-      "gridTemplateRows": {},
-      "colGap": {
-        "Desktop": {
-          "val": "2",
-          "unit": "em"
+      gridTemplateRows: {},
+      colGap: {
+        Desktop: {
+          val: "2",
+          unit: "em"
         },
-        "Tablet": {
-          "val": "2",
-          "unit": "em"
+        Tablet: {
+          val: "2",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "2",
-          "unit": "em"
+        Mobile: {
+          val: "2",
+          unit: "em"
         }
       },
-      "rowGap": {
-        "Desktop": {
-          "val": "2",
-          "unit": "em"
+      rowGap: {
+        Desktop: {
+          val: "2",
+          unit: "em"
         },
-        "Tablet": {
-          "val": "2",
-          "unit": "em"
+        Tablet: {
+          val: "2",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "2",
-          "unit": "em"
+        Mobile: {
+          val: "2",
+          unit: "em"
         }
       },
-      "textAlign": {},
-      "color": {},
-      "bgColor": {},
-      "padding": {},
-      "margin": {}
+      textAlign: {},
+      color: {},
+      bgColor: {},
+      padding: {},
+      margin: {}
     }
   },
   icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
@@ -3008,88 +3083,88 @@ const gridLayoutsPro = [{
     fill: "black"
   }))
 }, {
-  title: '2 Col 0 Gap',
+  title: "2 Col 0 Gap",
   data: {
-    "options": {
-      "gridTemplateColumns": [{
-        "val": 1,
-        "unit": "fr"
+    options: {
+      gridTemplateColumns: [{
+        val: 1,
+        unit: "fr"
       }, {
-        "val": 1,
-        "unit": "fr"
+        val: 1,
+        unit: "fr"
       }],
-      "gridTemplateRows": [{
-        "val": 1,
-        "unit": "fr"
+      gridTemplateRows: [{
+        val: 1,
+        unit: "fr"
       }, {
-        "val": 1,
-        "unit": "fr"
+        val: 1,
+        unit: "fr"
       }],
-      "colGap": {
-        "val": 1,
-        "unit": "em"
+      colGap: {
+        val: 1,
+        unit: "em"
       },
-      "rowGap": {
-        "val": 1,
-        "unit": "em"
+      rowGap: {
+        val: 1,
+        unit: "em"
       },
-      "itemCss": []
+      itemCss: []
     },
-    "styles": {
-      "gridTemplateColumns": {
-        "Desktop": [{
-          "val": "1",
-          "unit": "fr"
+    styles: {
+      gridTemplateColumns: {
+        Desktop: [{
+          val: "1",
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Tablet": [{
-          "val": 1,
-          "unit": "fr"
+        Tablet: [{
+          val: 1,
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Mobile": [{
-          "val": 1,
-          "unit": "fr"
+        Mobile: [{
+          val: 1,
+          unit: "fr"
         }]
       },
-      "gridTemplateRows": {},
-      "colGap": {
-        "Desktop": {
-          "val": "0",
-          "unit": "em"
+      gridTemplateRows: {},
+      colGap: {
+        Desktop: {
+          val: "0",
+          unit: "em"
         },
-        "Tablet": {
-          "val": "0",
-          "unit": "em"
+        Tablet: {
+          val: "0",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "0",
-          "unit": "em"
+        Mobile: {
+          val: "0",
+          unit: "em"
         }
       },
-      "rowGap": {
-        "Desktop": {
-          "val": "0",
-          "unit": "em"
+      rowGap: {
+        Desktop: {
+          val: "0",
+          unit: "em"
         },
-        "Tablet": {
-          "val": "0",
-          "unit": "em"
+        Tablet: {
+          val: "0",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "0",
-          "unit": "em"
+        Mobile: {
+          val: "0",
+          unit: "em"
         }
       },
-      "textAlign": {},
-      "color": {},
-      "bgColor": {},
-      "padding": {},
-      "margin": {}
+      textAlign: {},
+      color: {},
+      bgColor: {},
+      padding: {},
+      margin: {}
     }
   },
   icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
@@ -3136,88 +3211,88 @@ const gridLayoutsPro = [{
     fill: "black"
   }))
 }, {
-  title: '2 Col 1 Gap',
+  title: "2 Col 1 Gap",
   data: {
-    "options": {
-      "gridTemplateColumns": [{
-        "val": 1,
-        "unit": "fr"
+    options: {
+      gridTemplateColumns: [{
+        val: 1,
+        unit: "fr"
       }, {
-        "val": 1,
-        "unit": "fr"
+        val: 1,
+        unit: "fr"
       }],
-      "gridTemplateRows": [{
-        "val": 1,
-        "unit": "fr"
+      gridTemplateRows: [{
+        val: 1,
+        unit: "fr"
       }, {
-        "val": 1,
-        "unit": "fr"
+        val: 1,
+        unit: "fr"
       }],
-      "colGap": {
-        "val": 1,
-        "unit": "em"
+      colGap: {
+        val: 1,
+        unit: "em"
       },
-      "rowGap": {
-        "val": 1,
-        "unit": "em"
+      rowGap: {
+        val: 1,
+        unit: "em"
       },
-      "itemCss": []
+      itemCss: []
     },
-    "styles": {
-      "gridTemplateColumns": {
-        "Desktop": [{
-          "val": "1",
-          "unit": "fr"
+    styles: {
+      gridTemplateColumns: {
+        Desktop: [{
+          val: "1",
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Tablet": [{
-          "val": 1,
-          "unit": "fr"
+        Tablet: [{
+          val: 1,
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Mobile": [{
-          "val": 1,
-          "unit": "fr"
+        Mobile: [{
+          val: 1,
+          unit: "fr"
         }]
       },
-      "gridTemplateRows": {},
-      "colGap": {
-        "Desktop": {
-          "val": "1",
-          "unit": "em"
+      gridTemplateRows: {},
+      colGap: {
+        Desktop: {
+          val: "1",
+          unit: "em"
         },
-        "Tablet": {
-          "val": "1",
-          "unit": "em"
+        Tablet: {
+          val: "1",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "1",
-          "unit": "em"
+        Mobile: {
+          val: "1",
+          unit: "em"
         }
       },
-      "rowGap": {
-        "Desktop": {
-          "val": "1",
-          "unit": "em"
+      rowGap: {
+        Desktop: {
+          val: "1",
+          unit: "em"
         },
-        "Tablet": {
-          "val": "1",
-          "unit": "em"
+        Tablet: {
+          val: "1",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "1",
-          "unit": "em"
+        Mobile: {
+          val: "1",
+          unit: "em"
         }
       },
-      "textAlign": {},
-      "color": {},
-      "bgColor": {},
-      "padding": {},
-      "margin": {}
+      textAlign: {},
+      color: {},
+      bgColor: {},
+      padding: {},
+      margin: {}
     }
   },
   icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
@@ -3264,88 +3339,88 @@ const gridLayoutsPro = [{
     fill: "black"
   }))
 }, {
-  title: '2 Col 2 Gap',
+  title: "2 Col 2 Gap",
   data: {
-    "options": {
-      "gridTemplateColumns": [{
-        "val": 1,
-        "unit": "fr"
+    options: {
+      gridTemplateColumns: [{
+        val: 1,
+        unit: "fr"
       }, {
-        "val": 1,
-        "unit": "fr"
+        val: 1,
+        unit: "fr"
       }],
-      "gridTemplateRows": [{
-        "val": 1,
-        "unit": "fr"
+      gridTemplateRows: [{
+        val: 1,
+        unit: "fr"
       }, {
-        "val": 1,
-        "unit": "fr"
+        val: 1,
+        unit: "fr"
       }],
-      "colGap": {
-        "val": 1,
-        "unit": "em"
+      colGap: {
+        val: 1,
+        unit: "em"
       },
-      "rowGap": {
-        "val": 1,
-        "unit": "em"
+      rowGap: {
+        val: 1,
+        unit: "em"
       },
-      "itemCss": []
+      itemCss: []
     },
-    "styles": {
-      "gridTemplateColumns": {
-        "Desktop": [{
-          "val": "1",
-          "unit": "fr"
+    styles: {
+      gridTemplateColumns: {
+        Desktop: [{
+          val: "1",
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Tablet": [{
-          "val": 1,
-          "unit": "fr"
+        Tablet: [{
+          val: 1,
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Mobile": [{
-          "val": 1,
-          "unit": "fr"
+        Mobile: [{
+          val: 1,
+          unit: "fr"
         }]
       },
-      "gridTemplateRows": {},
-      "colGap": {
-        "Desktop": {
-          "val": "2",
-          "unit": "em"
+      gridTemplateRows: {},
+      colGap: {
+        Desktop: {
+          val: "2",
+          unit: "em"
         },
-        "Tablet": {
-          "val": "2",
-          "unit": "em"
+        Tablet: {
+          val: "2",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "2",
-          "unit": "em"
+        Mobile: {
+          val: "2",
+          unit: "em"
         }
       },
-      "rowGap": {
-        "Desktop": {
-          "val": "2",
-          "unit": "em"
+      rowGap: {
+        Desktop: {
+          val: "2",
+          unit: "em"
         },
-        "Tablet": {
-          "val": "2",
-          "unit": "em"
+        Tablet: {
+          val: "2",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "2",
-          "unit": "em"
+        Mobile: {
+          val: "2",
+          unit: "em"
         }
       },
-      "textAlign": {},
-      "color": {},
-      "bgColor": {},
-      "padding": {},
-      "margin": {}
+      textAlign: {},
+      color: {},
+      bgColor: {},
+      padding: {},
+      margin: {}
     }
   },
   icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
@@ -3392,11 +3467,11 @@ const gridLayoutsPro = [{
     fill: "black"
   }))
 }, {
-  title: '3 Col, nth(1)-2 Offset 1 Gap',
+  title: "3 Col, nth(1)-2 Offset 1 Gap",
   data: {
-    "options": {
-      "itemCss": {
-        "Desktop": [{
+    options: {
+      itemCss: {
+        Desktop: [{
           "grid-column-start": "1",
           "grid-column-end": "3",
           "grid-row-start": "",
@@ -3404,64 +3479,64 @@ const gridLayoutsPro = [{
         }]
       }
     },
-    "styles": {
-      "gridTemplateColumns": {
-        "Desktop": [{
-          "val": 1,
-          "unit": "fr"
+    styles: {
+      gridTemplateColumns: {
+        Desktop: [{
+          val: 1,
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Tablet": [{
-          "val": 1,
-          "unit": "fr"
+        Tablet: [{
+          val: 1,
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Mobile": [{
-          "val": 1,
-          "unit": "fr"
+        Mobile: [{
+          val: 1,
+          unit: "fr"
         }]
       },
-      "gridTemplateRows": {},
-      "colGap": {
-        "Desktop": {
-          "val": 1,
-          "unit": "em"
+      gridTemplateRows: {},
+      colGap: {
+        Desktop: {
+          val: 1,
+          unit: "em"
         },
-        "Tablet": {
-          "val": "1",
-          "unit": "em"
+        Tablet: {
+          val: "1",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "1",
-          "unit": "em"
+        Mobile: {
+          val: "1",
+          unit: "em"
         }
       },
-      "rowGap": {
-        "Desktop": {
-          "val": 1,
-          "unit": "em"
+      rowGap: {
+        Desktop: {
+          val: 1,
+          unit: "em"
         },
-        "Tablet": {
-          "val": "1",
-          "unit": "em"
+        Tablet: {
+          val: "1",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "1",
-          "unit": "em"
+        Mobile: {
+          val: "1",
+          unit: "em"
         }
       },
-      "textAlign": {},
-      "color": {},
-      "bgColor": {},
-      "padding": {},
-      "margin": {}
+      textAlign: {},
+      color: {},
+      bgColor: {},
+      padding: {},
+      margin: {}
     }
   },
   icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
@@ -3508,11 +3583,11 @@ const gridLayoutsPro = [{
     fill: "black"
   }))
 }, {
-  title: '3 Col, nth(2)-2 Offset 1 Gap',
+  title: "3 Col, nth(2)-2 Offset 1 Gap",
   data: {
-    "options": {
-      "itemCss": {
-        "Desktop": [{
+    options: {
+      itemCss: {
+        Desktop: [{
           "grid-column-start": "",
           "grid-column-end": "",
           "grid-row-start": "",
@@ -3525,64 +3600,64 @@ const gridLayoutsPro = [{
         }]
       }
     },
-    "styles": {
-      "gridTemplateColumns": {
-        "Desktop": [{
-          "val": 1,
-          "unit": "fr"
+    styles: {
+      gridTemplateColumns: {
+        Desktop: [{
+          val: 1,
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Tablet": [{
-          "val": 1,
-          "unit": "fr"
+        Tablet: [{
+          val: 1,
+          unit: "fr"
         }, {
-          "val": 1,
-          "unit": "fr"
+          val: 1,
+          unit: "fr"
         }],
-        "Mobile": [{
-          "val": 1,
-          "unit": "fr"
+        Mobile: [{
+          val: 1,
+          unit: "fr"
         }]
       },
-      "gridTemplateRows": {},
-      "colGap": {
-        "Desktop": {
-          "val": 1,
-          "unit": "em"
+      gridTemplateRows: {},
+      colGap: {
+        Desktop: {
+          val: 1,
+          unit: "em"
         },
-        "Tablet": {
-          "val": "1",
-          "unit": "em"
+        Tablet: {
+          val: "1",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "1",
-          "unit": "em"
+        Mobile: {
+          val: "1",
+          unit: "em"
         }
       },
-      "rowGap": {
-        "Desktop": {
-          "val": 1,
-          "unit": "em"
+      rowGap: {
+        Desktop: {
+          val: 1,
+          unit: "em"
         },
-        "Tablet": {
-          "val": "1",
-          "unit": "em"
+        Tablet: {
+          val: "1",
+          unit: "em"
         },
-        "Mobile": {
-          "val": "1",
-          "unit": "em"
+        Mobile: {
+          val: "1",
+          unit: "em"
         }
       },
-      "textAlign": {},
-      "color": {},
-      "bgColor": {},
-      "padding": {},
-      "margin": {}
+      textAlign: {},
+      color: {},
+      bgColor: {},
+      padding: {},
+      margin: {}
     }
   },
   icon: (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("svg", {
@@ -3629,299 +3704,299 @@ const gridLayoutsPro = [{
     fill: "black"
   }))
 }];
-addFilter('gridLayouts', 'post-grid/gridLayouts', function (options) {
+addFilter("gridLayouts", "post-grid/gridLayouts", function (options) {
   return gridLayoutsPro;
 });
 const queryPresetsPro = [{
-  label: 'Latest Posts by Publish Date',
-  key: 'preset1',
+  label: "Latest Posts by Publish Date",
+  key: "preset1",
   value: {
-    "items": [{
-      "val": ["post"],
-      "multiple": false,
-      "id": "postType",
-      "label": "Post Types",
-      "description": "Select Post Types to Query"
+    items: [{
+      val: ["post"],
+      multiple: false,
+      id: "postType",
+      label: "Post Types",
+      description: "Select Post Types to Query"
     }, {
-      "val": ["publish"],
-      "multiple": false,
-      "id": "postStatus",
-      "label": "Post status",
-      "description": "Query post by post status"
+      val: ["publish"],
+      multiple: false,
+      id: "postStatus",
+      label: "Post status",
+      description: "Query post by post status"
     }, {
-      "val": "DESC",
-      "multiple": false,
-      "id": "order",
-      "label": "Order",
-      "description": "Post query order"
+      val: "DESC",
+      multiple: false,
+      id: "order",
+      label: "Order",
+      description: "Post query order"
     }, {
-      "val": ["date"],
-      "multiple": false,
-      "id": "orderby",
-      "label": "Orderby",
-      "description": "Post query orderby"
+      val: ["date"],
+      multiple: false,
+      id: "orderby",
+      label: "Orderby",
+      description: "Post query orderby"
     }, {
-      "val": "10",
-      "multiple": false,
-      "id": "postsPerPage",
-      "label": "Posts Per Page",
-      "description": ""
+      val: "10",
+      multiple: false,
+      id: "postsPerPage",
+      label: "Posts Per Page",
+      description: ""
     }]
   }
 }, {
-  label: 'Oldest Posts by Publish Date',
-  key: 'preset2',
+  label: "Oldest Posts by Publish Date",
+  key: "preset2",
   value: {
-    "items": [{
-      "val": ["post"],
-      "multiple": false,
-      "id": "postType",
-      "label": "Post Types",
-      "description": "Select Post Types to Query"
+    items: [{
+      val: ["post"],
+      multiple: false,
+      id: "postType",
+      label: "Post Types",
+      description: "Select Post Types to Query"
     }, {
-      "val": ["publish"],
-      "multiple": false,
-      "id": "postStatus",
-      "label": "Post status",
-      "description": "Query post by post status"
+      val: ["publish"],
+      multiple: false,
+      id: "postStatus",
+      label: "Post status",
+      description: "Query post by post status"
     }, {
-      "val": "ASC",
-      "multiple": false,
-      "id": "order",
-      "label": "Order",
-      "description": "Post query order"
+      val: "ASC",
+      multiple: false,
+      id: "order",
+      label: "Order",
+      description: "Post query order"
     }, {
-      "val": ["date"],
-      "multiple": false,
-      "id": "orderby",
-      "label": "Orderby",
-      "description": "Post query orderby"
+      val: ["date"],
+      multiple: false,
+      id: "orderby",
+      label: "Orderby",
+      description: "Post query orderby"
     }, {
-      "val": "10",
-      "multiple": false,
-      "id": "postsPerPage",
-      "label": "Posts Per Page",
-      "description": ""
+      val: "10",
+      multiple: false,
+      id: "postsPerPage",
+      label: "Posts Per Page",
+      description: ""
     }]
   }
 }, {
-  label: 'Latest Posts by Modified Date',
-  key: 'preset3',
+  label: "Latest Posts by Modified Date",
+  key: "preset3",
   value: {
-    "items": [{
-      "val": ["post"],
-      "multiple": false,
-      "id": "postType",
-      "label": "Post Types",
-      "description": "Select Post Types to Query"
+    items: [{
+      val: ["post"],
+      multiple: false,
+      id: "postType",
+      label: "Post Types",
+      description: "Select Post Types to Query"
     }, {
-      "val": ["publish"],
-      "multiple": false,
-      "id": "postStatus",
-      "label": "Post status",
-      "description": "Query post by post status"
+      val: ["publish"],
+      multiple: false,
+      id: "postStatus",
+      label: "Post status",
+      description: "Query post by post status"
     }, {
-      "val": "DESC",
-      "multiple": false,
-      "id": "order",
-      "label": "Order",
-      "description": "Post query order"
+      val: "DESC",
+      multiple: false,
+      id: "order",
+      label: "Order",
+      description: "Post query order"
     }, {
-      "val": ["modified"],
-      "multiple": false,
-      "id": "orderby",
-      "label": "Orderby",
-      "description": "Post query orderby"
+      val: ["modified"],
+      multiple: false,
+      id: "orderby",
+      label: "Orderby",
+      description: "Post query orderby"
     }, {
-      "val": "10",
-      "multiple": false,
-      "id": "postsPerPage",
-      "label": "Posts Per Page",
-      "description": ""
+      val: "10",
+      multiple: false,
+      id: "postsPerPage",
+      label: "Posts Per Page",
+      description: ""
     }]
   }
 }, {
-  label: 'Oldest Posts by Modified Date',
-  key: 'preset4',
+  label: "Oldest Posts by Modified Date",
+  key: "preset4",
   value: {
-    "items": [{
-      "val": ["post"],
-      "multiple": false,
-      "id": "postType",
-      "label": "Post Types",
-      "description": "Select Post Types to Query"
+    items: [{
+      val: ["post"],
+      multiple: false,
+      id: "postType",
+      label: "Post Types",
+      description: "Select Post Types to Query"
     }, {
-      "val": ["publish"],
-      "multiple": false,
-      "id": "postStatus",
-      "label": "Post status",
-      "description": "Query post by post status"
+      val: ["publish"],
+      multiple: false,
+      id: "postStatus",
+      label: "Post status",
+      description: "Query post by post status"
     }, {
-      "val": "ASC",
-      "multiple": false,
-      "id": "order",
-      "label": "Order",
-      "description": "Post query order"
+      val: "ASC",
+      multiple: false,
+      id: "order",
+      label: "Order",
+      description: "Post query order"
     }, {
-      "val": ["modified"],
-      "multiple": false,
-      "id": "orderby",
-      "label": "Orderby",
-      "description": "Post query orderby"
+      val: ["modified"],
+      multiple: false,
+      id: "orderby",
+      label: "Orderby",
+      description: "Post query orderby"
     }, {
-      "val": "10",
-      "multiple": false,
-      "id": "postsPerPage",
-      "label": "Posts Per Page",
-      "description": ""
+      val: "10",
+      multiple: false,
+      id: "postsPerPage",
+      label: "Posts Per Page",
+      description: ""
     }]
   }
 }, {
-  label: 'Alphabetical Order A-Z',
-  key: 'preset5',
+  label: "Alphabetical Order A-Z",
+  key: "preset5",
   value: {
-    "items": [{
-      "val": ["post"],
-      "multiple": false,
-      "id": "postType",
-      "label": "Post Types",
-      "description": "Select Post Types to Query"
+    items: [{
+      val: ["post"],
+      multiple: false,
+      id: "postType",
+      label: "Post Types",
+      description: "Select Post Types to Query"
     }, {
-      "val": ["publish"],
-      "multiple": false,
-      "id": "postStatus",
-      "label": "Post status",
-      "description": "Query post by post status"
+      val: ["publish"],
+      multiple: false,
+      id: "postStatus",
+      label: "Post status",
+      description: "Query post by post status"
     }, {
-      "val": "ASC",
-      "multiple": false,
-      "id": "order",
-      "label": "Order",
-      "description": "Post query order"
+      val: "ASC",
+      multiple: false,
+      id: "order",
+      label: "Order",
+      description: "Post query order"
     }, {
-      "val": ["name"],
-      "multiple": false,
-      "id": "orderby",
-      "label": "Orderby",
-      "description": "Post query orderby"
+      val: ["name"],
+      multiple: false,
+      id: "orderby",
+      label: "Orderby",
+      description: "Post query orderby"
     }, {
-      "val": "10",
-      "multiple": false,
-      "id": "postsPerPage",
-      "label": "Posts Per Page",
-      "description": ""
+      val: "10",
+      multiple: false,
+      id: "postsPerPage",
+      label: "Posts Per Page",
+      description: ""
     }]
   }
 }, {
-  label: 'Alphabetical Order Z-A',
-  key: 'preset6',
+  label: "Alphabetical Order Z-A",
+  key: "preset6",
   value: {
-    "items": [{
-      "val": ["post"],
-      "multiple": false,
-      "id": "postType",
-      "label": "Post Types",
-      "description": "Select Post Types to Query"
+    items: [{
+      val: ["post"],
+      multiple: false,
+      id: "postType",
+      label: "Post Types",
+      description: "Select Post Types to Query"
     }, {
-      "val": ["publish"],
-      "multiple": false,
-      "id": "postStatus",
-      "label": "Post status",
-      "description": "Query post by post status"
+      val: ["publish"],
+      multiple: false,
+      id: "postStatus",
+      label: "Post status",
+      description: "Query post by post status"
     }, {
-      "val": "DESC",
-      "multiple": false,
-      "id": "order",
-      "label": "Order",
-      "description": "Post query order"
+      val: "DESC",
+      multiple: false,
+      id: "order",
+      label: "Order",
+      description: "Post query order"
     }, {
-      "val": ["name"],
-      "multiple": false,
-      "id": "orderby",
-      "label": "Orderby",
-      "description": "Post query orderby"
+      val: ["name"],
+      multiple: false,
+      id: "orderby",
+      label: "Orderby",
+      description: "Post query orderby"
     }, {
-      "val": "10",
-      "multiple": false,
-      "id": "postsPerPage",
-      "label": "Posts Per Page",
-      "description": ""
+      val: "10",
+      multiple: false,
+      id: "postsPerPage",
+      label: "Posts Per Page",
+      description: ""
     }]
   }
 }, {
-  label: 'Most Commented Posts',
-  key: 'preset7',
+  label: "Most Commented Posts",
+  key: "preset7",
   value: {
-    "items": [{
-      "val": ["post"],
-      "multiple": false,
-      "id": "postType",
-      "label": "Post Types",
-      "description": "Select Post Types to Query"
+    items: [{
+      val: ["post"],
+      multiple: false,
+      id: "postType",
+      label: "Post Types",
+      description: "Select Post Types to Query"
     }, {
-      "val": ["publish"],
-      "multiple": false,
-      "id": "postStatus",
-      "label": "Post status",
-      "description": "Query post by post status"
+      val: ["publish"],
+      multiple: false,
+      id: "postStatus",
+      label: "Post status",
+      description: "Query post by post status"
     }, {
-      "val": "DESC",
-      "multiple": false,
-      "id": "order",
-      "label": "Order",
-      "description": "Post query order"
+      val: "DESC",
+      multiple: false,
+      id: "order",
+      label: "Order",
+      description: "Post query order"
     }, {
-      "val": ["name"],
-      "multiple": false,
-      "id": "orderby",
-      "label": "Orderby",
-      "description": "Post query orderby"
+      val: ["name"],
+      multiple: false,
+      id: "orderby",
+      label: "Orderby",
+      description: "Post query orderby"
     }, {
-      "val": "10",
-      "multiple": false,
-      "id": "postsPerPage",
-      "label": "Posts Per Page",
-      "description": ""
+      val: "10",
+      multiple: false,
+      id: "postsPerPage",
+      label: "Posts Per Page",
+      description: ""
     }]
   }
 }, {
-  label: 'Random 10 Posts',
-  key: 'preset8',
+  label: "Random 10 Posts",
+  key: "preset8",
   value: {
-    "items": [{
-      "val": ["post"],
-      "multiple": false,
-      "id": "postType",
-      "label": "Post Types",
-      "description": "Select Post Types to Query"
+    items: [{
+      val: ["post"],
+      multiple: false,
+      id: "postType",
+      label: "Post Types",
+      description: "Select Post Types to Query"
     }, {
-      "val": ["publish"],
-      "multiple": false,
-      "id": "postStatus",
-      "label": "Post status",
-      "description": "Query post by post status"
+      val: ["publish"],
+      multiple: false,
+      id: "postStatus",
+      label: "Post status",
+      description: "Query post by post status"
     }, {
-      "val": "DESC",
-      "multiple": false,
-      "id": "order",
-      "label": "Order",
-      "description": "Post query order"
+      val: "DESC",
+      multiple: false,
+      id: "order",
+      label: "Order",
+      description: "Post query order"
     }, {
-      "val": ["rand"],
-      "multiple": false,
-      "id": "orderby",
-      "label": "Orderby",
-      "description": "Post query orderby"
+      val: ["rand"],
+      multiple: false,
+      id: "orderby",
+      label: "Orderby",
+      description: "Post query orderby"
     }, {
-      "val": "10",
-      "multiple": false,
-      "id": "postsPerPage",
-      "label": "Posts Per Page",
-      "description": ""
+      val: "10",
+      multiple: false,
+      id: "postsPerPage",
+      label: "Posts Per Page",
+      description: ""
     }]
   }
 }];
-addFilter('queryPresets', 'post-grid/queryPresets', function (options) {
+addFilter("queryPresets", "post-grid/queryPresets", function (options) {
   return queryPresetsPro;
 });
 
