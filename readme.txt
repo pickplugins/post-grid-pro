@@ -19,7 +19,7 @@ Almost everything is ready to create combo blocks from any post types, with few 
 ### Combo Blocks by  [http://pickplugins.com](http://pickplugins.com)
 
 * [See the Live demo](https://www.pickplugins.com/demo/post-grid/?ref=wordpress.org)
-* [Buy Premium](https://www.pickplugins.com/item/post-grid-create-awesome-grid-from-any-post-type-for-wordpress/?ref=wordpress.org)
+* [Buy Premium](https://getpostgrid.com/?ref=wordpress.org)
 * [Documentation](http://pickplugins.com/documentation/post-grid/?ref=wordpress.org)
 * [Support](https://www.pickplugins.com/support/?ref=wordpress.org)
 

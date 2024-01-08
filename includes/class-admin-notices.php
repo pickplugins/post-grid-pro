@@ -21,10 +21,10 @@ class class_post_grid_pro_notices
 
         if (!in_array('post-grid/post-grid.php', (array) $active_plugins)) :
 ?>
-            <div class="update-nag">
-                <?php
-                echo sprintf(__('<a href="%s">Combo Blocks</a> plugin free version is required to work <strong>Combo Blocks Pro</strong> version. <a href="%s">Search and install</a> ', 'post-grid-pro'), 'https://wordpress.org/plugins/post-grid/', admin_url() . 'plugin-install.php?s=post+grid+pickplugins&tab=search&type=term')
-                ?>
+            <div class="notice notice-error is-dismissible">
+                <p><?php
+                    echo sprintf(__('<a href="%s">Combo Blocks</a> plugin free version is required to work <strong>Combo Blocks Pro</strong> version. <a href="%s">Search and install</a> ', 'post-grid-pro'), 'https://wordpress.org/plugins/post-grid/', admin_url() . 'plugin-install.php?s=Combo-Blocks&tab=search&type=term')
+                    ?></p>
             </div>
         <?php
         endif;
