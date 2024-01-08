@@ -21,6 +21,28 @@ const linkToArgsPro = {
 addFilter("linkToArgs", "post-grid/linkToArgs", function (options) {
 	return linkToArgsPro;
 });
+/*
+
+link To Arguments Terms
+*/
+
+const linkToArgTermsPro = {
+	noUrl: { label: "No URL", value: "" },
+	termUrl: { label: "Term URL", value: "termUrl" },
+
+	postUrl: { label: "Post URL", value: "postUrl" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	authorUrl: { label: "Author URL", value: "authorUrl" },
+	authorLink: { label: "Author Link", value: "authorLink" },
+	authorMail: { label: "Author Mail", value: "authorMail" },
+	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	customField: { label: "Custom Field", value: "customField" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter("linkToArgTerms", "post-grid/linkToArgTerms", function (options) {
+	return linkToArgTermsPro;
+});
 const pgDateCountdownTypesPro = {
 	fixed: { label: "Fixed", value: "fixed" },
 	everGreen: { label: "Ever Green", value: "everGreen" },
@@ -368,6 +390,7 @@ const cssPropsPro = {
 	textJustify: { id: "textJustify", label: "Text Justify" },
 	textOverflow: { id: "textOverflow", label: "Text Overflow" },
 	textShadow: { id: "textShadow", label: "Text Shadow" },
+	transformOrigin: { id: "transformOrigin",	label: "Transform Origin" },
 	textTransform: { id: "textTransform", label: "Text Transform" },
 	wordBreak: { id: "wordBreak", label: "Word Break" },
 	wordSpacing: { id: "wordSpacing", label: "Word Spacing" },
