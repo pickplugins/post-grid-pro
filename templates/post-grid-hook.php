@@ -57,14 +57,14 @@ function post_grid_pro_query_args($query_args, $args)
 
         $i = 0;
         foreach ($meta_query as  $meta_queryIndex => $meta_queryData) :
-            $arg_type = $meta_queryData['arg_type'];
-            $relation = $meta_queryData['relation'];
+            $arg_type = isset($meta_queryData['arg_type']) ? $meta_queryData['arg_type'] : "";
+            $relation = isset($meta_queryData['relation']) ? $meta_queryData['relation'] : "";
 
             if ($arg_type == 'single') :
-                $meta_query_args[$meta_queryIndex]['key'] = $meta_queryData['key'];
-                $meta_query_args[$meta_queryIndex]['value'] = do_shortcode($meta_queryData['value']);
-                $meta_query_args[$meta_queryIndex]['compare'] = htmlspecialchars_decode($meta_queryData['compare'], ENT_QUOTES);
-                $meta_query_args[$meta_queryIndex]['type'] = $meta_queryData['type'];
+                $meta_query_args[$meta_queryIndex]['key'] = isset($meta_queryData['key']) ? $meta_queryData['key'] : "";
+                $meta_query_args[$meta_queryIndex]['value'] = do_shortcode(isset($meta_queryData['value']) ? $meta_queryData['value'] : "");
+                $meta_query_args[$meta_queryIndex]['compare'] = htmlspecialchars_decode(isset($meta_queryData['compare']) ? $meta_queryData['compare'] : "", ENT_QUOTES);
+                $meta_query_args[$meta_queryIndex]['type'] = isset($meta_queryData['type']) ? $meta_queryData['type'] : "";
 
             elseif ($arg_type == 'group') :
                 $group_args = isset($meta_queryData['args']) ? $meta_queryData['args'] : array();
@@ -72,10 +72,10 @@ function post_grid_pro_query_args($query_args, $args)
                 if (!empty($group_args)) :
                     $meta_query_args[$meta_queryIndex]['relation'] = $relation;
                     foreach ($group_args as $argIndex => $arg) :
-                        $meta_query_args[$meta_queryIndex][$argIndex]['key'] = $arg['key'];
-                        $meta_query_args[$meta_queryIndex][$argIndex]['value'] = do_shortcode($arg['value']);
-                        $meta_query_args[$meta_queryIndex][$argIndex]['compare'] = htmlspecialchars_decode($arg['compare'], ENT_QUOTES);
-                        $meta_query_args[$meta_queryIndex][$argIndex]['type'] = $arg['type'];
+                        $meta_query_args[$meta_queryIndex][$argIndex]['key'] = isset($arg['key']) ? $arg['key'] : "";
+                        $meta_query_args[$meta_queryIndex][$argIndex]['value'] = do_shortcode(isset($arg['value']) ? $arg['value'] : "");
+                        $meta_query_args[$meta_queryIndex][$argIndex]['compare'] = htmlspecialchars_decode(isset($arg['compare']) ? $arg['compare'] : "", ENT_QUOTES);
+                        $meta_query_args[$meta_queryIndex][$argIndex]['type'] = isset($arg['type']) ? $arg['type'] : "";
                     endforeach;
                 endif;
             endif;
@@ -85,11 +85,11 @@ function post_grid_pro_query_args($query_args, $args)
     $meta_query = $meta_query_args;
     if (!empty($meta_query)) {
         $meta_query_relation = array('relation' => $meta_query_relation);
-        $meta_query = array_merge($meta_query_relation, $meta_query);
+        $meta_query = array_merge(isset($meta_query_relation) ? $meta_query_relation : "", $meta_query);
     }
 
     if (!empty($meta_query))
-        $query_args['meta_query'] = $meta_query;
+        $query_args['meta_query'] = isset($meta_query) ? $meta_query : "";
 
 
     /* ################################ Date query ######################################*/
@@ -159,9 +159,9 @@ function post_grid_pro_query_args($query_args, $args)
     /* ################################ Password query ######################################*/
 
     if ($password_query_type == 'has_password') {
-        $query_args['has_password'] = $password_query_has_password;
+        $query_args['has_password'] = isset($password_query_has_password) ? $password_query_has_password : "";
     } elseif ($password_query_type == 'post_password') {
-        $query_args['post_password'] = $password_query_post_password;
+        $query_args['post_password'] = isset($password_query_post_password) ? $password_query_post_password : "";
     }
 
     /* ################################ Author query ######################################*/
@@ -171,9 +171,9 @@ function post_grid_pro_query_args($query_args, $args)
 
 
     if ($author_query_type == 'author__in') {
-        $query_args['author__in'] = $author__in;
+        $query_args['author__in'] = isset($author__in) ? $author__in : "";
     } elseif ($author_query_type == 'author__not_in') {
-        $query_args['author__not_in'] = $author__not_in;
+        $query_args['author__not_in'] = isset($author__not_in) ? $author__not_in : "";
     } elseif ($author_query_type == 'author__in_logged') {
         $query_args['author'] = get_current_user_id();
     }
