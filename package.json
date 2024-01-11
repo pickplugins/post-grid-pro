@@ -8,8 +8,20 @@
     "build": "wp-scripts build",
     "watch": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "plugin-zip": "wp-scripts plugin-zip",
     "zip": "npm-build-zip --source=./"
   },
+  "files": [
+    "assets",
+    "build",
+    "dist",
+    "includes",
+    "languages",
+    "sample-data",
+    "src",
+    "templates",
+    "post-grid-pro.php"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
