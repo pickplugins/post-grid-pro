@@ -1985,7 +1985,7 @@ addFilter("transitionProperties", "post-grid/transitionProperties", function (op
   return transitionPropertiesPro;
 });
 
-// terms list 
+// terms list
 
 const termsQueryPramsBasic = {
   taxonomy: {
@@ -2209,9 +2209,9 @@ const termsQueryPramsBasic = {
 addFilter("termsQueryPrams", "post-grid/term-list", function (options) {
   return termsQueryPramsBasic;
 });
-// terms list 
+// terms list
 
-// icon position
+// icon position Start
 
 // category
 const iconPositonArgsPro = {
@@ -2249,7 +2249,7 @@ addFilter("iconPositonArgs", "post-grid/iconPositonArgs", function (options) {
 });
 
 // number counter
-const numberCounterIconPosition = {
+const numberCounterIconPositionPro = {
   none: {
     label: "Choose Position",
     value: ""
@@ -2272,8 +2272,297 @@ const numberCounterIconPosition = {
   }
 };
 addFilter("postGridNumberCounterIconPosition", "post-grid/number-counter", function (options) {
-  return numberCounterIconPosition;
+  return numberCounterIconPositionPro;
 });
+
+// icon position End
+
+// Wrapper Tag Start
+const flexWrapItemWrapperTagArgsPro = {
+  none: {
+    label: "Choose Tag",
+    value: ""
+  },
+  h1: {
+    label: "H1",
+    value: "h1"
+  },
+  h2: {
+    label: "H2",
+    value: "h2"
+  },
+  h3: {
+    label: "H3",
+    value: "h3"
+  },
+  h4: {
+    label: "H4",
+    value: "h4"
+  },
+  h5: {
+    label: "H5",
+    value: "h5"
+  },
+  h6: {
+    label: "H6",
+    value: "h6"
+  },
+  span: {
+    label: "SPAN",
+    value: "span"
+  },
+  div: {
+    label: "DIV",
+    value: "div"
+  },
+  p: {
+    label: "P",
+    value: "p"
+  },
+  a: {
+    label: "A",
+    value: "a"
+  }
+};
+addFilter("postGridFlexWrapItemTags", "post-grid/flex-wrap-item", function (options) {
+  return flexWrapItemWrapperTagArgsPro;
+});
+// Wrapper Tag End
+
+// wordpress-org plugin and theme Fields
+
+const pluginFieldListPro = {
+  name: {
+    id: "name",
+    label: "Plugin Name",
+    prefix: "Plugin Name: "
+  },
+  version: {
+    id: "version",
+    label: "Version",
+    prefix: "Version:"
+  },
+  author: {
+    id: "author",
+    label: "Author",
+    prefix: "Author"
+  },
+  homepage: {
+    id: "homepage",
+    label: "Homepage",
+    prefix: "Homepage:",
+    isLinked: true,
+    linkText: "Homepage"
+  },
+  download_link: {
+    id: "download_link",
+    label: "Download Link",
+    prefix: "Download Link",
+    isLinked: true,
+    linkText: "Download"
+  },
+  rating: {
+    id: "rating",
+    label: "Rating",
+    prefix: "Rating",
+    type: "star"
+  },
+  requires: {
+    id: "requires",
+    label: "Require WP Version",
+    prefix: "WP Version: "
+  },
+  tested: {
+    id: "tested",
+    label: "Tested WP Version",
+    prefix: "WP Tested Version: "
+  },
+  requires_php: {
+    id: "requires_php",
+    label: "Require PHP Version",
+    prefix: "PHP Version: "
+  },
+  author_profile: {
+    id: "author_profile",
+    label: "Author Profile",
+    prefix: "Author Profile"
+  },
+  contributors: {
+    id: "contributors",
+    label: "Contributors",
+    prefix: "Contributors",
+    isLinked: true
+  },
+  requires_plugins: {
+    id: "requires_plugins",
+    label: "Require Plugins",
+    prefix: "Require Plugins: "
+  },
+  ratings: {
+    id: "ratings",
+    label: "Ratings",
+    prefix: "Ratings",
+    type: "star"
+  },
+  num_ratings: {
+    id: "num_ratings",
+    label: "Num Ratings",
+    prefix: "Num Ratings",
+    type: "star"
+  },
+  support_threads: {
+    id: "support_threads",
+    label: "Support Threads",
+    prefix: "Support Threads"
+  },
+  support_threads_resolved: {
+    id: "support_threads_resolved",
+    label: "Support Threads Resolved",
+    prefix: "Support Threads Resolved"
+  },
+  active_installs: {
+    id: "active_installs",
+    label: "Active Install",
+    prefix: "Active Install: "
+  },
+  last_updated: {
+    id: "last_updated",
+    label: "Last Update",
+    prefix: "Last Update: "
+  },
+  added: {
+    id: "added",
+    label: "Creation Time",
+    prefix: "Creation Time: "
+  },
+  tags: {
+    id: "tags",
+    label: "Tags",
+    prefix: "Tags:"
+  },
+  banners: {
+    id: "banners",
+    label: "Thumbnail",
+    prefix: "Thumbnail",
+    size: "high",
+    isLinked: false
+  }
+};
+addFilter("wordpressOrgPluginFieldList", "post-grid/wordpress-org", function (options) {
+  return pluginFieldListPro;
+});
+const themeFieldListPro = {
+  name: {
+    id: "name",
+    label: "Name",
+    prefix: "Theme Name: "
+  },
+  version: {
+    id: "version",
+    label: "Version",
+    prefix: "Version:"
+  },
+  author: {
+    id: "author",
+    label: "Author",
+    prefix: "Author"
+  },
+  screenshot_url: {
+    id: "screenshot_url",
+    label: "Screenshot"
+  },
+  ratings: {
+    id: "ratings",
+    label: "Ratings",
+    prefix: "Ratings"
+  },
+  rating: {
+    id: "rating",
+    label: "Rating",
+    prefix: "Rating",
+    type: "star"
+  },
+  homepage: {
+    id: "homepage",
+    label: "Homepage",
+    prefix: "Homepage:",
+    isLinked: true,
+    linkText: "Homepage"
+  },
+  download_link: {
+    id: "download_link",
+    label: "Download Link",
+    prefix: "Download Link",
+    isLinked: true,
+    linkText: "Download"
+  },
+  requires: {
+    id: "requires",
+    label: "Require WP Version",
+    prefix: "WP Version: "
+  },
+  requires_php: {
+    id: "requires_php",
+    label: "Require PHP Version",
+    prefix: "PHP Version: "
+  },
+  preview_url: {
+    id: "preview_url",
+    label: "Preview URL",
+    prefix: "Preview URL",
+    isLinked: true,
+    linkText: "Preview"
+  },
+  num_ratings: {
+    id: "num_ratings",
+    label: "Number of Ratings"
+  },
+  reviews_url: {
+    id: "reviews_url",
+    label: "Reviews URL",
+    isLinked: true,
+    linkText: "Reviews"
+  },
+  last_updated: {
+    id: "last_updated",
+    label: "Last Update",
+    prefix: "Last Update: "
+  },
+  creation_time: {
+    id: "creation_time",
+    label: "Creation Time",
+    prefix: "Creation Time: "
+  },
+  tags: {
+    id: "tags",
+    label: "Tags",
+    prefix: "Tags: "
+  },
+  is_commercial: {
+    id: "is_commercial",
+    label: "Is Commercial",
+    prefix: "Is Commercial"
+  },
+  external_support_url: {
+    id: "external_support_url",
+    label: "External Support URL",
+    prefix: "External Support URL",
+    isLinked: true,
+    linkText: "Support URL"
+  },
+  external_repository_url: {
+    id: "external_repository_url",
+    label: "External Sepository URL",
+    prefix: "External Sepository URL",
+    isLinked: true,
+    linkText: "Repository"
+  }
+};
+addFilter("wordpressOrgThemeFieldList", "post-grid/wordpress-org", function (options) {
+  return themeFieldListPro;
+});
+
+// wordpress-org plugin and theme Fields
 
 /***/ }),
 
