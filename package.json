@@ -8,8 +8,7 @@
     "build": "wp-scripts build",
     "watch": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "plugin-zip": "wp-scripts plugin-zip",
-    "zip": "npm-build-zip --source=./"
+    "plugin-zip": "wp-scripts plugin-zip"
   },
   "files": [
     "assets",

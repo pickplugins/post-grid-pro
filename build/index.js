@@ -1985,6 +1985,829 @@ addFilter("transitionProperties", "post-grid/transitionProperties", function (op
   return transitionPropertiesPro;
 });
 
+// terms list
+
+const termsQueryPramsBasic = {
+  taxonomy: {
+    value: "category",
+    multiple: false,
+    id: "taxonomy",
+    label: "Taxonomy",
+    description: "Select Taxonomy to Query",
+    longDescription: "Taxonomy name, or array of taxonomy names, to which results should be limited."
+  },
+  orderby: {
+    value: "name",
+    multiple: false,
+    id: "orderby",
+    label: "Order By",
+    description: "Search keyword, ex: hello"
+  },
+  order: {
+    value: "ASC",
+    multiple: false,
+    id: "order",
+    label: "Order",
+    description: "Whether to order terms in ascending or descending order."
+  },
+  hide_empty: {
+    value: true,
+    multiple: false,
+    id: "hide_empty",
+    label: "Hide Empty",
+    description: "Accepts true or false value.",
+    longDescription: "Whether to hide terms not assigned to any posts. Accepts 1|true or 0|false."
+  },
+  number: {
+    value: false,
+    multiple: false,
+    id: "number",
+    label: "Number",
+    description: "Accepts 0 (all) or any positive number.",
+    longDescription: "Maximum number of terms to return. Accepts ''|0 (all) or any positive number. Default ''|0 (all). Note that $number may not return accurate results when coupled with $object_ids."
+  },
+  include: {
+    value: "category",
+    multiple: false,
+    id: "include",
+    label: "Include",
+    description: "Comma-separated string of term IDs to include.",
+    longDescription: "Array or comma/space-separated string of term IDs to include. Default empty array.",
+    placeholder: "Comma-separated string of term IDs to include."
+  },
+  exclude: {
+    value: "",
+    multiple: false,
+    id: "exclude",
+    label: "Exclude",
+    description: "Comma-separated string of term IDs to exclude.",
+    longDescription: "Array or comma/space-separated string of term IDs to exclude. If $include is non-empty, $exclude is ignored. Default empty array.",
+    placeholder: "Comma-separated string of term IDs to exclude."
+  },
+  // Category Parameters
+  exclude_tree: {
+    value: "",
+    multiple: false,
+    id: "exclude_tree",
+    label: "Exclude Tree",
+    description: "Comma-separated string of term IDs to exclude.",
+    longDescription: "Array or comma/space-separated string of term IDs to exclude along with all of their descendant terms. If $include is non-empty, $exclude_tree is ignored. Default empty array.",
+    placeholder: "Comma-separated string of term IDs to exclude."
+  },
+  count: {
+    value: false,
+    multiple: false,
+    id: "count",
+    label: "count",
+    description: "Whether to return a term count. If true, will take precedence over $fields."
+  },
+  offset: {
+    value: "",
+    multiple: false,
+    id: "offset",
+    label: "Offset",
+    description: "The number by which to offset the terms query.",
+    longDescription: "The number by which to offset the terms query."
+  },
+  // fields: {
+  // 	value: "all",
+  // 	multiple: false,
+  // 	id: "fields",
+  // 	label: "Fields",
+  // 	description: "Post query by Category IDs" /*isPro: true*/,
+  // },
+  name: {
+    value: "",
+    multiple: false,
+    id: "name",
+    label: "Name",
+    description: "Name or array of names to return term(s) for.",
+    longDescription: "Comma-separated names to return term(s) for."
+  },
+  // Tag Parameters
+
+  slug: {
+    value: "",
+    multiple: false,
+    id: "slug",
+    label: "Slug",
+    description: "Slug or array of slugs to return term(s) for.",
+    longDescription: "Comma-separated slugs to return term(s) for."
+  },
+  hierarchical: {
+    value: true,
+    multiple: false,
+    id: "hierarchical",
+    label: "Hierarchical",
+    description: "Whether to include terms that have non-empty descendants.",
+    longDescription: "Whether to include terms that have non-empty descendants (even if $hide_empty is set to true)."
+  },
+  search: {
+    value: "",
+    multiple: false,
+    id: "search",
+    label: "Search",
+    description: "Search criteria to match terms.",
+    longDescription: "Search criteria to match terms. Will be SQL-formatted with wildcards before and after."
+  },
+  name__like: {
+    value: "",
+    multiple: false,
+    id: "name__like",
+    label: "Name like",
+    description: "Retrieve terms with criteria by which a term is LIKE $name__like.",
+    longDescription: "Retrieve terms with criteria by which a term is LIKE $name__like."
+  },
+  description__like: {
+    value: "",
+    multiple: false,
+    id: "description__like",
+    label: "Description like",
+    description: "Retrieve terms where the description is LIKE $description__like.",
+    longDescription: "Retrieve terms where the description is LIKE $description__like."
+  },
+  pad_counts: {
+    value: false,
+    multiple: false,
+    id: "pad_counts",
+    label: "Pad counts",
+    description: 'Whether to pad the quantity of a term’s children in the quantity of each term’s "count" object variable.',
+    longDescription: 'Whether to pad the quantity of a term’s children in the quantity of each term’s "count" object variable. Default false.'
+  },
+  get: {
+    value: "",
+    multiple: false,
+    id: "get",
+    label: "Get",
+    description: "Whether to return terms regardless of ancestry or whether the terms are empty.",
+    longDescription: "Whether to return terms regardless of ancestry or whether the terms are empty. Accepts 'all' or '' (disabled). Default ''."
+  },
+  child_of: {
+    value: "",
+    multiple: false,
+    id: "child_of",
+    label: "Child of",
+    description: "Term ID to retrieve child terms of.",
+    longDescription: "Term ID to retrieve child terms of. If multiple taxonomies are passed, $child_of is ignored. Default 0."
+  },
+  parent: {
+    value: "",
+    multiple: false,
+    id: "parent",
+    label: "Parent",
+    description: "Parent term ID to retrieve direct-child terms of.",
+    longDescription: "Parent term ID to retrieve direct-child terms of."
+  },
+  childless: {
+    value: false,
+    multiple: false,
+    id: "childless",
+    label: "Childless",
+    description: "True to limit results to terms that have no children.",
+    longDescription: "True to limit results to terms that have no children. This parameter has no effect on non-hierarchical taxonomies. Default false."
+  },
+  // // Date Parameters
+  cache_domain: {
+    value: "core",
+    multiple: false,
+    id: "cache_domain",
+    label: "Cache domain",
+    description: "Unique cache key to be produced when this query is stored in an object cache.",
+    longDescription: "Unique cache key to be produced when this query is stored in an object cache. Default 'core'."
+  },
+  update_term_meta_cache: {
+    value: true,
+    multiple: false,
+    id: "update_term_meta_cache",
+    label: "Update term meta Cache",
+    description: "Whether to prime meta caches for matched terms. Default true."
+  },
+  // meta_query: {
+  // 	value: [],
+  // 	multiple: false,
+  // 	id: "meta_query",
+  // 	label: "Meta query",
+  // 	description: "Post query by month",
+  // },
+  meta_key: {
+    value: "",
+    multiple: false,
+    id: "meta_key",
+    label: "Meta key",
+    description: "Comma-separated keys to return term(s) for.",
+    longDescription: "Meta key or keys to filter by."
+  },
+  meta_value: {
+    value: "",
+    multiple: false,
+    id: "meta_value",
+    label: "Meta value",
+    description: "Comma-separated keys to return term(s) for.",
+    longDescription: "Meta value or values to filter by."
+  }
+};
+addFilter("termsQueryPrams", "post-grid/term-list", function (options) {
+  return termsQueryPramsBasic;
+});
+// terms list
+
+// icon position Start
+
+// category
+const iconPositonArgsPro = {
+  none: {
+    label: "Choose Position",
+    value: ""
+  },
+  beforeFronttext: {
+    label: "Before Front text",
+    value: "beforeFronttext"
+  },
+  afterFronttext: {
+    label: "After Front text",
+    value: "afterFronttext"
+  },
+  beforeItems: {
+    label: "Before Items",
+    value: "beforeItems"
+  },
+  afterItems: {
+    label: "After Items",
+    value: "afterItems"
+  },
+  beforeItem: {
+    label: "Before Each Items",
+    value: "beforeItem"
+  },
+  afterItem: {
+    label: "After Each Items",
+    value: "afterItem"
+  }
+};
+addFilter("iconPositonArgs", "post-grid/iconPositonArgs", function (options) {
+  return iconPositonArgsPro;
+});
+
+// number counter
+const numberCounterIconPositionPro = {
+  none: {
+    label: "Choose Position",
+    value: ""
+  },
+  beforePrefix: {
+    label: "Before Prefix",
+    value: "beforePrefix"
+  },
+  afterPrefix: {
+    label: "After Prefix",
+    value: "afterPrefix"
+  },
+  beforePostfix: {
+    label: "Before PostFix",
+    value: "beforePostfix"
+  },
+  afterPostfix: {
+    label: "After PostFix",
+    value: "afterPostfix"
+  }
+};
+addFilter("postGridNumberCounterIconPosition", "post-grid/number-counter", function (options) {
+  return numberCounterIconPositionPro;
+});
+
+// post taxonomies
+
+var postTaxonomiesIconPositionPro = {
+  none: {
+    label: "Choose Position",
+    value: ""
+  },
+  beforeFronttext: {
+    label: "Before Front text",
+    value: "beforeFronttext"
+  },
+  afterFronttext: {
+    label: "After Front text",
+    value: "afterFronttext"
+  },
+  beforeItems: {
+    label: "Before Items",
+    value: "beforeItems"
+  },
+  afterItems: {
+    label: "After Items",
+    value: "afterItems"
+  },
+  beforeItem: {
+    label: "Before Each Items",
+    value: "beforeItem"
+  },
+  afterItem: {
+    label: "After Each Items",
+    value: "afterItem"
+  }
+};
+addFilter("postGridPostTaxonomiesIconPosition", "post-grid/post-taxonomies", function (options) {
+  return postTaxonomiesIconPositionPro;
+});
+
+// icon position End
+
+// Wrapper Tag Start
+const flexWrapItemWrapperTagArgsPro = {
+  none: {
+    label: "Choose Tag",
+    value: ""
+  },
+  h1: {
+    label: "H1",
+    value: "h1"
+  },
+  h2: {
+    label: "H2",
+    value: "h2"
+  },
+  h3: {
+    label: "H3",
+    value: "h3"
+  },
+  h4: {
+    label: "H4",
+    value: "h4"
+  },
+  h5: {
+    label: "H5",
+    value: "h5"
+  },
+  h6: {
+    label: "H6",
+    value: "h6"
+  },
+  span: {
+    label: "SPAN",
+    value: "span"
+  },
+  div: {
+    label: "DIV",
+    value: "div"
+  },
+  p: {
+    label: "P",
+    value: "p"
+  },
+  a: {
+    label: "A",
+    value: "a"
+  }
+};
+addFilter("postGridFlexWrapItemTags", "post-grid/flex-wrap-item", function (options) {
+  return flexWrapItemWrapperTagArgsPro;
+});
+// Wrapper Tag End
+
+// wordpress-org plugin and theme Fields
+
+const pluginFieldListPro = {
+  name: {
+    id: "name",
+    label: "Plugin Name",
+    prefix: "Plugin Name: "
+  },
+  version: {
+    id: "version",
+    label: "Version",
+    prefix: "Version:"
+  },
+  author: {
+    id: "author",
+    label: "Author",
+    prefix: "Author"
+  },
+  homepage: {
+    id: "homepage",
+    label: "Homepage",
+    prefix: "Homepage:",
+    isLinked: true,
+    linkText: "Homepage"
+  },
+  download_link: {
+    id: "download_link",
+    label: "Download Link",
+    prefix: "Download Link",
+    isLinked: true,
+    linkText: "Download"
+  },
+  rating: {
+    id: "rating",
+    label: "Rating",
+    prefix: "Rating",
+    type: "star"
+  },
+  requires: {
+    id: "requires",
+    label: "Require WP Version",
+    prefix: "WP Version: "
+  },
+  tested: {
+    id: "tested",
+    label: "Tested WP Version",
+    prefix: "WP Tested Version: "
+  },
+  requires_php: {
+    id: "requires_php",
+    label: "Require PHP Version",
+    prefix: "PHP Version: "
+  },
+  author_profile: {
+    id: "author_profile",
+    label: "Author Profile",
+    prefix: "Author Profile"
+  },
+  contributors: {
+    id: "contributors",
+    label: "Contributors",
+    prefix: "Contributors",
+    isLinked: true
+  },
+  requires_plugins: {
+    id: "requires_plugins",
+    label: "Require Plugins",
+    prefix: "Require Plugins: "
+  },
+  ratings: {
+    id: "ratings",
+    label: "Ratings",
+    prefix: "Ratings",
+    type: "star"
+  },
+  num_ratings: {
+    id: "num_ratings",
+    label: "Num Ratings",
+    prefix: "Num Ratings",
+    type: "star"
+  },
+  support_threads: {
+    id: "support_threads",
+    label: "Support Threads",
+    prefix: "Support Threads"
+  },
+  support_threads_resolved: {
+    id: "support_threads_resolved",
+    label: "Support Threads Resolved",
+    prefix: "Support Threads Resolved"
+  },
+  active_installs: {
+    id: "active_installs",
+    label: "Active Install",
+    prefix: "Active Install: "
+  },
+  last_updated: {
+    id: "last_updated",
+    label: "Last Update",
+    prefix: "Last Update: "
+  },
+  added: {
+    id: "added",
+    label: "Creation Time",
+    prefix: "Creation Time: "
+  },
+  tags: {
+    id: "tags",
+    label: "Tags",
+    prefix: "Tags:"
+  },
+  banners: {
+    id: "banners",
+    label: "Thumbnail",
+    prefix: "Thumbnail",
+    size: "high",
+    isLinked: false
+  }
+};
+addFilter("wordpressOrgPluginFieldList", "post-grid/wordpress-org", function (options) {
+  return pluginFieldListPro;
+});
+const themeFieldListPro = {
+  name: {
+    id: "name",
+    label: "Name",
+    prefix: "Theme Name: "
+  },
+  version: {
+    id: "version",
+    label: "Version",
+    prefix: "Version:"
+  },
+  author: {
+    id: "author",
+    label: "Author",
+    prefix: "Author"
+  },
+  screenshot_url: {
+    id: "screenshot_url",
+    label: "Screenshot"
+  },
+  ratings: {
+    id: "ratings",
+    label: "Ratings",
+    prefix: "Ratings"
+  },
+  rating: {
+    id: "rating",
+    label: "Rating",
+    prefix: "Rating",
+    type: "star"
+  },
+  homepage: {
+    id: "homepage",
+    label: "Homepage",
+    prefix: "Homepage:",
+    isLinked: true,
+    linkText: "Homepage"
+  },
+  download_link: {
+    id: "download_link",
+    label: "Download Link",
+    prefix: "Download Link",
+    isLinked: true,
+    linkText: "Download"
+  },
+  requires: {
+    id: "requires",
+    label: "Require WP Version",
+    prefix: "WP Version: "
+  },
+  requires_php: {
+    id: "requires_php",
+    label: "Require PHP Version",
+    prefix: "PHP Version: "
+  },
+  preview_url: {
+    id: "preview_url",
+    label: "Preview URL",
+    prefix: "Preview URL",
+    isLinked: true,
+    linkText: "Preview"
+  },
+  num_ratings: {
+    id: "num_ratings",
+    label: "Number of Ratings"
+  },
+  reviews_url: {
+    id: "reviews_url",
+    label: "Reviews URL",
+    isLinked: true,
+    linkText: "Reviews"
+  },
+  last_updated: {
+    id: "last_updated",
+    label: "Last Update",
+    prefix: "Last Update: "
+  },
+  creation_time: {
+    id: "creation_time",
+    label: "Creation Time",
+    prefix: "Creation Time: "
+  },
+  tags: {
+    id: "tags",
+    label: "Tags",
+    prefix: "Tags: "
+  },
+  is_commercial: {
+    id: "is_commercial",
+    label: "Is Commercial",
+    prefix: "Is Commercial"
+  },
+  external_support_url: {
+    id: "external_support_url",
+    label: "External Support URL",
+    prefix: "External Support URL",
+    isLinked: true,
+    linkText: "Support URL"
+  },
+  external_repository_url: {
+    id: "external_repository_url",
+    label: "External Sepository URL",
+    prefix: "External Sepository URL",
+    isLinked: true,
+    linkText: "Repository"
+  }
+};
+addFilter("wordpressOrgThemeFieldList", "post-grid/wordpress-org", function (options) {
+  return themeFieldListPro;
+});
+
+// wordpress-org plugin and theme Fields
+
+// class picker filter 
+
+var customTagsPro = {
+  currentYear: {
+    label: "Current Year",
+    id: '{currentYear["y"]}',
+    value: "2023"
+  },
+  currentMonth: {
+    label: "Current Month",
+    id: '{currentMonth["m"]}',
+    value: "07"
+  },
+  currentDay: {
+    label: "Current Day",
+    id: '{currentDay["d"]}',
+    value: "01"
+  },
+  currentDate: {
+    label: "Current Date",
+    id: '{currentDate["d- m - Y"]}',
+    value: "01-01-2023"
+  },
+  currentTime: {
+    label: "Current Time",
+    id: '{currentTime["h: i:sa"]}',
+    value: "06:00:00:am"
+  },
+  postPublishDate: {
+    label: "Post Publish Date",
+    id: '{postPublishDate["d-m-Y"]}',
+    value: "01-01-2023"
+  },
+  postModifiedDate: {
+    label: "Post Modified Date",
+    id: '{postModifiedDate["d - m - Y"]}',
+    value: "01-01-2023"
+  },
+  termId: {
+    label: "Term Id",
+    id: '{termId}',
+    value: "123"
+  },
+  termTitle: {
+    label: "Term Title",
+    id: '{termTitle}',
+    value: "Hello Term Title"
+  },
+  termDescription: {
+    label: "Term Description",
+    id: '{termDescription}',
+    value: "Hello term description"
+  },
+  termPostCount: {
+    label: "Term Post Count",
+    id: '{termPostCount}',
+    value: "123"
+  },
+  postTagTitle: {
+    label: "Post Tag Title",
+    id: '{postTagTitle}',
+    value: "sports"
+  },
+  postTagsTitle: {
+    label: "Post Tags Title",
+    id: '{postTagsTitle["3, -"]}',
+    value: "football , cricket"
+  },
+  postCategoryTitle: {
+    label: "Post Category Title",
+    id: '{postCategoryTitle}',
+    value: "sports"
+  },
+  postCategoriesTitle: {
+    label: "Post Categories Title",
+    id: '{postCategoriesTitle["3"]}',
+    value: "football , cricket"
+  },
+  postTermTitle: {
+    label: "Post Term Title",
+    id: '{postTermTitle["taxonomy"]}',
+    value: "sports"
+  },
+  postTermsTitle: {
+    label: "Post Terms Title",
+    id: '{postTermsTitle["taxonomy, 3"]}',
+    value: "football , cricket"
+  },
+  postSlug: {
+    label: "Post Slug",
+    id: '{postSlug}',
+    value: "post-slug"
+  },
+  postId: {
+    label: "Post ID",
+    id: '{postID}',
+    value: "123"
+  },
+  postStatus: {
+    label: "Post Status",
+    id: '{postStatus}',
+    value: "published"
+  },
+  authorId: {
+    label: "Author Id",
+    id: '{authorId}',
+    value: "123"
+  },
+  authorName: {
+    label: "Author Name",
+    id: '{authorName}',
+    value: "hello author"
+  },
+  authorFirstName: {
+    label: "Author FirstName",
+    id: '{authorFirstName}',
+    value: "first name"
+  },
+  authorLastName: {
+    label: "Author Last Name",
+    id: '{authorLastName}',
+    value: "last name"
+  },
+  authorDescription: {
+    label: "Author Description",
+    id: '{authorDescription}',
+    value: "Hello author description"
+  },
+  excerpt: {
+    label: "Post Excerpt",
+    id: '{excerpt}',
+    value: "hello excerpt"
+  },
+  rankmathTitle: {
+    label: "Rankmath Title",
+    id: '{rankmathTitle}',
+    value: "Rank Math Title"
+  },
+  // rankmathPermalink: {
+  // 	label: "Rankmath Permalink",
+  // 	id: '{rankmathPermalink}',
+  // 	value: "",
+  // },
+  rankmathDescription: {
+    label: "Rankmath Description",
+    id: '{rankmathDescription}',
+    value: "Rank Math Description"
+  },
+  rankmathFocusKeyword: {
+    label: "Rankmath Focus Keyword",
+    id: '{rankmathFocusKeyword}',
+    value: "Rank Math Focus Keyword"
+  },
+  // rankmathFocusKeywords: {
+  // 	label: "Rankmath Focus Keywords",
+  // 	id: '{rankmathFocusKeywords[", "]}',
+  // 	value: "",
+  // },
+  rankmathOrgname: {
+    label: "Rankmath Org name",
+    id: '{rankmathOrgname}',
+    value: "Rank Math Org Name"
+  },
+  rankmathOrgurl: {
+    label: "Rankmath Org URL",
+    id: '{rankmathOrgurl}',
+    value: "https://hello.world"
+  },
+  rankmathOrglogo: {
+    label: "Rankmath Org logo",
+    id: '{rankmathOrglogo}',
+    value: ""
+  },
+  siteTitle: {
+    label: "Site Title",
+    id: '{siteTitle}',
+    value: "WordPress"
+  },
+  siteDescription: {
+    label: "Site Description",
+    id: '{siteDescription}',
+    value: "Hello site description"
+  },
+  // siteTagline: { label: "Site Tagline", id: '{siteTagline}', value: "" },
+  postMeta: {
+    label: "Post Meta",
+    id: '{postMeta["metaKey"]}',
+    value: "meta value"
+  },
+  separator: {
+    label: "Separator",
+    id: '{separator[" - "]}',
+    value: "-"
+  },
+  searchTerms: {
+    label: "Search Terms",
+    id: '{searchTerms}',
+    value: "hello search terms"
+  }
+  // counter: { label: "Counter", id: '{counter}', value: "" },
+};
+
+addFilter("postGridClassPickerFilter", "post-grid/component/classPicker", function (options) {
+  return customTagsPro;
+});
+
+// class picker filter
+
 /***/ }),
 
 /***/ "./src/blocks/post-categories/index.js":
@@ -2001,40 +2824,6 @@ const {
 
 icon Positon Args
 */
-
-const iconPositonArgsPro = {
-  none: {
-    label: 'Choose Position',
-    value: ''
-  },
-  beforeFronttext: {
-    label: 'Before Front text',
-    value: 'beforeFronttext'
-  },
-  afterFronttext: {
-    label: 'After Front text',
-    value: 'afterFronttext'
-  },
-  beforeItems: {
-    label: 'Before Items',
-    value: 'beforeItems'
-  },
-  afterItems: {
-    label: 'After Items',
-    value: 'afterItems'
-  },
-  beforeItem: {
-    label: 'Before Each Items',
-    value: 'beforeItem'
-  },
-  afterItem: {
-    label: 'After Each Items',
-    value: 'afterItem'
-  }
-};
-addFilter('iconPositonArgs', 'post-grid/iconPositonArgs', function (options) {
-  return iconPositonArgsPro;
-});
 
 /***/ }),
 

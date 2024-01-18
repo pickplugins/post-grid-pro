@@ -7,9 +7,9 @@ function post_grid_pro_view_types($view_types)
 {
 
 
-    $view_types['filterable'] = array('name' => 'Filterable',   'thumb' => post_grid_plugin_url . 'assets/admin/images/filterable.png',);
-    $view_types['glossary'] = array('name' => 'Glossary',  'thumb' => post_grid_plugin_url . 'assets/admin/images/glossary.png',);
-    $view_types['slider'] = array('name' => 'Carousel',   'thumb' => post_grid_plugin_url . 'assets/admin/images/carousel.png',);
+    $view_types['filterable'] = array('name' => 'Filterable',   'thumb' => post_grid_plugin_url . 'assets/images/filterable.png',);
+    $view_types['glossary'] = array('name' => 'Glossary',  'thumb' => post_grid_plugin_url . 'assets/images/glossary.png',);
+    $view_types['slider'] = array('name' => 'Carousel',   'thumb' => post_grid_plugin_url . 'assets/images/carousel.png',);
 
 
 
