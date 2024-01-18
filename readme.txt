@@ -137,6 +137,10 @@ then paste this shortcode anywhere in your page to display grid<br />
 
 == Changelog ==
 
+
+   = 3.3.12  =
+    * 2024-01-11 fix  - undefined array key issue fixed.
+
    = 3.3.11  =
     * 2023-04-15 fix  - Query author by logged-in user added.
     * 2023-04-15 fix  - More block premium arguments added
