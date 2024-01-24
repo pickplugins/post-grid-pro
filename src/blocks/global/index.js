@@ -1862,7 +1862,6 @@ addFilter("postGridPopupCloseAnimation", "post-grid/popup", function (options) {
 	return popupCloseAnimatePro;
 });
 
-
 /*
 Icon/Button/Link Block Filter Hook Start 
 */
@@ -1883,33 +1882,24 @@ const iconLinkToPro = {
 	customUrl: { label: "Custom URL", value: "customUrl" },
 };
 
-addFilter(
-	"postGridIconLinkTo",
-	"post-grid/icon",
-	function (options) {
-		return iconLinkToPro;
-	}
-);
+addFilter("postGridIconLinkTo", "post-grid/icon", function (options) {
+	return iconLinkToPro;
+});
 
 // icon text source
 
 const iconTextSourcePro = {
 	siteTitle: { label: "Site Title", value: "siteTitle" },
-			tagline: { label: "Tag line", value: "tagline" },
-			siteUrl: { label: "Site URL", value: "siteUrl" },
-			currentYear: { label: "Current Year", value: "currentYear" },
-			currentDate: { label: "Current Date", value: "currentDate", },
-			postTitle: { label: "Post Title", value: "postTitle", },
+	tagline: { label: "Tag line", value: "tagline" },
+	siteUrl: { label: "Site URL", value: "siteUrl" },
+	currentYear: { label: "Current Year", value: "currentYear" },
+	currentDate: { label: "Current Date", value: "currentDate" },
+	postTitle: { label: "Post Title", value: "postTitle" },
 };
 
-addFilter(
-	"postGridIconTextSource",
-	"post-grid/icon",
-	function (options) {
-		return iconTextSourcePro;
-	}
-);
-
+addFilter("postGridIconTextSource", "post-grid/icon", function (options) {
+	return iconTextSourcePro;
+});
 
 /*
 Date Countdown Block Filter Hook Start 
@@ -1919,38 +1909,35 @@ Date Countdown Block Filter Hook Start
 
 const dateCountdownExpiredArgsPro = {
 	redirectURL: {
-				label: "Redirect URL",
-				description: "Visible as soon as possible",
-				args: { id: "redirectURL", value: "", delay: "" },
-			},
-			wcHideCartButton: {
-				label: "Hide Cart Button",
-				description: "Visible as soon as possible",
-				args: { id: "wcHideCartButton" },
-				
-			},
-			showExpiredMsg: {
-				label: "Show Expired Message",
-				description: "Visible as soon as possible",
-				args: { id: "showExpiredMsg" },
-			},
-			hideCountdown: {
-				label: "Hide Countdown",
-				description: "Visible as soon as possible",
-				args: { id: "hideCountdown" },
-			},
-			showElement: {
-				label: "Show Element",
-				description: "Visible as soon as possible",
-				args: { id: "showElement", value: "" },
-				
-			},
-			showPopup: {
-				label: "Show Popup",
-				description: "Visible as soon as possible",
-				args: { id: "showPopup" },
-				
-			},
+		label: "Redirect URL",
+		description: "Visible as soon as possible",
+		args: { id: "redirectURL", value: "", delay: "" },
+	},
+	wcHideCartButton: {
+		label: "Hide Cart Button",
+		description: "Visible as soon as possible",
+		args: { id: "wcHideCartButton" },
+	},
+	showExpiredMsg: {
+		label: "Show Expired Message",
+		description: "Visible as soon as possible",
+		args: { id: "showExpiredMsg" },
+	},
+	hideCountdown: {
+		label: "Hide Countdown",
+		description: "Visible as soon as possible",
+		args: { id: "hideCountdown" },
+	},
+	showElement: {
+		label: "Show Element",
+		description: "Visible as soon as possible",
+		args: { id: "showElement", value: "" },
+	},
+	showPopup: {
+		label: "Show Popup",
+		description: "Visible as soon as possible",
+		args: { id: "showPopup" },
+	},
 };
 
 addFilter(
@@ -1980,7 +1967,6 @@ addFilter(
 // 	}
 // );
 
-
 /*
 Image Block Filter Hook Start 
 */
@@ -1996,22 +1982,17 @@ const altTextSrcPro = {
 	imgSlug: { label: "Image Slug", value: "imgSlug" },
 	postTitle: { label: "Post Title", value: "postTitle" },
 	postSlug: { label: "Post Slug", value: "postSlug" },
-	excerpt: { label: "Post Excerpt", value: "excerpt"},
+	excerpt: { label: "Post Excerpt", value: "excerpt" },
 	customField: {
 		label: "Post Custom Field",
 		value: "customField",
-		
 	},
-	custom: { label: "Custom", value: "custom", },
+	custom: { label: "Custom", value: "custom" },
 };
 
-addFilter(
-	"postGridImageAltText",
-	"post-grid/image",
-	function (options) {
-		return altTextSrcPro;
-	}
-);
+addFilter("postGridImageAltText", "post-grid/image", function (options) {
+	return altTextSrcPro;
+});
 
 // title text
 
@@ -2024,22 +2005,17 @@ const titleTextSrcPro = {
 	imgSlug: { label: "Image Slug", value: "imgSlug" },
 	postTitle: { label: "Post Title", value: "postTitle" },
 	postSlug: { label: "Post Slug", value: "postSlug" },
-	excerpt: { label: "Post Excerpt", value: "excerpt"},
+	excerpt: { label: "Post Excerpt", value: "excerpt" },
 	customField: {
 		label: "Post Custom Field",
 		value: "customField",
-		
 	},
-	custom: { label: "Custom", value: "custom", },
+	custom: { label: "Custom", value: "custom" },
 };
 
-addFilter(
-	"postGridImageTitleText",
-	"post-grid/image",
-	function (options) {
-		return titleTextSrcPro;
-	}
-);
+addFilter("postGridImageTitleText", "post-grid/image", function (options) {
+	return titleTextSrcPro;
+});
 
 // icon text source
 
@@ -2055,10 +2031,6 @@ const imageLinkToPro = {
 	customUrl: { label: "Custom URL", value: "customUrl" },
 };
 
-addFilter(
-	"postGridImageLinkTo",
-	"post-grid/image",
-	function (options) {
-		return imageLinkToPro;
-	}
-);
+addFilter("postGridImageLinkTo", "post-grid/image", function (options) {
+	return imageLinkToPro;
+});
