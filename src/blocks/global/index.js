@@ -2034,3 +2034,33 @@ const imageLinkToPro = {
 addFilter("postGridImageLinkTo", "post-grid/image", function (options) {
 	return imageLinkToPro;
 });
+
+/*
+Total Sale Block Filter Hook Start 
+*/
+
+// woo-total-sale link to
+
+const wooTotalSaleLinkToPro = {
+	noUrl: { label: "No URL", value: "" },
+	postUrl: { label: "Post URL", value: "postUrl" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	archiveDate: { label: "Date Archive", value: "archiveDate" },
+	archiveYear: { label: "Year Archive", value: "archiveYear" },
+	archiveMonth: { label: "Month Archive", value: "archiveMonth" },
+
+	authorUrl: { label: "Author URL", value: "authorUrl" },
+	authorLink: { label: "Author Link", value: "authorLink" },
+	authorMail: { label: "Author Mail", value: "authorMail" },
+	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	customField: { label: "Custom Field", value: "customField" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter(
+	"postGridWooTotalSaleLinkTo",
+	"post-grid/woo-total-sale",
+	function (options) {
+		return wooTotalSaleLinkToPro;
+	}
+);
