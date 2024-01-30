@@ -722,52 +722,6 @@ const {
 
 /*
 
-link To Arguments
-*/
-
-const linkToArgsPro = {
-  noUrl: {
-    label: "No URL",
-    value: ""
-  },
-  postUrl: {
-    label: "Post URL",
-    value: "postUrl"
-  },
-  homeUrl: {
-    label: "Home URL",
-    value: "homeUrl"
-  },
-  authorUrl: {
-    label: "Author URL",
-    value: "authorUrl"
-  },
-  authorLink: {
-    label: "Author Link",
-    value: "authorLink"
-  },
-  authorMail: {
-    label: "Author Mail",
-    value: "authorMail"
-  },
-  authorMeta: {
-    label: "Author Meta",
-    value: "authorMeta"
-  },
-  customField: {
-    label: "Custom Field",
-    value: "customField"
-  },
-  customUrl: {
-    label: "Custom URL",
-    value: "customUrl"
-  }
-};
-addFilter("linkToArgs", "post-grid/linkToArgs", function (options) {
-  return linkToArgsPro;
-});
-/*
-
 link To Arguments Terms
 */
 
@@ -832,265 +786,6 @@ const pgDateCountdownTypesPro = {
 };
 addFilter("pgDateCountdownTypes", "post-grid/pgDateCountdownTypes", function (options) {
   return pgDateCountdownTypesPro;
-});
-const visibleArgsPro = {
-  initial: {
-    label: "Initial",
-    description: "Visble as soon as possible",
-    args: {
-      id: "initial",
-      value: 5
-    }
-  },
-  delay: {
-    label: "Delay",
-    description: "Delay certain amount of time after page load.",
-    args: {
-      id: "delay",
-      value: 1000
-    }
-  },
-  scrollParcent: {
-    label: "Scroll Parcent",
-    description: "After certain amount(parcent) of scroll",
-    args: {
-      id: "scrollParcent",
-      min: "30",
-      max: 50
-    }
-  },
-  scrollFixed: {
-    label: "Scroll Fixed",
-    description: "After fixed amount of scroll",
-    args: {
-      id: "scrollFixed",
-      min: "30",
-      max: 50
-    }
-  },
-  scrollEnd: {
-    label: "Scroll End",
-    description: "Scroll to end of page",
-    args: {
-      id: "scrollEnd",
-      min: "30",
-      max: 50
-    }
-  },
-  scrollElement: {
-    label: "Scroll Element",
-    description: "Scroll to certain element by class or id",
-    args: {
-      id: "scrollElement",
-      value: ""
-    }
-  },
-  clickFirst: {
-    label: "Click First",
-    description: "After first click on page",
-    args: {
-      id: "clickFirst",
-      value: 1
-    }
-  },
-  clickCount: {
-    label: "Click Count",
-    description: "After certain amount of click on page",
-    args: {
-      id: "clickCount",
-      value: 5
-    }
-  },
-  clickRight: {
-    label: "Click Right",
-    description: "on right click",
-    args: {
-      id: "clickRight",
-      value: 0
-    }
-  },
-  onExit: {
-    label: "On Exit",
-    description: "before close browser tab.",
-    args: {
-      id: "onExit",
-      value: 1
-    }
-  },
-  clickElement: {
-    label: "Click Element",
-    description: "After click an element by id or class",
-    args: {
-      id: "clickElement",
-      value: ""
-    }
-  },
-  dateCountdownExpired: {
-    label: "Date Countdown Expired",
-    description: "After expired from date countdown block",
-    args: {
-      id: "dateCountdownExpired",
-      value: "",
-      once: false
-    }
-  },
-  // onHover: { label: 'On Hover', description: 'Display popup on hover an element', args: { id: 'onHover', value: '' } },
-  // isDevice: { label: 'Device', description: 'Display popup based on device', args: { id: 'isDevice', value: '' } },
-  // isDate: { label: 'Is Date', description: 'Display popup based on date', args: { id: 'isDate', value: '', start: '', end: '' } },
-  // visitCount: { label: 'Visit Count', description: 'Display popup based on date', args: { id: 'visitCount', value: '', compair: '' } },
-  // isCountries: { label: 'Is Country', description: 'Display popup based on countries', args: { id: 'isCountries', value: '' } },
-  // isBrowsers: { label: 'Is browsers', description: 'Display popup based on browsers', args: { id: 'isBrowsers', value: '' } },
-
-  cookieExist: {
-    label: "Cookie Exist",
-    description: "If certain cookie exist",
-    args: {
-      id: "cookieExist",
-      value: ""
-    }
-  },
-  cookieNotExist: {
-    label: "Cookie Not Exist",
-    description: "If certain cookie not exist",
-    args: {
-      id: "cookieNotExist",
-      value: ""
-    }
-  },
-  userLogged: {
-    label: "User Logged",
-    description: "Show when user logged-in(any user)",
-    args: {
-      id: "userLogged",
-      value: ""
-    }
-  },
-  userIds: {
-    label: "User Ids",
-    description: "If user with certain id loggedin",
-    args: {
-      id: "userIds",
-      value: ""
-    }
-  },
-  // postsIds: { label: 'Post Ids', description: 'Display popups on single post/page by ids', args: { id: 'postsIds', value: '' }, },
-  // termIds: { label: 'Term Ids', description: 'Display popups on terms page by ids', args: { id: 'postsIds', value: '' }, },
-  // authorIds: { label: 'Author Ids', description: 'Display popups on author page by ids', args: { id: 'postsIds', value: '' }, },
-  // homePage: { label: 'Is Home', description: 'Display popups on home  page', args: { id: 'homePage', value: '' }, },
-
-  // frontPage: { label: 'Is Home', description: 'Display popups on home  page', args: { id: 'frontPage', value: '' }, },
-  // postsPage: { label: 'Is Posts Page', description: 'Display popups on blog  page', args: { id: 'postsPage', value: '' }, },
-  // isDate: { label: 'Is Date Page', description: 'Display popups on date archive  page', args: { id: 'isDate', value: '' }, },
-  // isMonth: { label: 'Is Date Page', description: 'Display popups on month archive  page', args: { id: 'isMonth', value: '' }, },
-  // isYear: { label: 'Is Date Page', description: 'Display popups on year archive page', args: { id: 'isYear', value: '' }, },
-  // is404: { label: 'Is Date Page', description: 'Display popups on 404 archive page', args: { id: 'is404', value: '' }, },
-
-  // wcAccount: { label: 'Is WooCommerce Account', description: 'Display popups on WooCommerce my account page', args: { id: 'wcAccount', value: '' }, },
-  // wcShop: { label: 'Is WooCommerce Shop', description: 'Display popups on WooCommerce shop page', args: { id: 'wcShop', value: '' }, },
-  // searchPage: { label: 'Is Search page', description: 'Display popups on search page', args: { id: 'searchPage', value: '' }, },
-
-  urlPrams: {
-    label: "URL Prams",
-    description: "If URL contain certain parameter(ex: domain.com/some-page?urlPram=pramVal)",
-    args: {
-      id: "urlPrams",
-      value: ""
-    }
-  },
-  referrerExist: {
-    label: "Referrer Exist",
-    description: "if visitor come from external website.",
-    args: {
-      id: "referrerExist",
-      value: ""
-    }
-  }
-};
-addFilter("visibleArgs", "post-grid/visibleArgs", function (options) {
-  return visibleArgsPro;
-});
-const formVisbleArgsPro = {
-  userLogged: {
-    label: "User Logged",
-    description: "Show when user logged-in(any user)",
-    args: {
-      id: "userLogged",
-      value: ""
-    }
-  },
-  userNotLogged: {
-    label: "User Not Logged",
-    description: "Show when user Not logged-in.",
-    args: {
-      id: "userNotLogged",
-      value: ""
-    }
-  },
-  userRoles: {
-    label: "User Roles",
-    description: "Show when user has specific roles.",
-    args: {
-      id: "userRoles",
-      roles: []
-    }
-  },
-  isYears: {
-    label: "is Years",
-    description: "Show when specific Years",
-    args: {
-      id: "isYears",
-      value: "",
-      values: "",
-      compare: "="
-    }
-  },
-  isMonths: {
-    label: "is Months",
-    description: "Show when specific months",
-    args: {
-      id: "isMonths",
-      value: "",
-      values: [],
-      compare: "="
-    }
-  },
-  weekDays: {
-    label: "is Week day",
-    description: "Show when specific week days",
-    args: {
-      id: "weekDays",
-      value: "",
-      values: [],
-      compare: "="
-    }
-  },
-  isHours: {
-    label: "is Hours",
-    description: "Show when specific hours",
-    args: {
-      id: "isHours",
-      value: "",
-      values: [],
-      compare: "="
-    }
-  },
-  //isMinutes: { label: 'is Minutes', description: 'Show when specific Minutes', args: { id: 'isMinutes', value: '', values: [], compare: '=' }, isPro:true },
-  isDate: {
-    label: "is Date",
-    description: "Show when specific date",
-    args: {
-      id: "isDate",
-      value: "",
-      values: [],
-      compare: "="
-    }
-  }
-
-  // submitCount: { label: 'Submit Count', description: 'Visible under specific submit count', args: { id: 'submitCount', value: '' }, isPro:true },
-};
-
-addFilter("pgFormvisibleArgs", "post-grid/pgFormvisibleArgs", function (options) {
-  return formVisbleArgsPro;
 });
 
 /*
@@ -1595,6 +1290,34 @@ const sudoScourceArgsPro = {
     label: "Selection",
     value: "selection"
   },
+  ":marker": {
+    label: "Marker",
+    value: ":marker"
+  },
+  "nth-child(even)": {
+    label: "nth-child(even)",
+    value: "nth-child(even)"
+  },
+  "nth-child(odd)": {
+    label: "nth-child(odd)",
+    value: "nth-child(odd)"
+  },
+  "nth-child(2)": {
+    label: "nth-child(2)",
+    value: "nth-child(2)"
+  },
+  "nth-child(3)": {
+    label: "nth-child(3)",
+    value: "nth-child(3)"
+  },
+  "nth-child(4)": {
+    label: "nth-child(4)",
+    value: "nth-child(4)"
+  },
+  "nth-child(5)": {
+    label: "nth-child(5)",
+    value: "nth-child(5)"
+  },
   "first-child": {
     label: "First-child",
     value: "first-child"
@@ -1611,9 +1334,7 @@ const sudoScourceArgsPro = {
     label: "First-line",
     value: "first-line"
   }
-  //custom: { label: 'Custom', value: '' },
 };
-
 addFilter("sudoScourceArgs", "post-grid/sudoScourceArgs", function (options) {
   return sudoScourceArgsPro;
 });
@@ -2248,70 +1969,61 @@ addFilter("iconPositonArgs", "post-grid/iconPositonArgs", function (options) {
   return iconPositonArgsPro;
 });
 
-// number counter
-const numberCounterIconPositionPro = {
-  none: {
-    label: "Choose Position",
-    value: ""
-  },
-  beforePrefix: {
-    label: "Before Prefix",
-    value: "beforePrefix"
-  },
-  afterPrefix: {
-    label: "After Prefix",
-    value: "afterPrefix"
-  },
-  beforePostfix: {
-    label: "Before PostFix",
-    value: "beforePostfix"
-  },
-  afterPostfix: {
-    label: "After PostFix",
-    value: "afterPostfix"
-  }
-};
-addFilter("postGridNumberCounterIconPosition", "post-grid/number-counter", function (options) {
-  return numberCounterIconPositionPro;
-});
-
-// post taxonomies
-
-var postTaxonomiesIconPositionPro = {
-  none: {
-    label: "Choose Position",
-    value: ""
-  },
-  beforeFronttext: {
-    label: "Before Front text",
-    value: "beforeFronttext"
-  },
-  afterFronttext: {
-    label: "After Front text",
-    value: "afterFronttext"
-  },
-  beforeItems: {
-    label: "Before Items",
-    value: "beforeItems"
-  },
-  afterItems: {
-    label: "After Items",
-    value: "afterItems"
-  },
-  beforeItem: {
-    label: "Before Each Items",
-    value: "beforeItem"
-  },
-  afterItem: {
-    label: "After Each Items",
-    value: "afterItem"
-  }
-};
-addFilter("postGridPostTaxonomiesIconPosition", "post-grid/post-taxonomies", function (options) {
-  return postTaxonomiesIconPositionPro;
-});
-
 // icon position End
+
+/*
+
+link To Arguments
+
+*/
+
+const linkToArgsPro = {
+  noUrl: {
+    label: "No URL",
+    value: ""
+  },
+  postUrl: {
+    label: "Post URL",
+    value: "postUrl"
+  },
+  homeUrl: {
+    label: "Home URL",
+    value: "homeUrl"
+  },
+  authorUrl: {
+    label: "Author URL",
+    value: "authorUrl"
+  },
+  authorLink: {
+    label: "Author Link",
+    value: "authorLink"
+  },
+  authorMail: {
+    label: "Author Mail",
+    value: "authorMail"
+  },
+  authorMeta: {
+    label: "Author Meta",
+    value: "authorMeta"
+  },
+  customField: {
+    label: "Custom Field",
+    value: "customField"
+  },
+  customUrl: {
+    label: "Custom URL",
+    value: "customUrl"
+  }
+};
+addFilter("linkToArgs", "post-grid/linkToArgs", function (options) {
+  return linkToArgsPro;
+});
+
+/*
+
+link To Arguments
+
+*/
 
 // Wrapper Tag Start
 const flexWrapItemWrapperTagArgsPro = {
@@ -2600,7 +2312,7 @@ addFilter("wordpressOrgThemeFieldList", "post-grid/wordpress-org", function (opt
 
 // wordpress-org plugin and theme Fields
 
-// class picker filter 
+// class picker filter
 
 var customTagsPro = {
   currentYear: {
@@ -2640,27 +2352,27 @@ var customTagsPro = {
   },
   termId: {
     label: "Term Id",
-    id: '{termId}',
+    id: "{termId}",
     value: "123"
   },
   termTitle: {
     label: "Term Title",
-    id: '{termTitle}',
+    id: "{termTitle}",
     value: "Hello Term Title"
   },
   termDescription: {
     label: "Term Description",
-    id: '{termDescription}',
+    id: "{termDescription}",
     value: "Hello term description"
   },
   termPostCount: {
     label: "Term Post Count",
-    id: '{termPostCount}',
+    id: "{termPostCount}",
     value: "123"
   },
   postTagTitle: {
     label: "Post Tag Title",
-    id: '{postTagTitle}',
+    id: "{postTagTitle}",
     value: "sports"
   },
   postTagsTitle: {
@@ -2670,7 +2382,7 @@ var customTagsPro = {
   },
   postCategoryTitle: {
     label: "Post Category Title",
-    id: '{postCategoryTitle}',
+    id: "{postCategoryTitle}",
     value: "sports"
   },
   postCategoriesTitle: {
@@ -2690,52 +2402,52 @@ var customTagsPro = {
   },
   postSlug: {
     label: "Post Slug",
-    id: '{postSlug}',
+    id: "{postSlug}",
     value: "post-slug"
   },
   postId: {
     label: "Post ID",
-    id: '{postID}',
+    id: "{postID}",
     value: "123"
   },
   postStatus: {
     label: "Post Status",
-    id: '{postStatus}',
+    id: "{postStatus}",
     value: "published"
   },
   authorId: {
     label: "Author Id",
-    id: '{authorId}',
+    id: "{authorId}",
     value: "123"
   },
   authorName: {
     label: "Author Name",
-    id: '{authorName}',
+    id: "{authorName}",
     value: "hello author"
   },
   authorFirstName: {
     label: "Author FirstName",
-    id: '{authorFirstName}',
+    id: "{authorFirstName}",
     value: "first name"
   },
   authorLastName: {
     label: "Author Last Name",
-    id: '{authorLastName}',
+    id: "{authorLastName}",
     value: "last name"
   },
   authorDescription: {
     label: "Author Description",
-    id: '{authorDescription}',
+    id: "{authorDescription}",
     value: "Hello author description"
   },
   excerpt: {
     label: "Post Excerpt",
-    id: '{excerpt}',
+    id: "{excerpt}",
     value: "hello excerpt"
   },
   rankmathTitle: {
     label: "Rankmath Title",
-    id: '{rankmathTitle}',
+    id: "{rankmathTitle}",
     value: "Rank Math Title"
   },
   // rankmathPermalink: {
@@ -2745,12 +2457,12 @@ var customTagsPro = {
   // },
   rankmathDescription: {
     label: "Rankmath Description",
-    id: '{rankmathDescription}',
+    id: "{rankmathDescription}",
     value: "Rank Math Description"
   },
   rankmathFocusKeyword: {
     label: "Rankmath Focus Keyword",
-    id: '{rankmathFocusKeyword}',
+    id: "{rankmathFocusKeyword}",
     value: "Rank Math Focus Keyword"
   },
   // rankmathFocusKeywords: {
@@ -2760,27 +2472,27 @@ var customTagsPro = {
   // },
   rankmathOrgname: {
     label: "Rankmath Org name",
-    id: '{rankmathOrgname}',
+    id: "{rankmathOrgname}",
     value: "Rank Math Org Name"
   },
   rankmathOrgurl: {
     label: "Rankmath Org URL",
-    id: '{rankmathOrgurl}',
+    id: "{rankmathOrgurl}",
     value: "https://hello.world"
   },
   rankmathOrglogo: {
     label: "Rankmath Org logo",
-    id: '{rankmathOrglogo}',
+    id: "{rankmathOrglogo}",
     value: ""
   },
   siteTitle: {
     label: "Site Title",
-    id: '{siteTitle}',
+    id: "{siteTitle}",
     value: "WordPress"
   },
   siteDescription: {
     label: "Site Description",
-    id: '{siteDescription}',
+    id: "{siteDescription}",
     value: "Hello site description"
   },
   // siteTagline: { label: "Site Tagline", id: '{siteTagline}', value: "" },
@@ -2796,7 +2508,7 @@ var customTagsPro = {
   },
   searchTerms: {
     label: "Search Terms",
-    id: '{searchTerms}',
+    id: "{searchTerms}",
     value: "hello search terms"
   }
   // counter: { label: "Counter", id: '{counter}', value: "" },
@@ -2807,6 +2519,1742 @@ addFilter("postGridClassPickerFilter", "post-grid/component/classPicker", functi
 });
 
 // class picker filter
+
+/*
+Post Taxonomies Block Filter Hook Start 
+*/
+
+// post taxonomies Icon
+
+var postTaxonomiesIconPositionPro = {
+  none: {
+    label: "Choose Position",
+    value: ""
+  },
+  beforeFronttext: {
+    label: "Before Front text",
+    value: "beforeFronttext"
+  },
+  afterFronttext: {
+    label: "After Front text",
+    value: "afterFronttext"
+  },
+  beforeItems: {
+    label: "Before Items",
+    value: "beforeItems"
+  },
+  afterItems: {
+    label: "After Items",
+    value: "afterItems"
+  },
+  beforeItem: {
+    label: "Before Each Items",
+    value: "beforeItem"
+  },
+  afterItem: {
+    label: "After Each Items",
+    value: "afterItem"
+  }
+};
+addFilter("postGridPostTaxonomiesIconPosition", "post-grid/post-taxonomies", function (options) {
+  return postTaxonomiesIconPositionPro;
+});
+
+// post-taxonomies link to
+
+const postTaxonomiesLinkToPro = {
+  noUrl: {
+    label: "No URL",
+    value: ""
+  },
+  termUrl: {
+    label: "Term URL",
+    value: "termUrl"
+  },
+  postUrl: {
+    label: "Post URL",
+    value: "postUrl"
+  },
+  homeUrl: {
+    label: "Home URL",
+    value: "homeUrl"
+  },
+  authorUrl: {
+    label: "Author URL",
+    value: "authorUrl"
+  },
+  authorLink: {
+    label: "Author Link",
+    value: "authorLink"
+  },
+  authorMail: {
+    label: "Author Mail",
+    value: "authorMail"
+  },
+  authorMeta: {
+    label: "Author Meta",
+    value: "authorMeta"
+  },
+  customField: {
+    label: "Custom Field",
+    value: "customField"
+  },
+  customUrl: {
+    label: "Custom URL",
+    value: "customUrl"
+  }
+};
+addFilter("postGridPostTaxonomiesLinkTo", "post-grid/post-taxonomies", function (options) {
+  return postTaxonomiesLinkToPro;
+});
+
+/*
+Post Tags Block Filter Hook Start 
+*/
+
+// post-tags icon position
+
+var postTagsIconPositionPro = {
+  none: {
+    label: "Choose Position",
+    value: ""
+  },
+  beforeFronttext: {
+    label: "Before Front text",
+    value: "beforeFronttext"
+  },
+  afterFronttext: {
+    label: "After Front text",
+    value: "afterFronttext"
+  },
+  beforeItems: {
+    label: "Before Items",
+    value: "beforeItems"
+  },
+  afterItems: {
+    label: "After Items",
+    value: "afterItems"
+  },
+  beforeItem: {
+    label: "Before Each Items",
+    value: "beforeItem"
+  },
+  afterItem: {
+    label: "After Each Items",
+    value: "afterItem"
+  }
+};
+addFilter("postGridPostTagsIconPosition", "post-grid/post-tags", function (options) {
+  return postTagsIconPositionPro;
+});
+
+// post-tags link to
+
+const postTagsLinkToPro = {
+  noUrl: {
+    label: "No URL",
+    value: ""
+  },
+  termUrl: {
+    label: "Term URL",
+    value: "termUrl"
+  },
+  postUrl: {
+    label: "Post URL",
+    value: "postUrl"
+  },
+  homeUrl: {
+    label: "Home URL",
+    value: "homeUrl"
+  },
+  authorUrl: {
+    label: "Author URL",
+    value: "authorUrl"
+  },
+  authorLink: {
+    label: "Author Link",
+    value: "authorLink"
+  },
+  authorMail: {
+    label: "Author Mail",
+    value: "authorMail"
+  },
+  authorMeta: {
+    label: "Author Meta",
+    value: "authorMeta"
+  },
+  customField: {
+    label: "Custom Field",
+    value: "customField"
+  },
+  customUrl: {
+    label: "Custom URL",
+    value: "customUrl"
+  }
+};
+addFilter("postGridPostTagsLinkTo", "post-grid/post-tags", function (options) {
+  return postTagsLinkToPro;
+});
+
+/*
+Post Date Block Filter Hook Start 
+*/
+
+// post-date icon position
+
+var postDateIconPositionPro = {
+  none: {
+    label: "Choose Position",
+    value: ""
+  },
+  beforePostDate: {
+    label: "Before Post Date",
+    value: "beforePostDate"
+  },
+  afterPostDate: {
+    label: "After Post Date",
+    value: "afterPostDate"
+  },
+  beforePrefix: {
+    label: "Before Prefix",
+    value: "beforePrefix"
+  },
+  afterPrefix: {
+    label: "After Prefix",
+    value: "afterPrefix"
+  },
+  beforePostfix: {
+    label: "Before PostFix",
+    value: "beforePostfix"
+  },
+  afterPostfix: {
+    label: "After PostFix",
+    value: "afterPostfix"
+  }
+};
+addFilter("postGridPostDateIconPosition", "post-grid/post-date", function (options) {
+  return postDateIconPositionPro;
+});
+
+// post-date link to
+
+const postDateLinkToPro = {
+  postUrl: {
+    label: "Post URL",
+    value: "postUrl"
+  },
+  homeUrl: {
+    label: "Home URL",
+    value: "homeUrl"
+  },
+  archiveDate: {
+    label: "Date Archive",
+    value: "archiveDate"
+  },
+  archiveYear: {
+    label: "Year Archive",
+    value: "archiveYear"
+  },
+  archiveMonth: {
+    label: "Month Archive",
+    value: "archiveMonth"
+  },
+  authorUrl: {
+    label: "Author URL",
+    value: "authorUrl"
+  },
+  authorLink: {
+    label: "Author Link",
+    value: "authorLink"
+  },
+  authorMail: {
+    label: "Author Mail",
+    value: "authorMail"
+  },
+  authorMeta: {
+    label: "Author Meta",
+    value: "authorMeta"
+  },
+  customField: {
+    label: "Custom Field",
+    value: "customField"
+  },
+  customUrl: {
+    label: "Custom URL",
+    value: "customUrl"
+  }
+};
+addFilter("postGridPostDateLinkTo", "post-grid/post-date", function (options) {
+  return postDateLinkToPro;
+});
+
+/*
+Number Counter Block Filter Hook Start 
+*/
+
+// number counter icon position
+
+const numberCounterIconPositionPro = {
+  none: {
+    label: "Choose Position",
+    value: ""
+  },
+  beforePrefix: {
+    label: "Before Prefix",
+    value: "beforePrefix"
+  },
+  afterPrefix: {
+    label: "After Prefix",
+    value: "afterPrefix"
+  },
+  beforePostfix: {
+    label: "Before PostFix",
+    value: "beforePostfix"
+  },
+  afterPostfix: {
+    label: "After PostFix",
+    value: "afterPostfix"
+  }
+};
+addFilter("postGridNumberCounterIconPosition", "post-grid/number-counter", function (options) {
+  return numberCounterIconPositionPro;
+});
+
+/*
+Form Wrap Block Filter Hook Start 
+*/
+
+// form wrap form type
+
+var formWrapFormTypePro = {
+  contactForm: {
+    label: "Contact Form",
+    description: "Contact Form",
+    args: {
+      id: "contactForm"
+    }
+  },
+  loginForm: {
+    label: "Login Form",
+    description: "Login Form",
+    args: {
+      id: "loginForm"
+    }
+  },
+  registerForm: {
+    label: "Register Form",
+    description: "Register Form",
+    args: {
+      id: "registerForm"
+    }
+  },
+  postSubmitForm: {
+    label: "Post Submit Form",
+    description: "Post Submit Form",
+    args: {
+      id: "postSubmitForm"
+    }
+  },
+  // postUpdateForm: { label: 'Post Update Form', description: 'Post Update Form', args: { id: 'postUpdateForm', } },
+  termSubmitForm: {
+    label: "Term Submit Form",
+    description: "Term Submit Form",
+    args: {
+      id: "termSubmitForm"
+    }
+  },
+  // termUpdateForm: { label: 'Term Update Form', description: 'Term Update Form', args: { id: 'termUpdateForm', } },
+  // postMetaUpdate: { label: 'Post Meta Update', description: 'Post Meta Update', args: { id: 'postMetaUpdate', } },
+  commentSubmit: {
+    label: "Comment Submit Form",
+    description: "Post Comment Submit Form",
+    args: {
+      id: "commentSubmit"
+    }
+  },
+  // postCommentUpdateForm: { label: 'Post Comment Update Form', description: 'Post Comment Update Form', args: { id: 'postCommentUpdateForm', } },
+  // fileUploadForm: { label: 'File Upload Form', description: 'File Upload Form', args: { id: 'fileUploadForm', } },
+  //newsletterForm: { label: 'Newsletter Form', description: 'Newsletter Form', args: { id: 'newsletterForm', } },
+  optInForm: {
+    label: "Opt-In Form",
+    description: "Opt-In Form",
+    args: {
+      id: "optInForm"
+    }
+  },
+  postFilter: {
+    label: "Post Filter",
+    description: "Post Filter",
+    args: {
+      id: "postFilter"
+    }
+  },
+  appointmentForm: {
+    label: "Appointment Form",
+    description: "Appointment Form",
+    args: {
+      id: "appointmentForm"
+    }
+  }
+};
+addFilter("postGridFormWrapFormType", "post-grid/form-wrap", function (options) {
+  return formWrapFormTypePro;
+});
+
+// form wrap on process
+
+const formWrapOnProcessPro = {
+  sendMail: {
+    label: "Send Mail",
+    description: "Send Mail",
+    args: {
+      id: "sendMail",
+      mailTo: "",
+      bcc: ""
+    }
+  },
+  emailBcc: {
+    label: "Send BCC",
+    description: "Send BCC",
+    args: {
+      id: "emailBcc",
+      message: ""
+    }
+  },
+  emailCopyUser: {
+    label: "Email Copy User",
+    description: "Email Copy User",
+    args: {
+      id: "emailCopyUser",
+      message: ""
+    }
+  },
+  autoReply: {
+    label: "Auto Reply",
+    description: "Auto Reply",
+    args: {
+      id: "autoReply",
+      message: ""
+    }
+  },
+  // Login Form
+  loggedInUser: {
+    label: "Logged in user",
+    description: "Logged in user",
+    args: {
+      id: "loggedInUser",
+      message: ""
+    }
+  },
+  // Register Form
+  registerUser: {
+    label: "Register user",
+    description: "Register user",
+    args: {
+      id: "registerUser",
+      message: ""
+    }
+  },
+  //registerUserMail: { label: 'Register user mail', description: 'Register user mail', args: { id: 'registerUserMail', mailTo: '', bcc: '', } },
+
+  // Post Submit form
+  postSubmit: {
+    label: "Create Post",
+    description: "Create Post",
+    args: {
+      id: "postSubmit",
+      postType: ""
+    }
+  },
+  commentSubmit: {
+    label: "Comment Submit",
+    description: "Comment Submit",
+    args: {
+      id: "commentSubmit",
+      loginRequired: false
+    }
+  },
+  termSubmit: {
+    label: "Term Submit",
+    description: "Term Submit",
+    args: {
+      id: "termSubmit",
+      postType: ""
+    }
+  },
+  // For All type form
+  createEntry: {
+    label: "Create Entry",
+    description: "Create Entry",
+    args: {
+      id: "createEntry",
+      message: ""
+    }
+  },
+  newsletterSubmit: {
+    label: "Newsletter Submit",
+    description: "Newsletter Submit",
+    args: {
+      id: "newsletterSubmit",
+      message: ""
+    }
+  },
+  // third-parties
+  fluentcrmAddContact: {
+    label: "Fluentcrm - Add Contact",
+    description: "Add to Fluentcrm Contacts list",
+    args: {
+      id: "fluentcrmAddContact",
+      lists: [],
+      tags: [],
+      message: ""
+    }
+    // isPro: true,
+  },
+
+  mailpickerAddContact: {
+    label: "MailPicker - Add Contact",
+    description: "Add to MailPicker subscriber list",
+    args: {
+      id: "mailpickerAddContact",
+      lists: [],
+      tags: [],
+      message: ""
+    }
+    // isPro: true,
+  }
+};
+
+addFilter("postGridFormWrapOnProcess", "post-grid/form-wrap", function (options) {
+  return formWrapOnProcessPro;
+});
+
+// form wrap after submit
+
+const formWrapAfterSubmitPro = {
+  showResponse: {
+    label: "Show Response",
+    description: "Show Response Message",
+    args: {
+      id: "showResponse",
+      message: ""
+    }
+  },
+  redirectToURL: {
+    label: "Redirect To URL",
+    description: "Redirect To URL",
+    args: {
+      id: "redirectToURL",
+      value: ""
+    }
+  },
+  refreshPage: {
+    label: "Refresh Page",
+    description: "Refresh Page",
+    args: {
+      id: "refreshPage",
+      delay: ""
+    }
+  },
+  //loggedOut: { label: 'Logged Out', description: 'Logged out current user', args: { id: 'loggedOut', message: '' } },
+  //loggedIn: { label: 'Logged In', description: 'Logged in user', args: { id: 'loggedIn', message: '' } },
+  loggedOut: {
+    label: "Logged Out",
+    description: "Logged out current user",
+    args: {
+      id: "loggedOut",
+      redirect: ""
+    }
+  },
+  hideForm: {
+    label: "Hide Form",
+    description: "Hide Form",
+    args: {
+      id: "hideForm",
+      message: ""
+    }
+  },
+  clearForm: {
+    label: "Clear Form",
+    description: "Clear Form",
+    args: {
+      id: "clearForm",
+      message: ""
+    }
+  },
+  hidePopup: {
+    label: "Hide Popup",
+    description: "Hide Popup",
+    args: {
+      id: "hidePopup",
+      message: ""
+    }
+  }
+};
+addFilter("postGridFormWrapAfterSubmit", "post-grid/form-wrap", function (options) {
+  return formWrapAfterSubmitPro;
+});
+
+// form wrap visible args
+
+const formWrapVisibleArgsPro = {
+  userLogged: {
+    label: "User Logged",
+    description: "Show when user logged-in(any user)",
+    args: {
+      id: "userLogged",
+      value: ""
+    }
+  },
+  userNotLogged: {
+    label: "User Not Logged",
+    description: "Show when user Not logged-in.",
+    args: {
+      id: "userNotLogged",
+      value: ""
+    }
+  },
+  userRoles: {
+    label: "User Roles",
+    description: "Show when user has specific roles.",
+    args: {
+      id: "userRoles",
+      roles: []
+    }
+  },
+  isYears: {
+    label: "is Years",
+    description: "Show when specific Years",
+    args: {
+      id: "isYears",
+      value: "",
+      values: "",
+      compare: "="
+    }
+  },
+  isMonths: {
+    label: "is Months",
+    description: "Show when specific months",
+    args: {
+      id: "isMonths",
+      value: "",
+      values: [],
+      compare: "="
+    }
+  },
+  weekDays: {
+    label: "is Week day",
+    description: "Show when specific week days",
+    args: {
+      id: "weekDays",
+      value: "",
+      values: [],
+      compare: "="
+    }
+  },
+  isHours: {
+    label: "is Hours",
+    description: "Show when specific hours",
+    args: {
+      id: "isHours",
+      value: "",
+      values: [],
+      compare: "="
+    }
+  },
+  //isMinutes: { label: 'is Minutes', description: 'Show when specific Minutes', args: { id: 'isMinutes', value: '', values: [], compare: '=' }, isPro:true },
+  isDate: {
+    label: "is Date",
+    description: "Show when specific date",
+    args: {
+      id: "isDate",
+      value: "",
+      values: [],
+      compare: "="
+    }
+  }
+
+  // submitCount: { label: 'Submit Count', description: 'Visible under specific submit count', args: { id: 'submitCount', value: '' }, isPro:true },
+};
+
+addFilter("postGridFormWrapVisibleArgs", "post-grid/form-wrap", function (options) {
+  return formWrapVisibleArgsPro;
+});
+
+/*
+Popup Block Filter Hook Start 
+*/
+
+// popup visible args
+
+const popupVisibleArgsPro = {
+  initial: {
+    label: "Initial",
+    description: "Visble as soon as possible",
+    args: {
+      id: "initial",
+      value: 5
+    }
+  },
+  delay: {
+    label: "Delay",
+    description: "Delay certain amount of time after page load.",
+    args: {
+      id: "delay",
+      value: 1000
+    }
+  },
+  scrollParcent: {
+    label: "Scroll Parcent",
+    description: "After certain amount(parcent) of scroll",
+    args: {
+      id: "scrollParcent",
+      min: "30",
+      max: 50
+    }
+  },
+  scrollFixed: {
+    label: "Scroll Fixed",
+    description: "After fixed amount of scroll",
+    args: {
+      id: "scrollFixed",
+      min: "30",
+      max: 50
+    }
+  },
+  scrollEnd: {
+    label: "Scroll End",
+    description: "Scroll to end of page",
+    args: {
+      id: "scrollEnd",
+      min: "30",
+      max: 50
+    }
+  },
+  scrollElement: {
+    label: "Scroll Element",
+    description: "Scroll to certain element by class or id",
+    args: {
+      id: "scrollElement",
+      value: ""
+    }
+  },
+  clickFirst: {
+    label: "Click First",
+    description: "After first click on page",
+    args: {
+      id: "clickFirst",
+      value: 1
+    }
+  },
+  clickCount: {
+    label: "Click Count",
+    description: "After certain amount of click on page",
+    args: {
+      id: "clickCount",
+      value: 5
+    }
+  },
+  clickRight: {
+    label: "Click Right",
+    description: "on right click",
+    args: {
+      id: "clickRight",
+      value: 0
+    }
+  },
+  onExit: {
+    label: "On Exit",
+    description: "before close browser tab.",
+    args: {
+      id: "onExit",
+      value: 1
+    }
+  },
+  clickElement: {
+    label: "Click Element",
+    description: "After click an element by id or class",
+    args: {
+      id: "clickElement",
+      value: ""
+    }
+  },
+  dateCountdownExpired: {
+    label: "Date Countdown Expired",
+    description: "After expired from date countdown block",
+    args: {
+      id: "dateCountdownExpired",
+      value: "",
+      once: false
+    }
+  },
+  // onHover: { label: 'On Hover', description: 'Display popup on hover an element', args: { id: 'onHover', value: '' } },
+  // isDevice: { label: 'Device', description: 'Display popup based on device', args: { id: 'isDevice', value: '' } },
+  // isDate: { label: 'Is Date', description: 'Display popup based on date', args: { id: 'isDate', value: '', start: '', end: '' } },
+  // visitCount: { label: 'Visit Count', description: 'Display popup based on date', args: { id: 'visitCount', value: '', compair: '' } },
+  // isCountries: { label: 'Is Country', description: 'Display popup based on countries', args: { id: 'isCountries', value: '' } },
+  // isBrowsers: { label: 'Is browsers', description: 'Display popup based on browsers', args: { id: 'isBrowsers', value: '' } },
+
+  cookieExist: {
+    label: "Cookie Exist",
+    description: "If certain cookie exist",
+    args: {
+      id: "cookieExist",
+      value: ""
+    }
+  },
+  cookieNotExist: {
+    label: "Cookie Not Exist",
+    description: "If certain cookie not exist",
+    args: {
+      id: "cookieNotExist",
+      value: ""
+    }
+  },
+  userLogged: {
+    label: "User Logged",
+    description: "Show when user logged-in(any user)",
+    args: {
+      id: "userLogged",
+      value: ""
+    }
+  },
+  userIds: {
+    label: "User Ids",
+    description: "If user with certain id loggedin",
+    args: {
+      id: "userIds",
+      value: ""
+    }
+  },
+  // postsIds: { label: 'Post Ids', description: 'Display popups on single post/page by ids', args: { id: 'postsIds', value: '' }, },
+  // termIds: { label: 'Term Ids', description: 'Display popups on terms page by ids', args: { id: 'postsIds', value: '' }, },
+  // authorIds: { label: 'Author Ids', description: 'Display popups on author page by ids', args: { id: 'postsIds', value: '' }, },
+  // homePage: { label: 'Is Home', description: 'Display popups on home  page', args: { id: 'homePage', value: '' }, },
+
+  // frontPage: { label: 'Is Home', description: 'Display popups on home  page', args: { id: 'frontPage', value: '' }, },
+  // postsPage: { label: 'Is Posts Page', description: 'Display popups on blog  page', args: { id: 'postsPage', value: '' }, },
+  // isDate: { label: 'Is Date Page', description: 'Display popups on date archive  page', args: { id: 'isDate', value: '' }, },
+  // isMonth: { label: 'Is Date Page', description: 'Display popups on month archive  page', args: { id: 'isMonth', value: '' }, },
+  // isYear: { label: 'Is Date Page', description: 'Display popups on year archive page', args: { id: 'isYear', value: '' }, },
+  // is404: { label: 'Is Date Page', description: 'Display popups on 404 archive page', args: { id: 'is404', value: '' }, },
+
+  // wcAccount: { label: 'Is WooCommerce Account', description: 'Display popups on WooCommerce my account page', args: { id: 'wcAccount', value: '' }, },
+  // wcShop: { label: 'Is WooCommerce Shop', description: 'Display popups on WooCommerce shop page', args: { id: 'wcShop', value: '' }, },
+  // searchPage: { label: 'Is Search page', description: 'Display popups on search page', args: { id: 'searchPage', value: '' }, },
+
+  urlPrams: {
+    label: "URL Prams",
+    description: "If URL contain certain parameter(ex: domain.com/some-page?urlPram=pramVal)",
+    args: {
+      id: "urlPrams",
+      value: ""
+    }
+  },
+  referrerExist: {
+    label: "Referrer Exist",
+    description: "if visitor come from external website.",
+    args: {
+      id: "referrerExist",
+      value: ""
+    }
+  }
+};
+addFilter("postGridPopupVisibleArgs", "post-grid/popup", function (options) {
+  return popupVisibleArgsPro;
+});
+
+// popup entrance animation
+
+const popupEntranceAnimatePro = {
+  backInDown: {
+    label: "backInDown",
+    value: "backInDown"
+  },
+  backInLeft: {
+    label: "backInLeft",
+    value: "backInLeft"
+  },
+  backInRight: {
+    label: "backInRight",
+    value: "backInRight"
+  },
+  backInUp: {
+    label: "backInUp",
+    value: "backInUp"
+  },
+  bounceIn: {
+    label: "bounceIn",
+    value: "bounceIn"
+  },
+  bounceInDown: {
+    label: "bounceInDown",
+    value: "bounceInDown"
+  },
+  bounceInLeft: {
+    label: "bounceInLeft",
+    value: "bounceInLeft"
+  },
+  bounceInRight: {
+    label: "bounceInRight",
+    value: "bounceInRight"
+  },
+  bounceInUp: {
+    label: "bounceInUp",
+    value: "bounceInUp"
+  },
+  fadeIn: {
+    label: "fadeIn",
+    value: "fadeIn"
+  },
+  fadeInDown: {
+    label: "fadeInDown",
+    value: "fadeInDown"
+  },
+  fadeInDownBig: {
+    label: "fadeInDownBig",
+    value: "fadeInDownBig"
+  },
+  fadeInLeft: {
+    label: "fadeInLeft",
+    value: "fadeInLeft"
+  },
+  fadeInLeftBig: {
+    label: "fadeInLeftBig",
+    value: "fadeInLeftBig"
+  },
+  fadeInRight: {
+    label: "fadeInRight",
+    value: "fadeInRight"
+  },
+  fadeInRightBig: {
+    label: "fadeInRightBig",
+    value: "fadeInRightBig"
+  },
+  fadeInUp: {
+    label: "fadeInUp",
+    value: "fadeInUp"
+  },
+  fadeInUpBig: {
+    label: "fadeInUpBig",
+    value: "fadeInUpBig"
+  },
+  fadeInTopLeft: {
+    label: "fadeInTopLeft",
+    value: "fadeInTopLeft"
+  },
+  fadeInTopRight: {
+    label: "fadeInTopRight",
+    value: "fadeInTopRight"
+  },
+  fadeInBottomRight: {
+    label: "fadeInBottomRight",
+    value: "fadeInBottomRight"
+  },
+  fadeInBottomLeft: {
+    label: "fadeInBottomLeft",
+    value: "fadeInBottomLeft"
+  },
+  rotateIn: {
+    label: "rotateIn",
+    value: "rotateIn"
+  },
+  rotateInDownLeft: {
+    label: "rotateInDownLeft",
+    value: "rotateInDownLeft"
+  },
+  rotateInDownRight: {
+    label: "rotateInDownRight",
+    value: "rotateInDownRight"
+  },
+  rotateInUpLeft: {
+    label: "rotateInUpLeft",
+    value: "rotateInUpLeft"
+  },
+  rotateInUpRight: {
+    label: "rotateInUpRight",
+    value: "rotateInUpRight"
+  },
+  zoomIn: {
+    label: "zoomIn",
+    value: "zoomIn"
+  },
+  zoomInDown: {
+    label: "zoomInDown",
+    value: "zoomInDown"
+  },
+  zoomInLeft: {
+    label: "zoomInLeft",
+    value: "zoomInLeft"
+  },
+  zoomInRight: {
+    label: "zoomInRight",
+    value: "zoomInRight"
+  },
+  zoomInUp: {
+    label: "zoomInUp",
+    value: "zoomInUp"
+  },
+  slideInDown: {
+    label: "slideInDown",
+    value: "slideInDown"
+  },
+  slideInLeft: {
+    label: "slideInLeft",
+    value: "slideInLeft"
+  },
+  slideInRight: {
+    label: "slideInRight",
+    value: "slideInRight"
+  },
+  slideInUp: {
+    label: "slideInUp",
+    value: "slideInUp"
+  }
+};
+addFilter("postGridPopupEntranceAnimation", "post-grid/popup", function (options) {
+  return popupEntranceAnimatePro;
+});
+
+// popup close animation
+
+const popupCloseAnimatePro = {
+  backOutDown: {
+    label: "backOutDown",
+    value: "backOutDown"
+  },
+  backOutLeft: {
+    label: "backOutLeft",
+    value: "backOutLeft"
+  },
+  backOutRight: {
+    label: "backOutRight",
+    value: "backOutRight"
+  },
+  backOutUp: {
+    label: "backOutUp",
+    value: "backOutUp"
+  },
+  bounceOut: {
+    label: "bounceOut",
+    value: "bounceOut"
+  },
+  bounceOutDown: {
+    label: "bounceOutDown",
+    value: "bounceOutDown"
+  },
+  bounceOutLeft: {
+    label: "bounceOutLeft",
+    value: "bounceOutLeft"
+  },
+  bounceOutRight: {
+    label: "bounceOutRight",
+    value: "bounceOutRight"
+  },
+  bounceOutUp: {
+    label: "bounceOutUp",
+    value: "bounceOutUp"
+  },
+  fadeOut: {
+    label: "fadeOut",
+    value: "fadeOut"
+  },
+  fadeOutDown: {
+    label: "fadeOutDown",
+    value: "fadeOutDown"
+  },
+  fadeOutDownBig: {
+    label: "fadeOutDownBig",
+    value: "fadeOutDownBig"
+  },
+  fadeOutLeft: {
+    label: "fadeOutLeft",
+    value: "fadeOutLeft"
+  },
+  fadeOutLeftBig: {
+    label: "fadeOutLeftBig",
+    value: "fadeOutLeftBig"
+  },
+  fadeOutRight: {
+    label: "fadeOutRight",
+    value: "fadeOutRight"
+  },
+  fadeOutRightBig: {
+    label: "fadeOutRightBig",
+    value: "fadeOutRightBig"
+  },
+  fadeOutUp: {
+    label: "fadeOutUp",
+    value: "fadeOutUp"
+  },
+  fadeOutUpBig: {
+    label: "fadeOutUpBig",
+    value: "fadeOutUpBig"
+  },
+  fadeOutTopLeft: {
+    label: "fadeOutTopLeft",
+    value: "fadeOutTopLeft"
+  },
+  fadeOutTopRight: {
+    label: "fadeOutTopRight",
+    value: "fadeOutTopRight"
+  },
+  fadeOutBottomRight: {
+    label: "fadeOutBottomRight",
+    value: "fadeOutBottomRight"
+  },
+  fadeOutBottomLeft: {
+    label: "fadeOutBottomLeft",
+    value: "fadeOutBottomLeft"
+  },
+  rotateOut: {
+    label: "rotateOut",
+    value: "rotateOut"
+  },
+  rotateOutDownLeft: {
+    label: "rotateOutDownLeft",
+    value: "rotateOutDownLeft"
+  },
+  rotateOutDownRight: {
+    label: "rotateOutDownRight",
+    value: "rotateOutDownRight"
+  },
+  rotateOutUpLeft: {
+    label: "rotateOutUpLeft",
+    value: "rotateOutUpLeft"
+  },
+  rotateOutUpRight: {
+    label: "rotateOutUpRight",
+    value: "rotateOutUpRight"
+  },
+  zoomOut: {
+    label: "zoomOut",
+    value: "zoomOut"
+  },
+  zoomOutDown: {
+    label: "zoomOutDown",
+    value: "zoomOutDown"
+  },
+  zoomOutLeft: {
+    label: "zoomOutLeft",
+    value: "zoomOutLeft"
+  },
+  zoomOutRight: {
+    label: "zoomOutRight",
+    value: "zoomOutRight"
+  },
+  zoomOutUp: {
+    label: "zoomOutUp",
+    value: "zoomOutUp"
+  },
+  slideOutDown: {
+    label: "slideOutDown",
+    value: "slideOutDown"
+  },
+  slideOutLeft: {
+    label: "slideOutLeft",
+    value: "slideOutLeft"
+  },
+  slideOutRight: {
+    label: "slideOutRight",
+    value: "slideOutRight"
+  },
+  slideOutUp: {
+    label: "slideOutUp",
+    value: "slideOutUp"
+  }
+};
+addFilter("postGridPopupCloseAnimation", "post-grid/popup", function (options) {
+  return popupCloseAnimatePro;
+});
+
+/*
+Icon/Button/Link Block Filter Hook Start 
+*/
+
+// icon link to
+
+const iconLinkToPro = {
+  noUrl: {
+    label: "No URL",
+    value: ""
+  },
+  termUrl: {
+    label: "Term URL",
+    value: "termUrl"
+  },
+  postUrl: {
+    label: "Post URL",
+    value: "postUrl"
+  },
+  homeUrl: {
+    label: "Home URL",
+    value: "homeUrl"
+  },
+  authorUrl: {
+    label: "Author URL",
+    value: "authorUrl"
+  },
+  authorLink: {
+    label: "Author Link",
+    value: "authorLink"
+  },
+  authorMail: {
+    label: "Author Mail",
+    value: "authorMail"
+  },
+  authorMeta: {
+    label: "Author Meta",
+    value: "authorMeta"
+  },
+  customField: {
+    label: "Custom Field",
+    value: "customField"
+  },
+  customUrl: {
+    label: "Custom URL",
+    value: "customUrl"
+  }
+};
+addFilter("postGridIconLinkTo", "post-grid/icon", function (options) {
+  return iconLinkToPro;
+});
+
+// icon text source
+
+const iconTextSourcePro = {
+  siteTitle: {
+    label: "Site Title",
+    value: "siteTitle"
+  },
+  tagline: {
+    label: "Tag line",
+    value: "tagline"
+  },
+  siteUrl: {
+    label: "Site URL",
+    value: "siteUrl"
+  },
+  currentYear: {
+    label: "Current Year",
+    value: "currentYear"
+  },
+  currentDate: {
+    label: "Current Date",
+    value: "currentDate"
+  },
+  postTitle: {
+    label: "Post Title",
+    value: "postTitle"
+  }
+};
+addFilter("postGridIconTextSource", "post-grid/icon", function (options) {
+  return iconTextSourcePro;
+});
+
+/*
+Date Countdown Block Filter Hook Start 
+*/
+
+// icon link to
+
+const dateCountdownExpiredArgsPro = {
+  redirectURL: {
+    label: "Redirect URL",
+    description: "Visible as soon as possible",
+    args: {
+      id: "redirectURL",
+      value: "",
+      delay: ""
+    }
+  },
+  wcHideCartButton: {
+    label: "Hide Cart Button",
+    description: "Visible as soon as possible",
+    args: {
+      id: "wcHideCartButton"
+    }
+  },
+  showExpiredMsg: {
+    label: "Show Expired Message",
+    description: "Visible as soon as possible",
+    args: {
+      id: "showExpiredMsg"
+    }
+  },
+  hideCountdown: {
+    label: "Hide Countdown",
+    description: "Visible as soon as possible",
+    args: {
+      id: "hideCountdown"
+    }
+  },
+  showElement: {
+    label: "Show Element",
+    description: "Visible as soon as possible",
+    args: {
+      id: "showElement",
+      value: ""
+    }
+  },
+  showPopup: {
+    label: "Show Popup",
+    description: "Visible as soon as possible",
+    args: {
+      id: "showPopup"
+    }
+  }
+};
+addFilter("postGridDateCountdownExpiredArgs", "post-grid/date-countdown", function (options) {
+  return dateCountdownExpiredArgsPro;
+});
+
+// // icon text source
+
+// const iconTextSourcePro = {
+// 	siteTitle: { label: "Site Title", value: "siteTitle" },
+// 			tagline: { label: "Tag line", value: "tagline" },
+// 			siteUrl: { label: "Site URL", value: "siteUrl" },
+// 			currentYear: { label: "Current Year", value: "currentYear" },
+// 			currentDate: { label: "Current Date", value: "currentDate", },
+// 			postTitle: { label: "Post Title", value: "postTitle", },
+// };
+
+// addFilter(
+// 	"postGridIconTextSource",
+// 	"post-grid/icon",
+// 	function (options) {
+// 		return iconTextSourcePro;
+// 	}
+// );
+
+/*
+Image Block Filter Hook Start 
+*/
+
+// alt text
+
+const altTextSrcPro = {
+  none: {
+    label: "No Alt Text",
+    value: ""
+  },
+  imgAltText: {
+    label: "Image Alt Text",
+    value: "imgAltText"
+  },
+  imgTitle: {
+    label: "Image Title",
+    value: "imgTitle"
+  },
+  imgCaption: {
+    label: "Image Caption",
+    value: "imgCaption"
+  },
+  imgDescription: {
+    label: "Image Description",
+    value: "imgDescription"
+  },
+  imgSlug: {
+    label: "Image Slug",
+    value: "imgSlug"
+  },
+  postTitle: {
+    label: "Post Title",
+    value: "postTitle"
+  },
+  postSlug: {
+    label: "Post Slug",
+    value: "postSlug"
+  },
+  excerpt: {
+    label: "Post Excerpt",
+    value: "excerpt"
+  },
+  customField: {
+    label: "Post Custom Field",
+    value: "customField"
+  },
+  custom: {
+    label: "Custom",
+    value: "custom"
+  }
+};
+addFilter("postGridImageAltText", "post-grid/image", function (options) {
+  return altTextSrcPro;
+});
+
+// title text
+
+const titleTextSrcPro = {
+  none: {
+    label: "No Alt Text",
+    value: ""
+  },
+  imgAltText: {
+    label: "Image Alt Text",
+    value: "imgAltText"
+  },
+  imgTitle: {
+    label: "Image Title",
+    value: "imgTitle"
+  },
+  imgCaption: {
+    label: "Image Caption",
+    value: "imgCaption"
+  },
+  imgDescription: {
+    label: "Image Description",
+    value: "imgDescription"
+  },
+  imgSlug: {
+    label: "Image Slug",
+    value: "imgSlug"
+  },
+  postTitle: {
+    label: "Post Title",
+    value: "postTitle"
+  },
+  postSlug: {
+    label: "Post Slug",
+    value: "postSlug"
+  },
+  excerpt: {
+    label: "Post Excerpt",
+    value: "excerpt"
+  },
+  customField: {
+    label: "Post Custom Field",
+    value: "customField"
+  },
+  custom: {
+    label: "Custom",
+    value: "custom"
+  }
+};
+addFilter("postGridImageTitleText", "post-grid/image", function (options) {
+  return titleTextSrcPro;
+});
+
+// icon text source
+
+const imageLinkToPro = {
+  noUrl: {
+    label: "No URL",
+    value: ""
+  },
+  postUrl: {
+    label: "Post URL",
+    value: "postUrl"
+  },
+  homeUrl: {
+    label: "Home URL",
+    value: "homeUrl"
+  },
+  authorUrl: {
+    label: "Author URL",
+    value: "authorUrl"
+  },
+  authorLink: {
+    label: "Author Link",
+    value: "authorLink"
+  },
+  authorMail: {
+    label: "Author Mail",
+    value: "authorMail"
+  },
+  authorMeta: {
+    label: "Author Meta",
+    value: "authorMeta"
+  },
+  customField: {
+    label: "Custom Field",
+    value: "customField"
+  },
+  customUrl: {
+    label: "Custom URL",
+    value: "customUrl"
+  }
+};
+addFilter("postGridImageLinkTo", "post-grid/image", function (options) {
+  return imageLinkToPro;
+});
+
+/*
+Total Sale Block Filter Hook Start 
+*/
+
+// woo-total-sale link to
+
+const wooTotalSaleLinkToPro = {
+  noUrl: {
+    label: "No URL",
+    value: ""
+  },
+  postUrl: {
+    label: "Post URL",
+    value: "postUrl"
+  },
+  homeUrl: {
+    label: "Home URL",
+    value: "homeUrl"
+  },
+  archiveDate: {
+    label: "Date Archive",
+    value: "archiveDate"
+  },
+  archiveYear: {
+    label: "Year Archive",
+    value: "archiveYear"
+  },
+  archiveMonth: {
+    label: "Month Archive",
+    value: "archiveMonth"
+  },
+  authorUrl: {
+    label: "Author URL",
+    value: "authorUrl"
+  },
+  authorLink: {
+    label: "Author Link",
+    value: "authorLink"
+  },
+  authorMail: {
+    label: "Author Mail",
+    value: "authorMail"
+  },
+  authorMeta: {
+    label: "Author Meta",
+    value: "authorMeta"
+  },
+  customField: {
+    label: "Custom Field",
+    value: "customField"
+  },
+  customUrl: {
+    label: "Custom URL",
+    value: "customUrl"
+  }
+};
+addFilter("postGridWooTotalSaleLinkTo", "post-grid/woo-total-sale", function (options) {
+  return wooTotalSaleLinkToPro;
+});
+
+/*
+Woo Star Rate Block Filter Hook Start 
+*/
+
+// woo-star-rate radio options
+
+const wooStarRateRadioOptionsPro = {
+  pgNone: {
+    label: "None",
+    value: ""
+  },
+  pg01: {
+    label: "123 customer reviews",
+    value: "{review_count} customer reviews"
+  },
+  pg02: {
+    label: "4.50/5.00",
+    value: "{average_rating}/5.00"
+  },
+  pg03: {
+    label: "4.50 out of 5.00",
+    value: "{average_rating} out of 5.00"
+  },
+  pg04: {
+    label: "4.50(123 reviews)",
+    value: "{average_rating}({review_count} reviews)"
+  },
+  pg05: {
+    label: "Custom",
+    value: "custom"
+  }
+};
+addFilter("postGridWooStarRateRadioOptions", "post-grid/woo-star-rate", function (options) {
+  return wooStarRateRadioOptionsPro;
+});
+
+/*
+Star Rate Block Filter Hook Start 
+*/
+
+// star-rate radio options
+
+const starRateRadioOptionsPro = {
+  pgNone: {
+    label: "None",
+    value: ""
+  },
+  pg01: {
+    label: "123 customer reviews",
+    value: "{rating_count} customer reviews"
+  },
+  pg02: {
+    label: "4.50/5.00",
+    value: "{average_rating}/5.00"
+  },
+  pg03: {
+    label: "4.50 out of 5.00",
+    value: "{average_rating} out of 5.00"
+  },
+  pg04: {
+    label: "4.50(123 reviews)",
+    value: "{average_rating}({rating_count} reviews)"
+  },
+  pg05: {
+    label: "Custom",
+    value: "custom"
+  }
+};
+addFilter("postGridStarRateRadioOptions", "post-grid/star-rate", function (options) {
+  return starRateRadioOptionsPro;
+});
+
+/*
+Form Field Checkbox Block Filter Hook Start 
+*/
+
+// form-field-checkbox param source
+
+const formFieldCheckboxParamSourcePro = {
+  none: {
+    label: "None",
+    value: ""
+  },
+  taxonomy: {
+    label: "Taxonomy",
+    value: "taxonomy"
+  },
+  posts: {
+    label: "Posts",
+    value: "posts"
+  },
+  users: {
+    label: "Users",
+    value: "users"
+  },
+  countryNames: {
+    label: "Country Names",
+    value: "countryNames"
+  },
+  countryCodes: {
+    label: "Country Codes",
+    value: "countryCodes"
+  },
+  gender: {
+    label: "Gender",
+    value: "gender"
+  },
+  ageGroupsNum: {
+    label: "Age Groups - Age",
+    value: "ageGroupsNum"
+  },
+  ageGroupsKids: {
+    label: "Age Groups - Kids",
+    value: "ageGroupsKids"
+  }
+};
+addFilter("postGridFormFieldCheckboxParamSource", "post-grid/form-field-checkbox", function (options) {
+  return formFieldCheckboxParamSourcePro;
+});
+
+/*
+Form Field Radio Block Filter Hook Start 
+*/
+
+// form-field-radio param source
+
+const formFieldRadioParamSourcePro = {
+  none: {
+    label: "None",
+    value: ""
+  },
+  taxonomy: {
+    label: "Taxonomy",
+    value: "taxonomy"
+  },
+  posts: {
+    label: "Posts",
+    value: "posts"
+  },
+  users: {
+    label: "Users",
+    value: "users"
+  },
+  countryNames: {
+    label: "Country Names",
+    value: "countryNames"
+  },
+  countryCodes: {
+    label: "Country Codes",
+    value: "countryCodes"
+  },
+  gender: {
+    label: "Gender",
+    value: "gender"
+  },
+  ageGroupsNum: {
+    label: "Age Groups - Age",
+    value: "ageGroupsNum"
+  },
+  ageGroupsKids: {
+    label: "Age Groups - Kids",
+    value: "ageGroupsKids"
+  }
+};
+addFilter("postGridFormFieldRadioParamSource", "post-grid/form-field-radio", function (options) {
+  return formFieldRadioParamSourcePro;
+});
+
+/*
+Form Field Select Block Filter Hook Start 
+*/
+
+// form-field-select param source
+
+const formFieldSelectParamSourcePro = {
+  none: {
+    label: "None",
+    value: ""
+  },
+  taxonomy: {
+    label: "Taxonomy",
+    value: "taxonomy"
+  },
+  posts: {
+    label: "Posts",
+    value: "posts"
+  },
+  users: {
+    label: "Users",
+    value: "users"
+  },
+  countryNames: {
+    label: "Country Names",
+    value: "countryNames"
+  },
+  countryCodes: {
+    label: "Country Codes",
+    value: "countryCodes"
+  },
+  gender: {
+    label: "Gender",
+    value: "gender"
+  },
+  ageGroupsNum: {
+    label: "Age Groups - Age",
+    value: "ageGroupsNum"
+  },
+  ageGroupsKids: {
+    label: "Age Groups - Kids",
+    value: "ageGroupsKids"
+  }
+};
+addFilter("postGridFormFieldSelectParamSource", "post-grid/form-field-select", function (options) {
+  return formFieldSelectParamSourcePro;
+});
 
 /***/ }),
 
