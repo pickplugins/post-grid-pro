@@ -1290,6 +1290,34 @@ const sudoScourceArgsPro = {
     label: "Selection",
     value: "selection"
   },
+  ":marker": {
+    label: "Marker",
+    value: ":marker"
+  },
+  "nth-child(even)": {
+    label: "nth-child(even)",
+    value: "nth-child(even)"
+  },
+  "nth-child(odd)": {
+    label: "nth-child(odd)",
+    value: "nth-child(odd)"
+  },
+  "nth-child(2)": {
+    label: "nth-child(2)",
+    value: "nth-child(2)"
+  },
+  "nth-child(3)": {
+    label: "nth-child(3)",
+    value: "nth-child(3)"
+  },
+  "nth-child(4)": {
+    label: "nth-child(4)",
+    value: "nth-child(4)"
+  },
+  "nth-child(5)": {
+    label: "nth-child(5)",
+    value: "nth-child(5)"
+  },
   "first-child": {
     label: "First-child",
     value: "first-child"
@@ -1306,9 +1334,7 @@ const sudoScourceArgsPro = {
     label: "First-line",
     value: "first-line"
   }
-  //custom: { label: 'Custom', value: '' },
 };
-
 addFilter("sudoScourceArgs", "post-grid/sudoScourceArgs", function (options) {
   return sudoScourceArgsPro;
 });
@@ -4012,6 +4038,222 @@ const wooTotalSaleLinkToPro = {
 };
 addFilter("postGridWooTotalSaleLinkTo", "post-grid/woo-total-sale", function (options) {
   return wooTotalSaleLinkToPro;
+});
+
+/*
+Woo Star Rate Block Filter Hook Start 
+*/
+
+// woo-star-rate radio options
+
+const wooStarRateRadioOptionsPro = {
+  pgNone: {
+    label: "None",
+    value: ""
+  },
+  pg01: {
+    label: "123 customer reviews",
+    value: "{review_count} customer reviews"
+  },
+  pg02: {
+    label: "4.50/5.00",
+    value: "{average_rating}/5.00"
+  },
+  pg03: {
+    label: "4.50 out of 5.00",
+    value: "{average_rating} out of 5.00"
+  },
+  pg04: {
+    label: "4.50(123 reviews)",
+    value: "{average_rating}({review_count} reviews)"
+  },
+  pg05: {
+    label: "Custom",
+    value: "custom"
+  }
+};
+addFilter("postGridWooStarRateRadioOptions", "post-grid/woo-star-rate", function (options) {
+  return wooStarRateRadioOptionsPro;
+});
+
+/*
+Star Rate Block Filter Hook Start 
+*/
+
+// star-rate radio options
+
+const starRateRadioOptionsPro = {
+  pgNone: {
+    label: "None",
+    value: ""
+  },
+  pg01: {
+    label: "123 customer reviews",
+    value: "{rating_count} customer reviews"
+  },
+  pg02: {
+    label: "4.50/5.00",
+    value: "{average_rating}/5.00"
+  },
+  pg03: {
+    label: "4.50 out of 5.00",
+    value: "{average_rating} out of 5.00"
+  },
+  pg04: {
+    label: "4.50(123 reviews)",
+    value: "{average_rating}({rating_count} reviews)"
+  },
+  pg05: {
+    label: "Custom",
+    value: "custom"
+  }
+};
+addFilter("postGridStarRateRadioOptions", "post-grid/star-rate", function (options) {
+  return starRateRadioOptionsPro;
+});
+
+/*
+Form Field Checkbox Block Filter Hook Start 
+*/
+
+// form-field-checkbox param source
+
+const formFieldCheckboxParamSourcePro = {
+  none: {
+    label: "None",
+    value: ""
+  },
+  taxonomy: {
+    label: "Taxonomy",
+    value: "taxonomy"
+  },
+  posts: {
+    label: "Posts",
+    value: "posts"
+  },
+  users: {
+    label: "Users",
+    value: "users"
+  },
+  countryNames: {
+    label: "Country Names",
+    value: "countryNames"
+  },
+  countryCodes: {
+    label: "Country Codes",
+    value: "countryCodes"
+  },
+  gender: {
+    label: "Gender",
+    value: "gender"
+  },
+  ageGroupsNum: {
+    label: "Age Groups - Age",
+    value: "ageGroupsNum"
+  },
+  ageGroupsKids: {
+    label: "Age Groups - Kids",
+    value: "ageGroupsKids"
+  }
+};
+addFilter("postGridFormFieldCheckboxParamSource", "post-grid/form-field-checkbox", function (options) {
+  return formFieldCheckboxParamSourcePro;
+});
+
+/*
+Form Field Radio Block Filter Hook Start 
+*/
+
+// form-field-radio param source
+
+const formFieldRadioParamSourcePro = {
+  none: {
+    label: "None",
+    value: ""
+  },
+  taxonomy: {
+    label: "Taxonomy",
+    value: "taxonomy"
+  },
+  posts: {
+    label: "Posts",
+    value: "posts"
+  },
+  users: {
+    label: "Users",
+    value: "users"
+  },
+  countryNames: {
+    label: "Country Names",
+    value: "countryNames"
+  },
+  countryCodes: {
+    label: "Country Codes",
+    value: "countryCodes"
+  },
+  gender: {
+    label: "Gender",
+    value: "gender"
+  },
+  ageGroupsNum: {
+    label: "Age Groups - Age",
+    value: "ageGroupsNum"
+  },
+  ageGroupsKids: {
+    label: "Age Groups - Kids",
+    value: "ageGroupsKids"
+  }
+};
+addFilter("postGridFormFieldRadioParamSource", "post-grid/form-field-radio", function (options) {
+  return formFieldRadioParamSourcePro;
+});
+
+/*
+Form Field Select Block Filter Hook Start 
+*/
+
+// form-field-select param source
+
+const formFieldSelectParamSourcePro = {
+  none: {
+    label: "None",
+    value: ""
+  },
+  taxonomy: {
+    label: "Taxonomy",
+    value: "taxonomy"
+  },
+  posts: {
+    label: "Posts",
+    value: "posts"
+  },
+  users: {
+    label: "Users",
+    value: "users"
+  },
+  countryNames: {
+    label: "Country Names",
+    value: "countryNames"
+  },
+  countryCodes: {
+    label: "Country Codes",
+    value: "countryCodes"
+  },
+  gender: {
+    label: "Gender",
+    value: "gender"
+  },
+  ageGroupsNum: {
+    label: "Age Groups - Age",
+    value: "ageGroupsNum"
+  },
+  ageGroupsKids: {
+    label: "Age Groups - Kids",
+    value: "ageGroupsKids"
+  }
+};
+addFilter("postGridFormFieldSelectParamSource", "post-grid/form-field-select", function (options) {
+  return formFieldSelectParamSourcePro;
 });
 
 /***/ }),
