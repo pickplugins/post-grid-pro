@@ -102,6 +102,13 @@ const cssPropsPro = {
 	columnRule: { id: "columnRule", label: "Column Rule" },
 
 	content: { id: "content", label: "Content" },
+	counterIncrement: {
+		id: "counterIncrement",
+		label: "Counter Increment",
+	},
+	counterReset: { id: "counterReset", label: "Counter Reset" },
+	counterSet: { id: "counterSet", label: "Counter Set" },
+
 	cursor: { id: "cursor", label: "Cursor" },
 	display: { id: "display", label: "Display" },
 	direction: { id: "direction", label: "Direction" },
@@ -339,6 +346,7 @@ var transitionPropertiesPro = {
 	"clip-path": { value: "clip-path", label: "Clip Path" },
 	"column-count": { value: "column-count", label: "Column Count" },
 	content: { value: "content", label: "Content" },
+	
 	cursor: { value: "cursor", label: "Cursor" },
 	display: { value: "display", label: "Display" },
 	direction: { value: "direction", label: "Direction" },
