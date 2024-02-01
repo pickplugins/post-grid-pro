@@ -346,7 +346,7 @@ var transitionPropertiesPro = {
 	"clip-path": { value: "clip-path", label: "Clip Path" },
 	"column-count": { value: "column-count", label: "Column Count" },
 	content: { value: "content", label: "Content" },
-	
+
 	cursor: { value: "cursor", label: "Cursor" },
 	display: { value: "display", label: "Display" },
 	direction: { value: "direction", label: "Direction" },
@@ -1271,7 +1271,7 @@ addFilter("postGridPostDateLinkTo", "post-grid/post-date", function (options) {
 Number Counter Block Filter Hook Start 
 */
 
-// number counter icon position
+// number-counter icon position
 
 const numberCounterIconPositionPro = {
 	none: { label: "Choose Position", value: "" },
@@ -2284,5 +2284,70 @@ addFilter(
 	"post-grid/form-field-select",
 	function (options) {
 		return formFieldSelectParamSourcePro;
+	}
+);
+
+/*
+Post Comment Count Block Filter Hook Start 
+*/
+
+// post-comment-count icon position
+
+const postCommentCountIconPositionPro = {
+	none: { label: "Choose Position", value: "" },
+	beforeCommentCount: {
+		label: "Before Comment Count",
+		value: "beforeCommentCount",
+	},
+	afterCommentCount: {
+		label: "After Comment Count",
+		value: "afterCommentCount",
+	},
+	beforePrefix: {
+		label: "Before Prefix",
+		value: "beforePrefix",
+	},
+	afterPrefix: { label: "After Prefix", value: "afterPrefix" },
+	beforePostfix: {
+		label: "Before PostFix",
+		value: "beforePostfix",
+	},
+	afterPostfix: {
+		label: "After PostFix",
+		value: "afterPostfix",
+	},
+};
+
+addFilter(
+	"postGridPostCommentCountIconPosition",
+	"post-grid/post-comment-count",
+	function (options) {
+		return postCommentCountIconPositionPro;
+	}
+);
+
+// post-comment-count link to
+
+const postCommentCountLinkToPro = {
+	noUrl: { label: "No URL", value: "" },
+	postUrl: { label: "Post URL", value: "postUrl" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	archiveDate: { label: "Date Archive", value: "archiveDate" },
+	archiveYear: { label: "Year Archive", value: "archiveYear" },
+	archiveMonth: { label: "Month Archive", value: "archiveMonth" },
+
+	authorUrl: { label: "Author URL", value: "authorUrl" },
+	authorLink: { label: "Author Link", value: "authorLink" },
+	authorMail: { label: "Author Mail", value: "authorMail" },
+	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	customField: { label: "Custom Field", value: "customField" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter(
+	"postGridPostCommentCountLinkTo",
+	"post-grid/post-comment-count",
+	function (options) {
+		return postCommentCountLinkToPro;
 	}
 );
