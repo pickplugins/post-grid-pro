@@ -2011,7 +2011,7 @@ Image Block Filter Hook Start
 
 // alt text
 
-const altTextSrcPro = {
+const imageAltTextSrcPro = {
 	none: { label: "No Alt Text", value: "" },
 	imgAltText: { label: "Image Alt Text", value: "imgAltText" },
 	imgTitle: { label: "Image Title", value: "imgTitle" },
@@ -2029,12 +2029,12 @@ const altTextSrcPro = {
 };
 
 addFilter("postGridImageAltText", "post-grid/image", function (options) {
-	return altTextSrcPro;
+	return imageAltTextSrcPro;
 });
 
 // title text
 
-const titleTextSrcPro = {
+const imageTitleTextSrcPro = {
 	none: { label: "No Alt Text", value: "" },
 	imgAltText: { label: "Image Alt Text", value: "imgAltText" },
 	imgTitle: { label: "Image Title", value: "imgTitle" },
@@ -2052,10 +2052,10 @@ const titleTextSrcPro = {
 };
 
 addFilter("postGridImageTitleText", "post-grid/image", function (options) {
-	return titleTextSrcPro;
+	return imageTitleTextSrcPro;
 });
 
-// icon text source
+// link to
 
 const imageLinkToPro = {
 	noUrl: { label: "No URL", value: "" },
@@ -2071,6 +2071,79 @@ const imageLinkToPro = {
 
 addFilter("postGridImageLinkTo", "post-grid/image", function (options) {
 	return imageLinkToPro;
+});
+
+
+/*
+Featured Image Block Filter Hook Start 
+*/
+
+// alt text
+
+const featuredImageAltTextSrcPro = {
+	none: { label: "No Alt Text", value: "" },
+	imgAltText: { label: "Image Alt Text", value: "imgAltText" },
+	imgTitle: { label: "Image Title", value: "imgTitle" },
+	imgCaption: { label: "Image Caption", value: "imgCaption" },
+	imgDescription: { label: "Image Description", value: "imgDescription" },
+	imgSlug: { label: "Image Slug", value: "imgSlug" },
+	postTitle: { label: "Post Title", value: "postTitle" },
+	postSlug: { label: "Post Slug", value: "postSlug" },
+	excerpt: { label: "Post Excerpt", value: "excerpt" },
+	customField: {
+		label: "Post Custom Field",
+		value: "customField",
+	},
+	custom: { label: "Custom", value: "custom" },
+};
+
+addFilter("postGridFeaturedImageAltText", "post-grid/post-featured-image", function (options) {
+	return featuredImageAltTextSrcPro;
+});
+
+// title text
+
+const featuredImageTitleTextSrcPro = {
+	none: { label: "No Alt Text", value: "" },
+	imgAltText: { label: "Image Alt Text", value: "imgAltText" },
+	imgTitle: { label: "Image Title", value: "imgTitle" },
+	imgCaption: { label: "Image Caption", value: "imgCaption" },
+	imgDescription: { label: "Image Description", value: "imgDescription" },
+	imgSlug: { label: "Image Slug", value: "imgSlug" },
+	postTitle: { label: "Post Title", value: "postTitle" },
+	postSlug: { label: "Post Slug", value: "postSlug" },
+	excerpt: { label: "Post Excerpt", value: "excerpt" },
+	customField: {
+		label: "Post Custom Field",
+		value: "customField",
+	},
+	custom: { label: "Custom", value: "custom" },
+};
+
+addFilter(
+	"postGridFeaturedImageTitleText",
+	"post-grid/post-featured-image",
+	function (options) {
+		return featuredImageTitleTextSrcPro;
+	}
+);
+
+// link to
+
+const FeaturedImageLinkToPro = {
+	noUrl: { label: "No URL", value: "" },
+	postUrl: { label: "Post URL", value: "postUrl" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	authorUrl: { label: "Author URL", value: "authorUrl" },
+	authorLink: { label: "Author Link", value: "authorLink" },
+	authorMail: { label: "Author Mail", value: "authorMail" },
+	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	customField: { label: "Custom Field", value: "customField" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter("postGridFeaturedImageLinkTo", "post-grid/post-featured-image", function (options) {
+	return FeaturedImageLinkToPro;
 });
 
 /*
@@ -2349,5 +2422,47 @@ addFilter(
 	"post-grid/post-comment-count",
 	function (options) {
 		return postCommentCountLinkToPro;
+	}
+);
+
+
+
+
+/*
+Woo Product Info Block Filter Hook Start 
+*/
+
+// woo-product-info icon position
+
+const wooProductInfoElementsArgsPro = {
+	none: { label: "Choose Position", value: "" },
+	beforeCommentCount: {
+		label: "Before Comment Count",
+		value: "beforeCommentCount",
+	},
+	afterCommentCount: {
+		label: "After Comment Count",
+		value: "afterCommentCount",
+	},
+	beforePrefix: {
+		label: "Before Prefix",
+		value: "beforePrefix",
+	},
+	afterPrefix: { label: "After Prefix", value: "afterPrefix" },
+	beforePostfix: {
+		label: "Before PostFix",
+		value: "beforePostfix",
+	},
+	afterPostfix: {
+		label: "After PostFix",
+		value: "afterPostfix",
+	},
+};
+
+addFilter(
+	"postGridWooProductInfoElementsArgs",
+	"post-grid/woo-product-info",
+	function (options) {
+		return wooProductInfoElementsArgsPro;
 	}
 );
