@@ -2466,3 +2466,52 @@ addFilter(
 		return wooProductInfoElementsArgsPro;
 	}
 );
+
+
+/*
+Post Excerpt Block Filter Hook Start 
+*/
+
+// post-excerpt excerpt link to
+
+const postExcerptLinkToPro = {
+	none: { label: "Choose", value: "" },
+	postUrl: { label: "Post URL", value: "postUrl" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	authorUrl: { label: "Author URL", value: "authorUrl" },
+	authorLink: { label: "Author Link", value: "authorLink" },
+	authorMail: { label: "Author Mail", value: "authorMail" },
+	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	customField: { label: "Custom Field", value: "customField" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter(
+	"postGridPostExcerptLinkTo",
+	"post-grid/post-excerpt",
+	function (options) {
+		return postExcerptLinkToPro;
+	}
+);
+
+// post-excerpt read more link to
+
+const postExcerptReaMoreLinkToPro = {
+	none: { label: "Choose", value: "" },
+	postUrl: { label: "Post URL", value: "postUrl" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	authorUrl: { label: "Author URL", value: "authorUrl" },
+	authorLink: { label: "Author Link", value: "authorLink" },
+	authorMail: { label: "Author Mail", value: "authorMail" },
+	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	customField: { label: "Custom Field", value: "customField" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter(
+	"postGridPostExcerptReadMoreLinkTo",
+	"post-grid/post-excerpt",
+	function (options) {
+		return postExcerptReaMoreLinkToPro;
+	}
+);
