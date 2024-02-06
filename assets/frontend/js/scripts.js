@@ -32,10 +32,8 @@ jQuery(document).ready(function ($) {
 			terms = post_grid_options.page_tax_term;
 			taxonomy = post_grid_options.page_taxonomy;
 
-			console.log(terms);
 
 		}
-		//console.log(masonry_enable);
 
 		$.ajax(
 			{
@@ -50,7 +48,6 @@ jQuery(document).ready(function ($) {
 					var has_posts = response['has_posts'];
 
 
-					console.log(response);
 
 					if (masonry_enable == 'yes') {
 

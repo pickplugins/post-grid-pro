@@ -3,7 +3,7 @@
 Plugin Name: Combo Blocks - Pro
 Plugin URI: https://www.pickplugins.com/item/post-grid-create-awesome-grid-from-any-post-type-for-wordpress/
 Description: Awesome combo blocks for query post from any post type and display on grid.
-Version: 3.3.13
+Version: 3.3.14
 Author: PickPlugins
 Author URI: https://www.pickplugins.com/
 License: GPLv2 or later
@@ -23,7 +23,7 @@ if (!class_exists('PostGridPro')) {
             define('post_grid_pro_plugin_dir', plugin_dir_path(__FILE__));
             define('post_grid_pro_plugin_basename', plugin_basename(__FILE__));
             define('post_grid_pro_plugin_name', 'Combo Blocks - Pro');
-            define('post_grid_pro_version', '3.3.13');
+            define('post_grid_pro_version', '3.3.14');
             define('post_grid_pro_server_url', 'https://www.pickplugins.com');
 
             add_action('plugins_loaded', [$this, 'init_plugin']);
