@@ -257,6 +257,40 @@ const sudoScourceArgsPro = {
 		value: "first-letter",
 	},
 	"first-line": { label: "First-line", value: "first-line" },
+	"hover::before": { label: "hover::before", value: "hover::before" },
+	"hover::after": { label: "hover::after", value: "hover::after" },
+	"hover::marker": {
+		label: "hover::marker",
+		value: "hover::marker",
+	},
+	"hover::first-letter": {
+		label: "hover::first-letter",
+		value: "hover::first-letter",
+	},
+	"hover:first-child": {
+		label: "hover:first-child",
+		value: "hover:first-child",
+	},
+	"hover:last-child": {
+		label: "hover:last-child",
+		value: "hover:last-child",
+	},
+	"hover:first-line": {
+		label: "hover:first-line",
+		value: "hover:first-line",
+	},
+	"hover:first-line": {
+		label: "hover:first-line",
+		value: "hover:first-line",
+	},
+	"hover:nth-child(odd)": {
+		label: "hover:nth-child(odd)",
+		value: "hover:nth-child(odd)",
+	},
+	"hover:nth-child(even)": {
+		label: "hover:nth-child(even)",
+		value: "hover:nth-child(even)",
+	},
 };
 
 addFilter("sudoScourceArgs", "post-grid/sudoScourceArgs", function (options) {
@@ -2073,7 +2107,6 @@ addFilter("postGridImageLinkTo", "post-grid/image", function (options) {
 	return imageLinkToPro;
 });
 
-
 /*
 Featured Image Block Filter Hook Start 
 */
@@ -2097,9 +2130,13 @@ const featuredImageAltTextSrcPro = {
 	custom: { label: "Custom", value: "custom" },
 };
 
-addFilter("postGridFeaturedImageAltText", "post-grid/post-featured-image", function (options) {
-	return featuredImageAltTextSrcPro;
-});
+addFilter(
+	"postGridFeaturedImageAltText",
+	"post-grid/post-featured-image",
+	function (options) {
+		return featuredImageAltTextSrcPro;
+	}
+);
 
 // title text
 
@@ -2142,9 +2179,13 @@ const FeaturedImageLinkToPro = {
 	customUrl: { label: "Custom URL", value: "customUrl" },
 };
 
-addFilter("postGridFeaturedImageLinkTo", "post-grid/post-featured-image", function (options) {
-	return FeaturedImageLinkToPro;
-});
+addFilter(
+	"postGridFeaturedImageLinkTo",
+	"post-grid/post-featured-image",
+	function (options) {
+		return FeaturedImageLinkToPro;
+	}
+);
 
 /*
 Total Sale Block Filter Hook Start 
@@ -2425,9 +2466,6 @@ addFilter(
 	}
 );
 
-
-
-
 /*
 Woo Product Info Block Filter Hook Start 
 */
@@ -2466,7 +2504,6 @@ addFilter(
 		return wooProductInfoElementsArgsPro;
 	}
 );
-
 
 /*
 Post Excerpt Block Filter Hook Start 
