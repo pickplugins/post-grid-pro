@@ -4,7 +4,7 @@
 	Tags: combo blocks, grid, custom combo blocks, post type grid, grid display, category filter, custom post, filter, filtering, grid, layout, list, masonry, post, post filter, post layout, taxonomy, taxonomy filter,
 	Requires at least: 3.8
 	Tested up to: 6.4
-	Stable tag: 3.3.14
+	Stable tag: 3.3.13
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -138,9 +138,6 @@ then paste this shortcode anywhere in your page to display grid<br />
 == Changelog ==
 
 
-
-   = 3.3.14  =
-    * 2024-01-20 fix  - ACF text empty space issue fixed.
 
    = 3.3.13  =
     * 2024-01-18 fix  - Broken assets file issue fixed.

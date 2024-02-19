@@ -102,6 +102,13 @@ const cssPropsPro = {
 	columnRule: { id: "columnRule", label: "Column Rule" },
 
 	content: { id: "content", label: "Content" },
+	counterIncrement: {
+		id: "counterIncrement",
+		label: "Counter Increment",
+	},
+	counterReset: { id: "counterReset", label: "Counter Reset" },
+	counterSet: { id: "counterSet", label: "Counter Set" },
+
 	cursor: { id: "cursor", label: "Cursor" },
 	display: { id: "display", label: "Display" },
 	direction: { id: "direction", label: "Direction" },
@@ -210,16 +217,80 @@ const sudoScourceArgsPro = {
 	before: { label: "Before", value: "before" },
 	active: { label: "Active", value: "active" },
 	focus: { label: "Focus", value: "focus" },
-	"focus-within": { label: "Focus-within", value: "focus-within" },
+	"focus-within": {
+		label: "Focus-within",
+		value: "focus-within",
+	},
 	target: { label: "target", value: "target" },
 	visited: { label: "Visited", value: "visited" },
 	selection: { label: "Selection", value: "selection" },
+	":marker": { label: "Marker", value: ":marker" },
+	"nth-child(even)": {
+		label: "nth-child(even)",
+		value: "nth-child(even)",
+	},
+	"nth-child(odd)": {
+		label: "nth-child(odd)",
+		value: "nth-child(odd)",
+	},
+	"nth-child(2)": {
+		label: "nth-child(2)",
+		value: "nth-child(2)",
+	},
+	"nth-child(3)": {
+		label: "nth-child(3)",
+		value: "nth-child(3)",
+	},
+	"nth-child(4)": {
+		label: "nth-child(4)",
+		value: "nth-child(4)",
+	},
+	"nth-child(5)": {
+		label: "nth-child(5)",
+		value: "nth-child(5)",
+	},
 
 	"first-child": { label: "First-child", value: "first-child" },
 	"last-child": { label: "Last-child", value: "last-child" },
-	"first-letter": { label: "First-letter", value: "first-letter" },
+	"first-letter": {
+		label: "First-letter",
+		value: "first-letter",
+	},
 	"first-line": { label: "First-line", value: "first-line" },
-	//custom: { label: 'Custom', value: '' },
+	"hover::before": { label: "hover::before", value: "hover::before" },
+	"hover::after": { label: "hover::after", value: "hover::after" },
+	"hover::marker": {
+		label: "hover::marker",
+		value: "hover::marker",
+	},
+	"hover::first-letter": {
+		label: "hover::first-letter",
+		value: "hover::first-letter",
+	},
+	"hover:first-child": {
+		label: "hover:first-child",
+		value: "hover:first-child",
+	},
+	"hover:last-child": {
+		label: "hover:last-child",
+		value: "hover:last-child",
+	},
+	"hover:first-line": {
+		label: "hover:first-line",
+		value: "hover:first-line",
+	},
+	"hover:first-line": {
+		label: "hover:first-line",
+		value: "hover:first-line",
+	},
+	"hover:nth-child(odd)": {
+		label: "hover:nth-child(odd)",
+		value: "hover:nth-child(odd)",
+	},
+	"hover:nth-child(even)": {
+		label: "hover:nth-child(even)",
+		value: "hover:nth-child(even)",
+	},
 };
 
 addFilter("sudoScourceArgs", "post-grid/sudoScourceArgs", function (options) {
@@ -309,6 +380,7 @@ var transitionPropertiesPro = {
 	"clip-path": { value: "clip-path", label: "Clip Path" },
 	"column-count": { value: "column-count", label: "Column Count" },
 	content: { value: "content", label: "Content" },
+
 	cursor: { value: "cursor", label: "Cursor" },
 	display: { value: "display", label: "Display" },
 	direction: { value: "direction", label: "Direction" },
@@ -1233,7 +1305,7 @@ addFilter("postGridPostDateLinkTo", "post-grid/post-date", function (options) {
 Number Counter Block Filter Hook Start 
 */
 
-// number counter icon position
+// number-counter icon position
 
 const numberCounterIconPositionPro = {
 	none: { label: "Choose Position", value: "" },
@@ -1973,7 +2045,7 @@ Image Block Filter Hook Start
 
 // alt text
 
-const altTextSrcPro = {
+const imageAltTextSrcPro = {
 	none: { label: "No Alt Text", value: "" },
 	imgAltText: { label: "Image Alt Text", value: "imgAltText" },
 	imgTitle: { label: "Image Title", value: "imgTitle" },
@@ -1991,12 +2063,12 @@ const altTextSrcPro = {
 };
 
 addFilter("postGridImageAltText", "post-grid/image", function (options) {
-	return altTextSrcPro;
+	return imageAltTextSrcPro;
 });
 
 // title text
 
-const titleTextSrcPro = {
+const imageTitleTextSrcPro = {
 	none: { label: "No Alt Text", value: "" },
 	imgAltText: { label: "Image Alt Text", value: "imgAltText" },
 	imgTitle: { label: "Image Title", value: "imgTitle" },
@@ -2014,10 +2086,10 @@ const titleTextSrcPro = {
 };
 
 addFilter("postGridImageTitleText", "post-grid/image", function (options) {
-	return titleTextSrcPro;
+	return imageTitleTextSrcPro;
 });
 
-// icon text source
+// link to
 
 const imageLinkToPro = {
 	noUrl: { label: "No URL", value: "" },
@@ -2034,6 +2106,86 @@ const imageLinkToPro = {
 addFilter("postGridImageLinkTo", "post-grid/image", function (options) {
 	return imageLinkToPro;
 });
+
+/*
+Featured Image Block Filter Hook Start 
+*/
+
+// alt text
+
+const featuredImageAltTextSrcPro = {
+	none: { label: "No Alt Text", value: "" },
+	imgAltText: { label: "Image Alt Text", value: "imgAltText" },
+	imgTitle: { label: "Image Title", value: "imgTitle" },
+	imgCaption: { label: "Image Caption", value: "imgCaption" },
+	imgDescription: { label: "Image Description", value: "imgDescription" },
+	imgSlug: { label: "Image Slug", value: "imgSlug" },
+	postTitle: { label: "Post Title", value: "postTitle" },
+	postSlug: { label: "Post Slug", value: "postSlug" },
+	excerpt: { label: "Post Excerpt", value: "excerpt" },
+	customField: {
+		label: "Post Custom Field",
+		value: "customField",
+	},
+	custom: { label: "Custom", value: "custom" },
+};
+
+addFilter(
+	"postGridFeaturedImageAltText",
+	"post-grid/post-featured-image",
+	function (options) {
+		return featuredImageAltTextSrcPro;
+	}
+);
+
+// title text
+
+const featuredImageTitleTextSrcPro = {
+	none: { label: "No Alt Text", value: "" },
+	imgAltText: { label: "Image Alt Text", value: "imgAltText" },
+	imgTitle: { label: "Image Title", value: "imgTitle" },
+	imgCaption: { label: "Image Caption", value: "imgCaption" },
+	imgDescription: { label: "Image Description", value: "imgDescription" },
+	imgSlug: { label: "Image Slug", value: "imgSlug" },
+	postTitle: { label: "Post Title", value: "postTitle" },
+	postSlug: { label: "Post Slug", value: "postSlug" },
+	excerpt: { label: "Post Excerpt", value: "excerpt" },
+	customField: {
+		label: "Post Custom Field",
+		value: "customField",
+	},
+	custom: { label: "Custom", value: "custom" },
+};
+
+addFilter(
+	"postGridFeaturedImageTitleText",
+	"post-grid/post-featured-image",
+	function (options) {
+		return featuredImageTitleTextSrcPro;
+	}
+);
+
+// link to
+
+const FeaturedImageLinkToPro = {
+	noUrl: { label: "No URL", value: "" },
+	postUrl: { label: "Post URL", value: "postUrl" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	authorUrl: { label: "Author URL", value: "authorUrl" },
+	authorLink: { label: "Author Link", value: "authorLink" },
+	authorMail: { label: "Author Mail", value: "authorMail" },
+	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	customField: { label: "Custom Field", value: "customField" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter(
+	"postGridFeaturedImageLinkTo",
+	"post-grid/post-featured-image",
+	function (options) {
+		return FeaturedImageLinkToPro;
+	}
+);
 
 /*
 Total Sale Block Filter Hook Start 
@@ -2062,5 +2214,341 @@ addFilter(
 	"post-grid/woo-total-sale",
 	function (options) {
 		return wooTotalSaleLinkToPro;
+	}
+);
+
+/*
+Woo Star Rate Block Filter Hook Start 
+*/
+
+// woo-star-rate radio options
+
+const wooStarRateRadioOptionsPro = {
+	pgNone: { label: "None", value: "" },
+	pg01: {
+		label: "123 customer reviews",
+		value: "{review_count} customer reviews",
+	},
+	pg02: { label: "4.50/5.00", value: "{average_rating}/5.00" },
+	pg03: {
+		label: "4.50 out of 5.00",
+		value: "{average_rating} out of 5.00",
+	},
+	pg04: {
+		label: "4.50(123 reviews)",
+		value: "{average_rating}({review_count} reviews)",
+	},
+	pg05: {
+		label: "Custom",
+		value: "custom",
+	},
+};
+
+addFilter(
+	"postGridWooStarRateRadioOptions",
+	"post-grid/woo-star-rate",
+	function (options) {
+		return wooStarRateRadioOptionsPro;
+	}
+);
+
+/*
+Star Rate Block Filter Hook Start 
+*/
+
+// star-rate radio options
+
+const starRateRadioOptionsPro = {
+	pgNone: { label: "None", value: "" },
+	pg01: {
+		label: "123 customer reviews",
+		value: "{rating_count} customer reviews",
+	},
+	pg02: { label: "4.50/5.00", value: "{average_rating}/5.00" },
+	pg03: {
+		label: "4.50 out of 5.00",
+		value: "{average_rating} out of 5.00",
+	},
+	pg04: {
+		label: "4.50(123 reviews)",
+		value: "{average_rating}({rating_count} reviews)",
+	},
+	pg05: {
+		label: "Custom",
+		value: "custom",
+	},
+};
+
+addFilter(
+	"postGridStarRateRadioOptions",
+	"post-grid/star-rate",
+	function (options) {
+		return starRateRadioOptionsPro;
+	}
+);
+
+/*
+Form Field Checkbox Block Filter Hook Start 
+*/
+
+// form-field-checkbox param source
+
+const formFieldCheckboxParamSourcePro = {
+	none: { label: "None", value: "" },
+	taxonomy: { label: "Taxonomy", value: "taxonomy" },
+	posts: { label: "Posts", value: "posts" },
+	users: { label: "Users", value: "users" },
+	countryNames: {
+		label: "Country Names",
+		value: "countryNames",
+	},
+	countryCodes: {
+		label: "Country Codes",
+		value: "countryCodes",
+	},
+	gender: { label: "Gender", value: "gender" },
+	ageGroupsNum: {
+		label: "Age Groups - Age",
+		value: "ageGroupsNum",
+	},
+	ageGroupsKids: {
+		label: "Age Groups - Kids",
+		value: "ageGroupsKids",
+	},
+};
+
+addFilter(
+	"postGridFormFieldCheckboxParamSource",
+	"post-grid/form-field-checkbox",
+	function (options) {
+		return formFieldCheckboxParamSourcePro;
+	}
+);
+
+/*
+Form Field Radio Block Filter Hook Start 
+*/
+
+// form-field-radio param source
+
+const formFieldRadioParamSourcePro = {
+	none: { label: "None", value: "" },
+	taxonomy: { label: "Taxonomy", value: "taxonomy" },
+	posts: { label: "Posts", value: "posts" },
+	users: { label: "Users", value: "users" },
+	countryNames: {
+		label: "Country Names",
+		value: "countryNames",
+	},
+	countryCodes: {
+		label: "Country Codes",
+		value: "countryCodes",
+	},
+	gender: { label: "Gender", value: "gender" },
+	ageGroupsNum: {
+		label: "Age Groups - Age",
+		value: "ageGroupsNum",
+	},
+	ageGroupsKids: {
+		label: "Age Groups - Kids",
+		value: "ageGroupsKids",
+	},
+};
+
+addFilter(
+	"postGridFormFieldRadioParamSource",
+	"post-grid/form-field-radio",
+	function (options) {
+		return formFieldRadioParamSourcePro;
+	}
+);
+
+/*
+Form Field Select Block Filter Hook Start 
+*/
+
+// form-field-select param source
+
+const formFieldSelectParamSourcePro = {
+	none: { label: "None", value: "" },
+	taxonomy: { label: "Taxonomy", value: "taxonomy" },
+	posts: { label: "Posts", value: "posts" },
+	users: { label: "Users", value: "users" },
+	countryNames: {
+		label: "Country Names",
+		value: "countryNames",
+	},
+	countryCodes: {
+		label: "Country Codes",
+		value: "countryCodes",
+	},
+	gender: { label: "Gender", value: "gender" },
+	ageGroupsNum: {
+		label: "Age Groups - Age",
+		value: "ageGroupsNum",
+	},
+	ageGroupsKids: {
+		label: "Age Groups - Kids",
+		value: "ageGroupsKids",
+	},
+};
+
+addFilter(
+	"postGridFormFieldSelectParamSource",
+	"post-grid/form-field-select",
+	function (options) {
+		return formFieldSelectParamSourcePro;
+	}
+);
+
+/*
+Post Comment Count Block Filter Hook Start 
+*/
+
+// post-comment-count icon position
+
+const postCommentCountIconPositionPro = {
+	none: { label: "Choose Position", value: "" },
+	beforeCommentCount: {
+		label: "Before Comment Count",
+		value: "beforeCommentCount",
+	},
+	afterCommentCount: {
+		label: "After Comment Count",
+		value: "afterCommentCount",
+	},
+	beforePrefix: {
+		label: "Before Prefix",
+		value: "beforePrefix",
+	},
+	afterPrefix: { label: "After Prefix", value: "afterPrefix" },
+	beforePostfix: {
+		label: "Before PostFix",
+		value: "beforePostfix",
+	},
+	afterPostfix: {
+		label: "After PostFix",
+		value: "afterPostfix",
+	},
+};
+
+addFilter(
+	"postGridPostCommentCountIconPosition",
+	"post-grid/post-comment-count",
+	function (options) {
+		return postCommentCountIconPositionPro;
+	}
+);
+
+// post-comment-count link to
+
+const postCommentCountLinkToPro = {
+	noUrl: { label: "No URL", value: "" },
+	postUrl: { label: "Post URL", value: "postUrl" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	archiveDate: { label: "Date Archive", value: "archiveDate" },
+	archiveYear: { label: "Year Archive", value: "archiveYear" },
+	archiveMonth: { label: "Month Archive", value: "archiveMonth" },
+
+	authorUrl: { label: "Author URL", value: "authorUrl" },
+	authorLink: { label: "Author Link", value: "authorLink" },
+	authorMail: { label: "Author Mail", value: "authorMail" },
+	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	customField: { label: "Custom Field", value: "customField" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter(
+	"postGridPostCommentCountLinkTo",
+	"post-grid/post-comment-count",
+	function (options) {
+		return postCommentCountLinkToPro;
+	}
+);
+
+/*
+Woo Product Info Block Filter Hook Start 
+*/
+
+// woo-product-info icon position
+
+const wooProductInfoElementsArgsPro = {
+	none: { label: "Choose Position", value: "" },
+	beforeCommentCount: {
+		label: "Before Comment Count",
+		value: "beforeCommentCount",
+	},
+	afterCommentCount: {
+		label: "After Comment Count",
+		value: "afterCommentCount",
+	},
+	beforePrefix: {
+		label: "Before Prefix",
+		value: "beforePrefix",
+	},
+	afterPrefix: { label: "After Prefix", value: "afterPrefix" },
+	beforePostfix: {
+		label: "Before PostFix",
+		value: "beforePostfix",
+	},
+	afterPostfix: {
+		label: "After PostFix",
+		value: "afterPostfix",
+	},
+};
+
+addFilter(
+	"postGridWooProductInfoElementsArgs",
+	"post-grid/woo-product-info",
+	function (options) {
+		return wooProductInfoElementsArgsPro;
+	}
+);
+
+/*
+Post Excerpt Block Filter Hook Start 
+*/
+
+// post-excerpt excerpt link to
+
+const postExcerptLinkToPro = {
+	none: { label: "Choose", value: "" },
+	postUrl: { label: "Post URL", value: "postUrl" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	authorUrl: { label: "Author URL", value: "authorUrl" },
+	authorLink: { label: "Author Link", value: "authorLink" },
+	authorMail: { label: "Author Mail", value: "authorMail" },
+	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	customField: { label: "Custom Field", value: "customField" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter(
+	"postGridPostExcerptLinkTo",
+	"post-grid/post-excerpt",
+	function (options) {
+		return postExcerptLinkToPro;
+	}
+);
+
+// post-excerpt read more link to
+
+const postExcerptReaMoreLinkToPro = {
+	none: { label: "Choose", value: "" },
+	postUrl: { label: "Post URL", value: "postUrl" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	authorUrl: { label: "Author URL", value: "authorUrl" },
+	authorLink: { label: "Author Link", value: "authorLink" },
+	authorMail: { label: "Author Mail", value: "authorMail" },
+	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	customField: { label: "Custom Field", value: "customField" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter(
+	"postGridPostExcerptReadMoreLinkTo",
+	"post-grid/post-excerpt",
+	function (options) {
+		return postExcerptReaMoreLinkToPro;
 	}
 );

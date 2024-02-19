@@ -252,7 +252,9 @@ function post_grid_layout_element_acf_text($args){
     if(!empty($acf_value)):
 
         ?>
-        <div class="element element_<?php echo esc_attr($elementIndex); ?> <?php echo esc_attr($custom_class); ?> acf_text "><?php echo esc_html($acf_value); ?></div>
+        <div class="element element_<?php echo esc_attr($elementIndex); ?> <?php echo esc_attr($custom_class); ?> acf_text ">
+            <?php echo esc_html($acf_value); ?>
+        </div>
         <?php
     endif;
 
@@ -279,7 +281,7 @@ function post_grid_layout_element_css_acf_text($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -300,7 +302,7 @@ function post_grid_layout_element_css_acf_text($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -542,7 +544,7 @@ function post_grid_layout_element_css_acf_textarea($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -563,7 +565,7 @@ function post_grid_layout_element_css_acf_textarea($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -805,7 +807,7 @@ function post_grid_layout_element_css_acf_number($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -826,7 +828,7 @@ function post_grid_layout_element_css_acf_number($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -1084,7 +1086,7 @@ function post_grid_layout_element_css_acf_email($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -1105,7 +1107,7 @@ function post_grid_layout_element_css_acf_email($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -1363,7 +1365,7 @@ function post_grid_layout_element_css_acf_url($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -1384,7 +1386,7 @@ function post_grid_layout_element_css_acf_url($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -1642,7 +1644,7 @@ function post_grid_layout_element_css_acf_range($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -1663,7 +1665,7 @@ function post_grid_layout_element_css_acf_range($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -1903,7 +1905,7 @@ function post_grid_layout_element_css_acf_wysiwyg($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -1924,7 +1926,7 @@ function post_grid_layout_element_css_acf_wysiwyg($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -2225,7 +2227,7 @@ function post_grid_layout_element_css_acf_image($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -2246,7 +2248,7 @@ function post_grid_layout_element_css_acf_image($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -2546,7 +2548,7 @@ function post_grid_layout_element_css_acf_file($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -2567,7 +2569,7 @@ function post_grid_layout_element_css_acf_file($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -2866,7 +2868,7 @@ function post_grid_layout_element_css_acf_select($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -2887,7 +2889,7 @@ function post_grid_layout_element_css_acf_select($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -3218,7 +3220,7 @@ function post_grid_layout_element_css_acf_checkbox($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -3239,7 +3241,7 @@ function post_grid_layout_element_css_acf_checkbox($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -3538,7 +3540,7 @@ function post_grid_layout_element_css_acf_radio($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -3559,7 +3561,7 @@ function post_grid_layout_element_css_acf_radio($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -3858,7 +3860,7 @@ function post_grid_layout_element_css_acf_buttongroup($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -3879,7 +3881,7 @@ function post_grid_layout_element_css_acf_buttongroup($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -4169,7 +4171,7 @@ function post_grid_layout_element_css_acf_page_link($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -4190,7 +4192,7 @@ function post_grid_layout_element_css_acf_page_link($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -4496,7 +4498,7 @@ function post_grid_layout_element_css_acf_taxonomy($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -4517,7 +4519,7 @@ function post_grid_layout_element_css_acf_taxonomy($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -4802,7 +4804,7 @@ function post_grid_layout_element_css_acf_user($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -4823,7 +4825,7 @@ function post_grid_layout_element_css_acf_user($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -5080,7 +5082,7 @@ function post_grid_layout_element_css_acf_date_picker($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -5101,7 +5103,7 @@ function post_grid_layout_element_css_acf_date_picker($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -5361,7 +5363,7 @@ function post_grid_layout_element_css_acf_time_picker($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -5382,7 +5384,7 @@ function post_grid_layout_element_css_acf_time_picker($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -5641,7 +5643,7 @@ function post_grid_layout_element_css_acf_datetime_picker($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -5662,7 +5664,7 @@ function post_grid_layout_element_css_acf_datetime_picker($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -5901,7 +5903,7 @@ function post_grid_layout_element_css_acf_google_map($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -5922,7 +5924,7 @@ function post_grid_layout_element_css_acf_google_map($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -6163,7 +6165,7 @@ function post_grid_layout_element_css_acf_colorpicker($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -6184,7 +6186,7 @@ function post_grid_layout_element_css_acf_colorpicker($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -6454,7 +6456,7 @@ function post_grid_layout_element_css_acf_link($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -6475,7 +6477,7 @@ function post_grid_layout_element_css_acf_link($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -6714,7 +6716,7 @@ function post_grid_layout_element_css_acf_post_object($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -6735,7 +6737,7 @@ function post_grid_layout_element_css_acf_post_object($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -6974,7 +6976,7 @@ function post_grid_layout_element_css_acf_oembed($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -6995,7 +6997,7 @@ function post_grid_layout_element_css_acf_oembed($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -7253,7 +7255,7 @@ function post_grid_layout_element_css_acf_password($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -7274,7 +7276,7 @@ function post_grid_layout_element_css_acf_password($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -7581,7 +7583,7 @@ function post_grid_layout_element_css_acf_relationship($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -7602,7 +7604,7 @@ function post_grid_layout_element_css_acf_relationship($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>
@@ -7863,7 +7865,7 @@ function post_grid_layout_element_css_acf_true_false($args){
 
     ?>
     <style type="text/css">
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>{
         <?php if(!empty($color)): ?>
             color: <?php echo $color; ?>;
         <?php endif; ?>
@@ -7884,7 +7886,7 @@ function post_grid_layout_element_css_acf_true_false($args){
         <?php endif; ?>
         }
         <?php if(!empty($css_hover)): ?>
-        <?php echo '.layout-'.$layout_id; ?> <?php echo ".element_".$index; ?>:hover{
+        .layout-<?php echo $layout_id; ?> .element_<?php echo $index; ?>:hover{
         <?php echo $css_hover; ?>
         }
         <?php endif; ?>

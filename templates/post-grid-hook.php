@@ -2112,7 +2112,9 @@ function post_grid_view_type_css_filterable($args)
                 ?>width: <?php echo (100 / $columns_desktop); ?>%;
                 <?php
                 } else {
-                    if (!empty($items_width_desktop)) {
+                    if (!empty($columns_desktop)) {
+                        echo 'width:' . (100 / $columns_desktop) . '%;';
+                    } else {
                         echo 'width:' . $items_width_desktop . ';';
                     }
                 }
