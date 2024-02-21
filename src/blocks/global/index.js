@@ -2552,3 +2552,86 @@ addFilter(
 		return postExcerptReaMoreLinkToPro;
 	}
 );
+
+/*
+	// Terms List Block Filter Hook Start 
+*/
+
+// // terms-list icon position
+
+const termsListIconPositionPro = {
+	none: { label: "Choose Position", value: "" },
+	beforeFronttext: { label: "Before Front text", value: "beforeFronttext" },
+	afterFronttext: {
+		label: "After Front text",
+		value: "afterFronttext",
+	},
+	// beforeItems: { label: "Before Items", value: "beforeItems", isPro: true },
+	// afterItems: { label: "After Items", value: "afterItems", isPro: true },
+	beforeItem: {
+		label: "Before Each Items",
+		value: "beforeItem",
+	},
+	afterItem: { label: "After Each Items", value: "afterItem" },
+};
+
+addFilter(
+	"postGridTermsListIconPosition",
+	"post-grid/terms-list",
+	function (options) {
+		return termsListIconPositionPro;
+	}
+);
+
+
+/*
+	// Terms Field Block Filter Hook Start 
+*/
+
+// // terms-query-item link to
+
+const termsQueryItemLinkToPro = {
+	none: { label: "Choose", value: "" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	termUrl: { label: "Term URL", value: "termUrl" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter(
+	"postGridTermsQueryItemLinkTo",
+	"post-grid/terms-query-item",
+	function (options) {
+		return termsQueryItemLinkToPro;
+	}
+);
+
+// * terms-query-item term field
+
+const termsQueryItemTermFieldPro = {
+	termId: { label: "Term ID", value: "termId" },
+	name: { label: "Name", value: "name" },
+	slug: {
+		label: "Slug",
+		value: "slug",
+		//  isPro: true
+	},
+	description: { label: "description", value: "description" },
+	count: {
+		label: "count",
+		value: "count",
+		// isPro: true
+	},
+	// meta: {
+	// 	label: "meta",
+	// 	value: "meta",
+	// 	//  isPro: true
+	// },
+};
+
+addFilter(
+	"postGridTermsQueryTermField",
+	"post-grid/terms-query-item",
+	function (options) {
+		return termsQueryItemTermFieldPro;
+	}
+);
