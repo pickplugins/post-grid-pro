@@ -2635,3 +2635,100 @@ addFilter(
 		return termsQueryItemTermFieldPro;
 	}
 );
+
+
+/*
+	// Post Title Block Filter Hook Start 
+*/
+
+// // post-title link to
+
+const postTitleLinkToPro = {
+	postUrl: { label: "Post URL", value: "postUrl" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	authorUrl: { label: "Author URL", value: "authorUrl" },
+	authorLink: { label: "Author Link", value: "authorLink" },
+	authorMail: { label: "Author Mail", value: "authorMail" },
+	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	customField: { label: "Custom Field", value: "customField" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter(
+	"postGridPostTitleLinkTo",
+	"post-grid/post-title",
+	function (options) {
+		return postTitleLinkToPro;
+	}
+);
+
+const postTitleLimitByPro = {
+	none: { label: "Choose..", value: "" },
+	word: { label: "Word", value: "word" },
+	character: { label: "Character", value: "character" },
+};
+
+addFilter(
+	"postGridPostTitleLimitBy",
+	"post-grid/post-title",
+	function (options) {
+		return postTitleLimitByPro;
+	}
+);
+
+
+
+
+/*
+Post Categories Block Filter Hook Start 
+*/
+
+// post-categories Icon
+
+var postCategoriesIconPositionPro = {
+	none: { label: "Choose Position", value: "" },
+	beforeFronttext: { label: "Before Front text", value: "beforeFronttext" },
+	afterFronttext: {
+		label: "After Front text",
+		value: "afterFronttext",
+	},
+	beforeItems: { label: "Before Items", value: "beforeItems" },
+	afterItems: { label: "After Items", value: "afterItems" },
+	beforeItem: {
+		label: "Before Each Items",
+		value: "beforeItem",
+	},
+	afterItem: { label: "After Each Items", value: "afterItem" },
+};
+
+addFilter(
+	"postGridPostCategoriesIconPosition",
+	"post-grid/post-categories",
+	function (options) {
+		return postCategoriesIconPositionPro;
+	}
+);
+
+// post-categories link to
+
+const postCategoriesLinkToPro = {
+	noUrl: { label: "No URL", value: "" },
+	termUrl: { label: "Term URL", value: "termUrl" },
+
+	postUrl: { label: "Post URL", value: "postUrl" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	authorUrl: { label: "Author URL", value: "authorUrl" },
+	authorLink: { label: "Author Link", value: "authorLink" },
+	authorMail: { label: "Author Mail", value: "authorMail" },
+	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	customField: { label: "Custom Field", value: "customField" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter(
+	"postGridPostCategoriesLinkTo",
+	"post-grid/post-categories",
+	function (options) {
+		return postCategoriesLinkToPro;
+	}
+);
