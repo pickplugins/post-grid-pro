@@ -1942,7 +1942,7 @@ Icon/Button/Link Block Filter Hook Start
 
 const iconLinkToPro = {
 	noUrl: { label: "No URL", value: "" },
-	termUrl: { label: "Term URL", value: "termUrl" },
+	// termUrl: { label: "Term URL", value: "termUrl" },
 
 	postUrl: { label: "Post URL", value: "postUrl" },
 	homeUrl: { label: "Home URL", value: "homeUrl" },
@@ -2098,7 +2098,7 @@ const imageLinkToPro = {
 	authorUrl: { label: "Author URL", value: "authorUrl" },
 	authorLink: { label: "Author Link", value: "authorLink" },
 	authorMail: { label: "Author Mail", value: "authorMail" },
-	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	// authorMeta: { label: "Author Meta", value: "authorMeta" },
 	customField: { label: "Custom Field", value: "customField" },
 	customUrl: { label: "Custom URL", value: "customUrl" },
 };
@@ -2732,3 +2732,4 @@ addFilter(
 		return postCategoriesLinkToPro;
 	}
 );
+
