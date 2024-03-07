@@ -1977,7 +1977,7 @@ addFilter("postGridIconTextSource", "post-grid/icon", function (options) {
 Date Countdown Block Filter Hook Start 
 */
 
-// icon link to
+// date-countdown expiredArgs
 
 const dateCountdownExpiredArgsPro = {
 	redirectURL: {
@@ -2017,6 +2017,42 @@ addFilter(
 	"post-grid/date-countdown",
 	function (options) {
 		return dateCountdownExpiredArgsPro;
+	}
+);
+
+// date-countdown startDate
+
+var dateCountdownStartDateSourcePro = {
+	none: { label: "Choose", value: "" },
+	wc_sale_price_date_from: {
+		label: "Sale Start Date",
+		value: "wc_sale_price_date_from",
+	},
+};
+
+addFilter(
+	"postGridDateCountdownStartDate",
+	"post-grid/date-countdown",
+	function (options) {
+		return dateCountdownStartDateSourcePro;
+	}
+);
+
+// date-countdown endDate
+
+var dateCountdownEndDateSourcePro = {
+	none: { label: "Choose", value: "" },
+	wc_sale_price_date_to: {
+		label: "Sale End Date",
+		value: "wc_sale_price_date_to",
+	},
+};
+
+addFilter(
+	"postGridDateCountdownEndDate",
+	"post-grid/date-countdown",
+	function (options) {
+		return dateCountdownEndDateSourcePro;
 	}
 );
 
@@ -2197,15 +2233,15 @@ const wooTotalSaleLinkToPro = {
 	noUrl: { label: "No URL", value: "" },
 	postUrl: { label: "Post URL", value: "postUrl" },
 	homeUrl: { label: "Home URL", value: "homeUrl" },
-	archiveDate: { label: "Date Archive", value: "archiveDate" },
-	archiveYear: { label: "Year Archive", value: "archiveYear" },
-	archiveMonth: { label: "Month Archive", value: "archiveMonth" },
+	// archiveDate: { label: "Date Archive", value: "archiveDate" },
+	// archiveYear: { label: "Year Archive", value: "archiveYear" },
+	// archiveMonth: { label: "Month Archive", value: "archiveMonth" },
 
-	authorUrl: { label: "Author URL", value: "authorUrl" },
-	authorLink: { label: "Author Link", value: "authorLink" },
-	authorMail: { label: "Author Mail", value: "authorMail" },
-	authorMeta: { label: "Author Meta", value: "authorMeta" },
-	customField: { label: "Custom Field", value: "customField" },
+	// authorUrl: { label: "Author URL", value: "authorUrl" },
+	// authorLink: { label: "Author Link", value: "authorLink" },
+	// authorMail: { label: "Author Mail", value: "authorMail" },
+	// authorMeta: { label: "Author Meta", value: "authorMeta" },
+	// customField: { label: "Custom Field", value: "customField" },
 	customUrl: { label: "Custom URL", value: "customUrl" },
 };
 
@@ -2583,7 +2619,6 @@ addFilter(
 	}
 );
 
-
 /*
 	// Terms Field Block Filter Hook Start 
 */
@@ -2621,11 +2656,11 @@ const termsQueryItemTermFieldPro = {
 		value: "count",
 		// isPro: true
 	},
-	// meta: {
-	// 	label: "meta",
-	// 	value: "meta",
-	// 	//  isPro: true
-	// },
+	meta: {
+		label: "meta",
+		value: "meta",
+		//  isPro: true
+	},
 };
 
 addFilter(
@@ -2635,7 +2670,6 @@ addFilter(
 		return termsQueryItemTermFieldPro;
 	}
 );
-
 
 /*
 	// Post Title Block Filter Hook Start 
@@ -2675,9 +2709,6 @@ addFilter(
 		return postTitleLimitByPro;
 	}
 );
-
-
-
 
 /*
 Post Categories Block Filter Hook Start 
@@ -2733,3 +2764,25 @@ addFilter(
 	}
 );
 
+
+
+/*
+Number Counter Block Filter Hook Start 
+*/
+// number-counter source
+
+const numberCounterSourcePro = {
+	none: { label: "Choose", value: "" },
+	total_sale: {
+		label: "Total Sale",
+		value: "total_sale",
+	},
+};
+
+addFilter(
+	"postGridNumberCounterSource",
+	"post-grid/number-counter",
+	function (options) {
+		return numberCounterSourcePro;
+	}
+);
