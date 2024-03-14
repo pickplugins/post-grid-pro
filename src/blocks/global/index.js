@@ -51,6 +51,7 @@ icon Positon Args
 */
 
 const cssPropsPro = {
+	animationName: { id: "animationName", label: "Animation Name" },
 	alignContent: { id: "alignContent", label: "Align Content" },
 	alignItems: { id: "alignItems", label: "Align Items" },
 	alignSelf: { id: "alignSelf", label: "Align Self" },
@@ -132,6 +133,7 @@ const cssPropsPro = {
 	fontWeight: { id: "fontWeight", label: "Font Weight" },
 
 	userSelect: { id: "userSelect", label: "User Select" },
+	gridAutoFlow: { id: "gridAutoFlow", label: "Grid Auto Flow" },
 
 	gridColumnStart: { id: "gridColumnStart", label: "Grid Column Start" },
 
@@ -144,6 +146,7 @@ const cssPropsPro = {
 		label: "Grid Template Columns",
 	},
 	gridTemplateRows: { id: "gridTemplateRows", label: "Grid Template Rows" },
+	gridAutoColumns: { id: "gridAutoColumns", label: "Grid Auto Columns" },
 
 	height: { id: "height", label: "Height" },
 	left: { id: "left", label: "Left" },
@@ -177,6 +180,7 @@ const cssPropsPro = {
 	paddingRight: { id: "paddingRight", label: "Padding Right" },
 	paddingBottom: { id: "paddingBottom", label: "Padding Bottom" },
 	paddingLeft: { id: "paddingLeft", label: "Padding Left" },
+	placeItems: { id: "placeItems", label: "Place Items" },
 
 	perspective: { id: "perspective", label: "Perspective" },
 	position: { id: "position", label: "Position" },
@@ -1982,12 +1986,12 @@ Date Countdown Block Filter Hook Start
 const dateCountdownExpiredArgsPro = {
 	redirectURL: {
 		label: "Redirect URL",
-		description: "Visible as soon as possible",
+		description: "Redirect to a URL as soon as possible.",
 		args: { id: "redirectURL", value: "", delay: "" },
 	},
 	wcHideCartButton: {
 		label: "Hide Cart Button",
-		description: "Visible as soon as possible",
+		description: "On Expired Cart Button will be hide.",
 		args: { id: "wcHideCartButton" },
 	},
 	showExpiredMsg: {
@@ -1997,17 +2001,17 @@ const dateCountdownExpiredArgsPro = {
 	},
 	hideCountdown: {
 		label: "Hide Countdown",
-		description: "Visible as soon as possible",
+		description: "Countdown will be hide.",
 		args: { id: "hideCountdown" },
 	},
 	showElement: {
 		label: "Show Element",
-		description: "Visible as soon as possible",
+		description: "Visible as soon as possible.",
 		args: { id: "showElement", value: "" },
 	},
 	showPopup: {
 		label: "Show Popup",
-		description: "Visible as soon as possible",
+		description: "Popup will be visible.",
 		args: { id: "showPopup" },
 	},
 };
