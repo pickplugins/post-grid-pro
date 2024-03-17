@@ -625,7 +625,8 @@ const termsQueryPramsBasic = {
 		multiple: false,
 		id: "parent",
 		label: "Parent",
-		description: "Parent term ID to retrieve direct-child terms of.",
+		description:
+			"Add '$id' to add Parent term ID to retrieve direct-child terms of.",
 		longDescription: "Parent term ID to retrieve direct-child terms of.",
 	},
 
@@ -2767,8 +2768,6 @@ addFilter(
 		return postCategoriesLinkToPro;
 	}
 );
-
-
 
 /*
 Number Counter Block Filter Hook Start 
