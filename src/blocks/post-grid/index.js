@@ -282,7 +282,7 @@ const queryPramsPro = {
 		multiple: false,
 		id: "postParent",
 		label: "Post Parent",
-		description: "Post query by post parent id",
+		description: "Add '$id' to Post query by post parent id",
 	},
 	postParentIn: {
 		val: [],
