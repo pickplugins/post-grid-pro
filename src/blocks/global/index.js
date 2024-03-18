@@ -1481,13 +1481,11 @@ const formWrapOnProcessPro = {
 		label: "Fluentcrm - Add Contact",
 		description: "Add to Fluentcrm Contacts list",
 		args: { id: "fluentcrmAddContact", lists: [], tags: [], message: "" },
-		// isPro: true,
 	},
 	mailpickerAddContact: {
 		label: "MailPicker - Add Contact",
 		description: "Add to MailPicker subscriber list",
 		args: { id: "mailpickerAddContact", lists: [], tags: [], message: "" },
-		// isPro: true,
 	},
 };
 
@@ -2787,5 +2785,698 @@ addFilter(
 	"post-grid/number-counter",
 	function (options) {
 		return numberCounterSourcePro;
+	}
+);
+
+/*
+Breadcrumb Block Filter Hook Start 
+*/
+// element source
+
+const breadcrumbElementsSourcePro = [
+	{
+		id: "text",
+		label: "Text",
+		customText: "You are here: ",
+		url: "",
+
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			text: "You are here: ",
+			showSeparator: true,
+			isLink: false,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "homePage",
+		label: "Home Page Link",
+		customText: "%s",
+		url: "",
+
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			isLink: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "frontPage",
+		label: "Front Page Link",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "postsPage",
+		label: "Posts Page Link",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "postTitle",
+		label: "Post Title",
+		customText: "",
+		url: "",
+
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+					isLink: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postAuthor",
+		label: "Post Author",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "postDate",
+		label: "Post Date",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			format: "Y-m-d",
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postDay",
+		label: "Post Day",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			format: "",
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postMonth",
+		label: "Post Month",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			format: "",
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "postYear",
+		label: "Post Year",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			format: "",
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postAncestors",
+		label: "Post Ancestors",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			count: "",
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postId",
+		label: "Post Id",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postCategory",
+		label: "Post Category",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postTag",
+		label: "Post Tag",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postCategories",
+		label: "Post Categories",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			maxCount: 3,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postTags",
+		label: "Post Tags",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			maxCount: 3,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "postTerm",
+		label: "Post Term",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			taxonomy: "",
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "postTerms",
+		label: "Post Terms",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			taxonomy: "",
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "termTitle",
+		label: "Term Title",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "termParents",
+		label: "Term Parents",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			count: 0,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "termAncestors",
+		label: "Term Ancestors",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			taxonomy: "",
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "wcShop",
+		label: "WooCommerce Shop",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "wcAccount",
+		label: "WooCommerce Account",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "wcCart",
+		label: "WooCommerce Cart",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "wcCheckout",
+		label: "WooCommerce Checkout",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "searchText",
+		label: "Search Text",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "archiveTitle",
+		label: "Archive Title",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "404Text",
+		label: "404 Text",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "dateText",
+		label: "Date Text",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			format: "Y-m-d",
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "monthText",
+		label: "Month Text",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			format: "Y-m",
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "yearText",
+		label: "Year Text",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			format: "Y",
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "authorName",
+		label: "Author Name",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+];
+
+addFilter(
+	"postGridBreadcrumbElementsSource",
+	"post-grid/breadcrumb",
+	function (options) {
+		return breadcrumbElementsSourcePro;
 	}
 );
