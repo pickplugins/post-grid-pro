@@ -51,6 +51,7 @@ icon Positon Args
 */
 
 const cssPropsPro = {
+	animationName: { id: "animationName", label: "Animation Name" },
 	alignContent: { id: "alignContent", label: "Align Content" },
 	alignItems: { id: "alignItems", label: "Align Items" },
 	alignSelf: { id: "alignSelf", label: "Align Self" },
@@ -132,6 +133,7 @@ const cssPropsPro = {
 	fontWeight: { id: "fontWeight", label: "Font Weight" },
 
 	userSelect: { id: "userSelect", label: "User Select" },
+	gridAutoFlow: { id: "gridAutoFlow", label: "Grid Auto Flow" },
 
 	gridColumnStart: { id: "gridColumnStart", label: "Grid Column Start" },
 
@@ -144,6 +146,7 @@ const cssPropsPro = {
 		label: "Grid Template Columns",
 	},
 	gridTemplateRows: { id: "gridTemplateRows", label: "Grid Template Rows" },
+	gridAutoColumns: { id: "gridAutoColumns", label: "Grid Auto Columns" },
 
 	height: { id: "height", label: "Height" },
 	left: { id: "left", label: "Left" },
@@ -177,6 +180,7 @@ const cssPropsPro = {
 	paddingRight: { id: "paddingRight", label: "Padding Right" },
 	paddingBottom: { id: "paddingBottom", label: "Padding Bottom" },
 	paddingLeft: { id: "paddingLeft", label: "Padding Left" },
+	placeItems: { id: "placeItems", label: "Place Items" },
 
 	perspective: { id: "perspective", label: "Perspective" },
 	position: { id: "position", label: "Position" },
@@ -621,7 +625,8 @@ const termsQueryPramsBasic = {
 		multiple: false,
 		id: "parent",
 		label: "Parent",
-		description: "Parent term ID to retrieve direct-child terms of.",
+		description:
+			"Add '$id' to add Parent term ID to retrieve direct-child terms of.",
 		longDescription: "Parent term ID to retrieve direct-child terms of.",
 	},
 
@@ -1476,13 +1481,11 @@ const formWrapOnProcessPro = {
 		label: "Fluentcrm - Add Contact",
 		description: "Add to Fluentcrm Contacts list",
 		args: { id: "fluentcrmAddContact", lists: [], tags: [], message: "" },
-		// isPro: true,
 	},
 	mailpickerAddContact: {
 		label: "MailPicker - Add Contact",
 		description: "Add to MailPicker subscriber list",
 		args: { id: "mailpickerAddContact", lists: [], tags: [], message: "" },
-		// isPro: true,
 	},
 };
 
@@ -1942,7 +1945,7 @@ Icon/Button/Link Block Filter Hook Start
 
 const iconLinkToPro = {
 	noUrl: { label: "No URL", value: "" },
-	termUrl: { label: "Term URL", value: "termUrl" },
+	// termUrl: { label: "Term URL", value: "termUrl" },
 
 	postUrl: { label: "Post URL", value: "postUrl" },
 	homeUrl: { label: "Home URL", value: "homeUrl" },
@@ -1977,17 +1980,17 @@ addFilter("postGridIconTextSource", "post-grid/icon", function (options) {
 Date Countdown Block Filter Hook Start 
 */
 
-// icon link to
+// date-countdown expiredArgs
 
 const dateCountdownExpiredArgsPro = {
 	redirectURL: {
 		label: "Redirect URL",
-		description: "Visible as soon as possible",
+		description: "Redirect to a URL as soon as possible.",
 		args: { id: "redirectURL", value: "", delay: "" },
 	},
 	wcHideCartButton: {
 		label: "Hide Cart Button",
-		description: "Visible as soon as possible",
+		description: "On Expired Cart Button will be hide.",
 		args: { id: "wcHideCartButton" },
 	},
 	showExpiredMsg: {
@@ -1997,17 +2000,17 @@ const dateCountdownExpiredArgsPro = {
 	},
 	hideCountdown: {
 		label: "Hide Countdown",
-		description: "Visible as soon as possible",
+		description: "Countdown will be hide.",
 		args: { id: "hideCountdown" },
 	},
 	showElement: {
 		label: "Show Element",
-		description: "Visible as soon as possible",
+		description: "Visible as soon as possible.",
 		args: { id: "showElement", value: "" },
 	},
 	showPopup: {
 		label: "Show Popup",
-		description: "Visible as soon as possible",
+		description: "Popup will be visible.",
 		args: { id: "showPopup" },
 	},
 };
@@ -2017,6 +2020,42 @@ addFilter(
 	"post-grid/date-countdown",
 	function (options) {
 		return dateCountdownExpiredArgsPro;
+	}
+);
+
+// date-countdown startDate
+
+var dateCountdownStartDateSourcePro = {
+	none: { label: "Choose", value: "" },
+	wc_sale_price_date_from: {
+		label: "Sale Start Date",
+		value: "wc_sale_price_date_from",
+	},
+};
+
+addFilter(
+	"postGridDateCountdownStartDate",
+	"post-grid/date-countdown",
+	function (options) {
+		return dateCountdownStartDateSourcePro;
+	}
+);
+
+// date-countdown endDate
+
+var dateCountdownEndDateSourcePro = {
+	none: { label: "Choose", value: "" },
+	wc_sale_price_date_to: {
+		label: "Sale End Date",
+		value: "wc_sale_price_date_to",
+	},
+};
+
+addFilter(
+	"postGridDateCountdownEndDate",
+	"post-grid/date-countdown",
+	function (options) {
+		return dateCountdownEndDateSourcePro;
 	}
 );
 
@@ -2098,7 +2137,7 @@ const imageLinkToPro = {
 	authorUrl: { label: "Author URL", value: "authorUrl" },
 	authorLink: { label: "Author Link", value: "authorLink" },
 	authorMail: { label: "Author Mail", value: "authorMail" },
-	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	// authorMeta: { label: "Author Meta", value: "authorMeta" },
 	customField: { label: "Custom Field", value: "customField" },
 	customUrl: { label: "Custom URL", value: "customUrl" },
 };
@@ -2197,15 +2236,15 @@ const wooTotalSaleLinkToPro = {
 	noUrl: { label: "No URL", value: "" },
 	postUrl: { label: "Post URL", value: "postUrl" },
 	homeUrl: { label: "Home URL", value: "homeUrl" },
-	archiveDate: { label: "Date Archive", value: "archiveDate" },
-	archiveYear: { label: "Year Archive", value: "archiveYear" },
-	archiveMonth: { label: "Month Archive", value: "archiveMonth" },
+	// archiveDate: { label: "Date Archive", value: "archiveDate" },
+	// archiveYear: { label: "Year Archive", value: "archiveYear" },
+	// archiveMonth: { label: "Month Archive", value: "archiveMonth" },
 
-	authorUrl: { label: "Author URL", value: "authorUrl" },
-	authorLink: { label: "Author Link", value: "authorLink" },
-	authorMail: { label: "Author Mail", value: "authorMail" },
-	authorMeta: { label: "Author Meta", value: "authorMeta" },
-	customField: { label: "Custom Field", value: "customField" },
+	// authorUrl: { label: "Author URL", value: "authorUrl" },
+	// authorLink: { label: "Author Link", value: "authorLink" },
+	// authorMail: { label: "Author Mail", value: "authorMail" },
+	// authorMeta: { label: "Author Meta", value: "authorMeta" },
+	// customField: { label: "Custom Field", value: "customField" },
 	customUrl: { label: "Custom URL", value: "customUrl" },
 };
 
@@ -2550,5 +2589,923 @@ addFilter(
 	"post-grid/post-excerpt",
 	function (options) {
 		return postExcerptReaMoreLinkToPro;
+	}
+);
+
+/*
+	// Terms List Block Filter Hook Start 
+*/
+
+// // terms-list icon position
+
+const termsListIconPositionPro = {
+	none: { label: "Choose Position", value: "" },
+	beforeFronttext: { label: "Before Front text", value: "beforeFronttext" },
+	afterFronttext: {
+		label: "After Front text",
+		value: "afterFronttext",
+	},
+	// beforeItems: { label: "Before Items", value: "beforeItems", isPro: true },
+	// afterItems: { label: "After Items", value: "afterItems", isPro: true },
+	beforeItem: {
+		label: "Before Each Items",
+		value: "beforeItem",
+	},
+	afterItem: { label: "After Each Items", value: "afterItem" },
+};
+
+addFilter(
+	"postGridTermsListIconPosition",
+	"post-grid/terms-list",
+	function (options) {
+		return termsListIconPositionPro;
+	}
+);
+
+/*
+	// Terms Field Block Filter Hook Start 
+*/
+
+// // terms-query-item link to
+
+const termsQueryItemLinkToPro = {
+	none: { label: "Choose", value: "" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	termUrl: { label: "Term URL", value: "termUrl" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter(
+	"postGridTermsQueryItemLinkTo",
+	"post-grid/terms-query-item",
+	function (options) {
+		return termsQueryItemLinkToPro;
+	}
+);
+
+// * terms-query-item term field
+
+const termsQueryItemTermFieldPro = {
+	termId: { label: "Term ID", value: "termId" },
+	name: { label: "Name", value: "name" },
+	slug: {
+		label: "Slug",
+		value: "slug",
+		//  isPro: true
+	},
+	description: { label: "description", value: "description" },
+	count: {
+		label: "count",
+		value: "count",
+		// isPro: true
+	},
+	meta: {
+		label: "meta",
+		value: "meta",
+		//  isPro: true
+	},
+};
+
+addFilter(
+	"postGridTermsQueryTermField",
+	"post-grid/terms-query-item",
+	function (options) {
+		return termsQueryItemTermFieldPro;
+	}
+);
+
+/*
+	// Post Title Block Filter Hook Start 
+*/
+
+// // post-title link to
+
+const postTitleLinkToPro = {
+	postUrl: { label: "Post URL", value: "postUrl" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	authorUrl: { label: "Author URL", value: "authorUrl" },
+	authorLink: { label: "Author Link", value: "authorLink" },
+	authorMail: { label: "Author Mail", value: "authorMail" },
+	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	customField: { label: "Custom Field", value: "customField" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter(
+	"postGridPostTitleLinkTo",
+	"post-grid/post-title",
+	function (options) {
+		return postTitleLinkToPro;
+	}
+);
+
+const postTitleLimitByPro = {
+	none: { label: "Choose..", value: "" },
+	word: { label: "Word", value: "word" },
+	character: { label: "Character", value: "character" },
+};
+
+addFilter(
+	"postGridPostTitleLimitBy",
+	"post-grid/post-title",
+	function (options) {
+		return postTitleLimitByPro;
+	}
+);
+
+/*
+Post Categories Block Filter Hook Start 
+*/
+
+// post-categories Icon
+
+var postCategoriesIconPositionPro = {
+	none: { label: "Choose Position", value: "" },
+	beforeFronttext: { label: "Before Front text", value: "beforeFronttext" },
+	afterFronttext: {
+		label: "After Front text",
+		value: "afterFronttext",
+	},
+	beforeItems: { label: "Before Items", value: "beforeItems" },
+	afterItems: { label: "After Items", value: "afterItems" },
+	beforeItem: {
+		label: "Before Each Items",
+		value: "beforeItem",
+	},
+	afterItem: { label: "After Each Items", value: "afterItem" },
+};
+
+addFilter(
+	"postGridPostCategoriesIconPosition",
+	"post-grid/post-categories",
+	function (options) {
+		return postCategoriesIconPositionPro;
+	}
+);
+
+// post-categories link to
+
+const postCategoriesLinkToPro = {
+	noUrl: { label: "No URL", value: "" },
+	termUrl: { label: "Term URL", value: "termUrl" },
+
+	postUrl: { label: "Post URL", value: "postUrl" },
+	homeUrl: { label: "Home URL", value: "homeUrl" },
+	authorUrl: { label: "Author URL", value: "authorUrl" },
+	authorLink: { label: "Author Link", value: "authorLink" },
+	authorMail: { label: "Author Mail", value: "authorMail" },
+	authorMeta: { label: "Author Meta", value: "authorMeta" },
+	customField: { label: "Custom Field", value: "customField" },
+	customUrl: { label: "Custom URL", value: "customUrl" },
+};
+
+addFilter(
+	"postGridPostCategoriesLinkTo",
+	"post-grid/post-categories",
+	function (options) {
+		return postCategoriesLinkToPro;
+	}
+);
+
+/*
+Number Counter Block Filter Hook Start 
+*/
+// number-counter source
+
+const numberCounterSourcePro = {
+	none: { label: "Choose", value: "" },
+	total_sale: {
+		label: "Total Sale",
+		value: "total_sale",
+	},
+};
+
+addFilter(
+	"postGridNumberCounterSource",
+	"post-grid/number-counter",
+	function (options) {
+		return numberCounterSourcePro;
+	}
+);
+
+/*
+Breadcrumb Block Filter Hook Start 
+*/
+// element source
+
+const breadcrumbElementsSourcePro = [
+	{
+		id: "text",
+		label: "Text",
+		customText: "You are here: ",
+		url: "",
+
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			text: "You are here: ",
+			showSeparator: true,
+			isLink: false,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "homePage",
+		label: "Home Page Link",
+		customText: "%s",
+		url: "",
+
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			isLink: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "frontPage",
+		label: "Front Page Link",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "postsPage",
+		label: "Posts Page Link",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "postTitle",
+		label: "Post Title",
+		customText: "",
+		url: "",
+
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+					isLink: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postAuthor",
+		label: "Post Author",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "postDate",
+		label: "Post Date",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			format: "Y-m-d",
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postDay",
+		label: "Post Day",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			format: "",
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postMonth",
+		label: "Post Month",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			format: "",
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "postYear",
+		label: "Post Year",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			format: "",
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postAncestors",
+		label: "Post Ancestors",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			count: "",
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postId",
+		label: "Post Id",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postCategory",
+		label: "Post Category",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postTag",
+		label: "Post Tag",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postCategories",
+		label: "Post Categories",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			maxCount: 3,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "postTags",
+		label: "Post Tags",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			maxCount: 3,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "postTerm",
+		label: "Post Term",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			taxonomy: "",
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "postTerms",
+		label: "Post Terms",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			taxonomy: "",
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "termTitle",
+		label: "Term Title",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "termParents",
+		label: "Term Parents",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			count: 0,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "termAncestors",
+		label: "Term Ancestors",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			taxonomy: "",
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "wcShop",
+		label: "WooCommerce Shop",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "wcAccount",
+		label: "WooCommerce Account",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "wcCart",
+		label: "WooCommerce Cart",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "wcCheckout",
+		label: "WooCommerce Checkout",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "searchText",
+		label: "Search Text",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "archiveTitle",
+		label: "Archive Title",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "404Text",
+		label: "404 Text",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "dateText",
+		label: "Date Text",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			format: "Y-m-d",
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+	{
+		id: "monthText",
+		label: "Month Text",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			format: "Y-m",
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "yearText",
+		label: "Year Text",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+			format: "Y",
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+
+	{
+		id: "authorName",
+		label: "Author Name",
+		customText: "%s",
+		url: "",
+		siteIcon: {
+			library: "fontAwesome",
+			srcType: "class",
+			/*class, html, img, svg */ iconSrc: "",
+		},
+		options: {
+			showSeparator: true,
+		},
+		styles: {
+			color: { Desktop: "" },
+			backgroundColor: { Desktop: "" },
+			padding: { Desktop: "" },
+			margin: { Desktop: "" },
+		},
+	},
+];
+
+addFilter(
+	"postGridBreadcrumbElementsSource",
+	"post-grid/breadcrumb",
+	function (options) {
+		return breadcrumbElementsSourcePro;
+	}
+);
+
+
+/*
+Progress Bar Block Filter Hook Start 
+*/
+// progress-bar source
+
+const progressBarSourcePro = {
+	normal: {
+		label: "Normal",
+		value: "normal",
+	},
+	total_sale: {
+		label: "Total Sale",
+		value: "total_sale",
+	},
+	stock_quantity: {
+		label: "Stock Quantity",
+		value: "stock_quantity",
+	},
+};
+
+addFilter(
+	"postGridProgressBarSource",
+	"post-grid/progress-bar",
+	function (options) {
+		return progressBarSourcePro;
 	}
 );
