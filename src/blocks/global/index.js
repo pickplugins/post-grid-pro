@@ -3480,3 +3480,32 @@ addFilter(
 		return breadcrumbElementsSourcePro;
 	}
 );
+
+
+/*
+Progress Bar Block Filter Hook Start 
+*/
+// progress-bar source
+
+const progressBarSourcePro = {
+	normal: {
+		label: "Normal",
+		value: "normal",
+	},
+	total_sale: {
+		label: "Total Sale",
+		value: "total_sale",
+	},
+	stock_quantity: {
+		label: "Stock Quantity",
+		value: "stock_quantity",
+	},
+};
+
+addFilter(
+	"postGridProgressBarSource",
+	"post-grid/progress-bar",
+	function (options) {
+		return progressBarSourcePro;
+	}
+);
