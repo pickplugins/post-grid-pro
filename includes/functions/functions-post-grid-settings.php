@@ -61,9 +61,7 @@ function post_grid_settings_content_license_free($tab)
         $settings_tabs_field->generate_field($args);
 
 
-        ?>
-        <div style="color:#f00;padding:20px">We are moving to lemonsqueezy.com, If you purchesed from lemonsqueezy.com please try activating license from <strong>Dashboard > License</strong> menu </div>
-        <?php
+
 
 
         if (!empty($license_key)) :
