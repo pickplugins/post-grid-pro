@@ -18,21 +18,16 @@ class class_post_grid_license2
 	public function check_plugin_update()
 	{
 
-		$post_grid_block_editor = get_option('post_grid_block_editor');
-		$license = isset($post_grid_block_editor['license']) ? $post_grid_block_editor['license'] : [];
-		$license_key_new = isset($license['license_key']['key']) ? $license['license_key']['key'] : "";
-		$license_activated = isset($license['activated']) ? $license['activated'] : false;
-
 		$post_grid_license = get_option('post_grid_license');
 		$license_key = isset($post_grid_license['license_key']) ? $post_grid_license['license_key'] : '';
 		$license_status = isset($post_grid_license['license_status']) ? $post_grid_license['license_status'] : '';
 
-
-		$license_key = (!empty($license_key_new)) ? $license_key_new : $license_key;
-
-
-		if ($license_activated || $license_status == "active") {
-			$domain = site_url();
+		if (!empty($license_key) && $license_status == 'active') {
+			if (is_multisite()) {
+				$domain = site_url();
+			} else {
+				$domain = $_SERVER['SERVER_NAME'];
+			}
 
 			require_once('class-wp-autoupdate.php');
 
@@ -51,35 +46,14 @@ class class_post_grid_license2
 	public function request_check($license_key)
 	{
 
-		$domain = site_url();
 
-		$post_grid_block_editor = get_option('post_grid_block_editor');
-		$license = isset($post_grid_block_editor['license']) ? $post_grid_block_editor['license'] : [];
-		$license_key_new = isset($license['license_key']['key']) ? $license['license_key']['key'] : "";
-
-		$post_grid_license = get_option('post_grid_license');
-		$license_key = isset($post_grid_license['license_key']) ? $post_grid_license['license_key'] : '';
-
-
-		$license_key = (!empty($license_key_new)) ? $license_key_new : $license_key;
-
-		if (empty($license_key)) {
-			$post_grid_license = array(
-				'license_key' => $license_key,
-				'date_created' => "",
-				'date_expiry' => "",
-				'date_renewed' => "",
-
-				'license_status' => "",
-				'license_found' => "",
-				'mgs' => __("License should not empty", "post-grid"),
-				'days_remaining' => "",
-			);
-
-			//update_option('post_grid_license', $post_grid_license);
-
-			return $post_grid_license;
+		if (is_multisite()) {
+			$domain = site_url();
+		} else {
+			$domain = $_SERVER['SERVER_NAME'];
 		}
+
+
 
 		// API query parameters
 		$api_params = array(
@@ -135,36 +109,14 @@ class class_post_grid_license2
 
 	public function request_active($license_key)
 	{
-		$post_grid_block_editor = get_option('post_grid_block_editor');
-		$license = isset($post_grid_block_editor['license']) ? $post_grid_block_editor['license'] : [];
-		$license_key_new = isset($license['license_key']['key']) ? $license['license_key']['key'] : "";
-
-		$post_grid_license = get_option('post_grid_license');
-		$license_key = isset($post_grid_license['license_key']) ? $post_grid_license['license_key'] : '';
 
 
-		$license_key = (!empty($license_key_new)) ? $license_key_new : $license_key;
-
-
-		$domain = site_url();
-
-		if (empty($license_key)) {
-			$post_grid_license = array(
-				'license_key' => $license_key,
-				'date_created' => "",
-				'date_expiry' => "",
-				'date_renewed' => "",
-
-				'license_status' => "",
-				'license_found' => "",
-				'mgs' => __("License should not empty", "post-grid"),
-				'days_remaining' => "",
-			);
-
-			//update_option('post_grid_license', $post_grid_license);
-
-			return $post_grid_license;
+		if (is_multisite()) {
+			$domain = site_url();
+		} else {
+			$domain = $_SERVER['SERVER_NAME'];
 		}
+
 
 
 		// API query parameters

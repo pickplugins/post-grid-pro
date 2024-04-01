@@ -19,12 +19,16 @@ class class_post_grid_pro_notices
 
         ob_start();
 
-        if (!in_array('post-grid/post-grid.php', (array) $active_plugins)) :
+        if (count(array_intersect(['post-grid/post-grid.php', 'post-grid-dev/post-grid.php'], $active_plugins)) == 0) :
+
+            //if (!in_array('post-grid/post-grid.php', (array) $active_plugins)) :
 ?>
-            <div class="update-nag">
-                <?php
-                echo sprintf(__('<a href="%s">Combo Blocks</a> plugin free version is required to work <strong>Combo Blocks Pro</strong> version. <a href="%s">Search and install</a> ', 'post-grid-pro'), 'https://wordpress.org/plugins/post-grid/', admin_url() . 'plugin-install.php?s=post+grid+pickplugins&tab=search&type=term')
-                ?>
+            <div class="notice  notice-error is-dismissible">
+                <p>
+                    <?php
+                    echo sprintf(__('<a href="%s">Combo Blocks</a> plugin free version is required to work <strong>Combo Blocks Pro</strong> version. <a href="%s">Search and install</a> ', 'post-grid-pro'), 'https://wordpress.org/plugins/post-grid/', admin_url() . 'plugin-install.php?s=Combo+Blocks+pickplugins&tab=search&type=term')
+                    ?>
+                </p>
             </div>
         <?php
         endif;
@@ -43,10 +47,12 @@ class class_post_grid_pro_notices
 
         if ($import_pro_layouts != 'done') :
         ?>
-            <div class="update-nag">
-                <?php
-                echo sprintf(__('Combo Blocks Pro require import pro layouts, please <a href="%s">click here</a> to go import page', 'post-grid-pro'), admin_url() . 'edit.php?post_type=post_grid&page=post-grid-settings&tab=help_support')
-                ?>
+            <div class="notice  notice-error is-dismissible">
+                <p>
+                    <?php
+                    echo sprintf(__('Combo Blocks Pro require import pro layouts, please <a href="%s">click here</a> to go import page', 'post-grid-pro'), admin_url() . 'edit.php?post_type=post_grid&page=post-grid-settings&tab=help_support')
+                    ?>
+                </p>
             </div>
 <?php
         endif;

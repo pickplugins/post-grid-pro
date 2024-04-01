@@ -2044,7 +2044,7 @@ function post_grid_view_type_css_filterable($args)
                 <?php
                 $masonry_gutter_mobile = $filterable_gutter * ($columns_mobile - 1);
 
-                if (is_integer($items_width_mobile)) {
+                if (is_integer($columns_mobile)) {
 
                 ?>width: calc((100% - <?php echo $masonry_gutter_mobile; ?>px) / <?php echo esc_attr($columns_mobile); ?>);
                 <?php
@@ -2076,7 +2076,7 @@ function post_grid_view_type_css_filterable($args)
                 $masonry_gutter_tablet = $filterable_gutter * ($columns_tablet - 1);
 
 
-                if (is_integer($items_width_tablet)) {
+                if (is_integer($columns_tablet)) {
 
                 ?>width: <?php echo (100 / $columns_tablet); ?>%;
                 <?php
@@ -2107,14 +2107,12 @@ function post_grid_view_type_css_filterable($args)
                 <?php
                 $masonry_gutter_desktop = $filterable_gutter * ($columns_desktop - 1);
 
-                if (is_integer($items_width_desktop)) {
+                if (is_integer($columns_desktop)) {
 
                 ?>width: <?php echo (100 / $columns_desktop); ?>%;
                 <?php
                 } else {
-                    if (!empty($columns_desktop)) {
-                        echo 'width:' . (100 / $columns_desktop) . '%;';
-                    } else {
+                    if (!empty($items_width_desktop)) {
                         echo 'width:' . $items_width_desktop . ';';
                     }
                 }
