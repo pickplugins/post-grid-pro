@@ -120,10 +120,7 @@ if (!class_exists('PostGridPro')) {
             wp_register_script('mixitup_pagination', post_grid_pro_plugin_url . 'assets/frontend/js/mixitup-pagination.js', array('jquery'));
 
 
-            wp_enqueue_script('mixitup');
-            wp_enqueue_script('mixitup_multifilter');
-            wp_enqueue_script('mixitup_pagination');
-            wp_enqueue_script('post_grid_pro_scripts');
+
 
 
             /*

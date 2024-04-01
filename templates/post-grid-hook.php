@@ -1026,6 +1026,16 @@ function post_grid_pro_filterable_navs($args)
 
 
 
+add_action('post_grid_container', 'post_grid_container_scripts', 90);
+
+function post_grid_container_scripts($args)
+{
+    wp_enqueue_script('post_grid_pro_scripts');
+}
+
+
+
+
 add_action('post_grid_container', 'post_grid_pro_scripts_slider', 90);
 
 function post_grid_pro_scripts_slider($args)
@@ -1187,6 +1197,11 @@ function post_grid_pro_scripts_filterable($args)
 
     wp_enqueue_script('masonry');
     wp_enqueue_script('imagesloaded');
+
+    wp_enqueue_script('mixitup');
+    wp_enqueue_script('mixitup_multifilter');
+    wp_enqueue_script('mixitup_pagination');
+
 
 ?>
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
